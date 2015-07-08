@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Axisymmetrized N-body snapshot potential &mdash; galpy 1.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/logo-small.ico"/>
+    <link rel="top" title="galpy 1.1 documentation" href="../index.html" />
+    <link rel="up" title="Potential" href="potential.html" />
+    <link rel="next" title="galpy.potential.planarPotential.__call__" href="potential2dcall.html" />
+    <link rel="prev" title="Razor-thin exponential disk potential" href="potentialrazorexp.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="potential2dcall.html" title="galpy.potential.planarPotential.__call__"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="potentialrazorexp.html" title="Razor-thin exponential disk potential"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
+          <li><a href="potential.html" accesskey="U">Potential</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="potentialrazorexp.html"
+                        title="previous chapter">Razor-thin exponential disk potential</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="potential2dcall.html"
+                        title="next chapter">galpy.potential.planarPotential.__call__</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/reference/potentialsnapshotrzpotential.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="axisymmetrized-n-body-snapshot-potential">
+<h1>Axisymmetrized N-body snapshot potential<a class="headerlink" href="#axisymmetrized-n-body-snapshot-potential" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="galpy.potential.SnapshotRZPotential">
+<em class="property">class </em><tt class="descclassname">galpy.potential.</tt><tt class="descname">SnapshotRZPotential</tt><big>(</big><em>s</em>, <em>num_threads=None</em>, <em>nazimuths=4</em><big>)</big><a class="headerlink" href="#galpy.potential.SnapshotRZPotential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class that implements an axisymmetrized version of the potential of an N-body snapshot (requires <a class="reference external" href="http://pynbody.github.io">pynbody</a>)</p>
+<p><cite>_evaluate</cite>, <cite>_Rforce</cite>, and <cite>_zforce</cite> calculate a hash for the
+array of points that is passed in by the user. The hash and
+corresponding potential/force arrays are stored &#8211; if a subsequent
+request matches a previously computed hash, the previous results
+are returned and not recalculated.</p>
+<dl class="method">
+<dt id="galpy.potential.SnapshotRZPotential.__init__">
+<tt class="descname">__init__</tt><big>(</big><em>s</em>, <em>num_threads=None</em>, <em>nazimuths=4</em><big>)</big><a class="headerlink" href="#galpy.potential.SnapshotRZPotential.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>NAME:</p>
+<blockquote>
+<div>__init__</div></blockquote>
+<p>PURPOSE:</p>
+<blockquote>
+<div>Initialize a SnapshotRZ potential object</div></blockquote>
+<p>INPUT:</p>
+<blockquote>
+<div><p>s - a simulation snapshot loaded with pynbody</p>
+<p>num_threads= (4) number of threads to use for calculation</p>
+<p>nazimuths= (4) number of azimuths to average over</p>
+</div></blockquote>
+<p>OUTPUT:</p>
+<blockquote>
+<div>instance</div></blockquote>
+<p>HISTORY:</p>
+<blockquote>
+<div><p>2013 - Written - Rok Roskar (ETH)</p>
+<p>2014-11-24 - Edited for merging into main galpy - Bovy (IAS)</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="potential2dcall.html" title="galpy.potential.planarPotential.__call__"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="potentialrazorexp.html" title="Razor-thin exponential disk potential"
+             >previous</a> |</li>
+        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
+          <li><a href="potential.html" >Potential</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010 - 2015, Jo Bovy.
+      Last updated on Jul 07, 2015.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

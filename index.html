@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to galpy’s documentation &mdash; galpy 1.0 documentation</title>
+    <title>Welcome to galpy’s documentation &mdash; galpy 1.1 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.0',
+        VERSION:     '1.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="galpy 1.0 documentation" href="#" />
+    <link rel="shortcut icon" href="_static/logo-small.ico"/>
+    <link rel="top" title="galpy 1.1 documentation" href="#" />
     <link rel="next" title="Installation" href="installation.html" /> 
   </head>
   <body>
@@ -37,7 +38,7 @@
         <li class="right" >
           <a href="installation.html" title="Installation"
              accesskey="N">next</a> |</li>
-        <li><a href="#">galpy 1.0 documentation</a> &raquo;</li> 
+        <li><a href="#">galpy 1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -85,15 +86,16 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">           
-<div class="admonition warning">
+          <div class="body">
+            
+  <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">You are looking at the rarely updated, GitHub version of this documentation, <b>please go to <a href="http://galpy.readthedocs.org">galpy.readthedocs.org</a> for the latest documentation</b>.</p>
+<p class="last">You are looking at the rarely updated, GitHub version of this documentation, <strong>please go to</strong> <a class="reference external" href="http://galpy.readthedocs.org">galpy.readthedocs.org</a> <strong>for the latest documentation</strong>.</p>
 </div>
-  <div class="section" id="welcome-to-galpy-s-documentation">
+<div class="section" id="welcome-to-galpy-s-documentation">
 <h1>Welcome to galpy&#8217;s documentation<a class="headerlink" href="#welcome-to-galpy-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>galpy is a python package for galactic dynamics. It supports orbit
-integration in a variety of potentials, evaluating and sampling
+<p>galpy is a Python 2 and 3 package for galactic dynamics. It supports
+orbit integration in a variety of potentials, evaluating and sampling
 various distribution functions, and the calculation of action-angle
 coordinates for all static potentials.</p>
 <div class="section" id="quick-start-guide">
@@ -116,6 +118,8 @@ coordinates for all static potentials.</p>
 <li class="toctree-l2"><a class="reference internal" href="potential.html#densities">Densities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="potential.html#close-to-circular-orbits-and-orbital-frequencies">Close-to-circular orbits and orbital frequencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="potential.html#using-interpolations-of-potentials">Using interpolations of potentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="potential.html#new-the-potential-of-n-body-simulations"><strong>NEW</strong>: The potential of N-body simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="potential.html#new-conversion-to-nemo-potentials"><strong>NEW</strong>: Conversion to NEMO potentials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="potential.html#adding-potentials-to-the-galpy-framework">Adding potentials to the galpy framework</a></li>
 </ul>
 </li>
@@ -148,6 +152,7 @@ coordinates for all static potentials.</p>
 <li class="toctree-l2"><a class="reference internal" href="actionAngle.html#action-angle-coordinates-using-an-orbit-integration-based-approximation">Action-angle coordinates using an orbit-integration-based approximation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actionAngle.html#accessing-action-angle-coordinates-for-orbit-instances">Accessing action-angle coordinates for Orbit instances</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actionAngle.html#example-evidence-for-a-lindblad-resonance-in-the-solar-neighborhood">Example: Evidence for a Lindblad resonance in the Solar neighborhood</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actionAngle.html#new-example-actions-in-an-n-body-simulation"><strong>NEW</strong>: Example: actions in an N-body simulation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="diskdf.html">Three-dimensional disk distribution functions</a><ul>
@@ -212,8 +217,12 @@ coordinates for all static potentials.</p>
 </div>
 <div class="section" id="papers-using-galpy">
 <h2>Papers using galpy<a class="headerlink" href="#papers-using-galpy" title="Permalink to this headline">¶</a></h2>
-<p>Please let me (bovy -at- ias.edu) know if you make use of <tt class="docutils literal"><span class="pre">galpy</span></tt> in a publication.</p>
-<ul>
+<p><tt class="docutils literal"><span class="pre">galpy</span></tt> is described in detail in this publication:</p>
+<ul class="simple">
+<li><em>galpy: A Python Library for Galactic Dynamics</em>, Jo Bovy (2015), <em>Astrophys. J. Supp.</em>, <strong>216</strong>, 29 (<a class="reference external" href="http://arxiv.org/abs/1412.3451">arXiv/1412.3451</a>).</li>
+</ul>
+<p>The following is a list of publications using <tt class="docutils literal"><span class="pre">galpy</span></tt>; please let me (bovy -at- ias.edu) know if you make use of <tt class="docutils literal"><span class="pre">galpy</span></tt> in a publication.</p>
+<ol class="arabic">
 <li><dl class="first docutils">
 <dt><em>Tracing the Hercules stream around the Galaxy</em>, Jo Bovy (2010), <em>Astrophys. J.</em> <strong>725</strong>, 1676 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2010ApJ...725.1676B">2010ApJ...725.1676B</a>):</dt>
 <dd><p class="first last">Uses what later became the orbit integration routines and Dehnen and Shu disk distribution functions.</p>
@@ -257,27 +266,60 @@ coordinates for all static potentials.</p>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt><em>Dynamical modeling of tidal streams</em>, Jo Bovy (2014), <em>Astrophys. J</em>, in press (<a class="reference external" href="http://arxiv.org/abs/1401.2985">arXiv/1401.2985</a>):</dt>
+<dt><em>Dynamical modeling of tidal streams</em>, Jo Bovy (2014), <em>Astrophys. J.</em>, <strong>795</strong>, 95 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2014ApJ...795...95B">2014ApJ...795...95B</a>):</dt>
 <dd><p class="first last">Introduces <tt class="docutils literal"><span class="pre">galpy.df.streamdf</span></tt> and <tt class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleIsochroneApprox</span></tt> for modeling tidal streams using simple models formulated in action-angle space (see the tutorial above).</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt><em>The Milky Way Tomography with SDSS. V. Mapping the Dark Matter Halo</em>, Sarah R. Loebman, Zeljko Ivezic Thomas R. Quinn, Jo Bovy, Charlotte R. Christensen, Mario Juric, Rok Roskar, Alyson M. Brooks, &amp; Fabio Governato (2014), <em>Astrophys. J</em>, in press (<a class="reference external" href="http://arxiv.org/abs/1408.5388">arXiv/1408.5388</a>):</dt>
+<dt><em>The Milky Way Tomography with SDSS. V. Mapping the Dark Matter Halo</em>, Sarah R. Loebman, Zeljko Ivezic Thomas R. Quinn, Jo Bovy, Charlotte R. Christensen, Mario Juric, Rok Roskar, Alyson M. Brooks, &amp; Fabio Governato (2014), <em>Astrophys. J.</em>, <strong>794</strong>, 151 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2014ApJ...794..151L">2014ApJ...794..151L</a>):</dt>
 <dd><p class="first last">Uses <tt class="docutils literal"><span class="pre">galpy.potential</span></tt> functions to calculate the acceleration field of the best-fit potential in Bovy &amp; Rix (2013) above.</p>
 </dd>
 </dl>
 </li>
-</ul>
+<li><dl class="first docutils">
+<dt><em>The power spectrum of the Milky Way: Velocity fluctuations in the Galactic disk</em>, Jo Bovy, Jonathan C. Bird, Ana E. Garcia Perez, Steven M. Majewski, David L. Nidever, &amp; Gail Zasowski (2015), <em>Astrophys. J.</em>, <strong>800</strong>, 83 (<a class="reference external" href="http://arxiv.org/abs/1410.8135">arXiv/1410.8135</a>):</dt>
+<dd><p class="first last">Uses <tt class="docutils literal"><span class="pre">galpy.df.evolveddiskdf</span></tt> to calculate the mean non-axisymmetric velocity field due to different non-axisymmetric perturbations and compares it to APOGEE data.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Generation of mock tidal streams</em>, Mark A. Fardal, Shuiyao Huang, &amp; Martin D. Weinberg (2014), <em>Mon. Not. Roy. Astron. Soc.</em>, submitted (<a class="reference external" href="http://arxiv.org/abs/1410.1861">arXiv/1410.1861</a>):</dt>
+<dd><p class="first last">Uses <tt class="docutils literal"><span class="pre">galpy.potential</span></tt> and <tt class="docutils literal"><span class="pre">galpy.orbit</span></tt> for orbit integration in creating a <em>particle-spray</em> model for tidal streams.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>The nature and orbit of the Ophiuchus stream</em>, Branimir Sesar, Jo Bovy, Edouard J. Bernard, et al. (2015), <em>Astrophys. J.</em>, submitted (<a class="reference external" href="http://arxiv.org/abs/1501.00581">arXiv/1501.00581</a>):</dt>
+<dd><p class="first last">Uses the Orbit.fit routine in <tt class="docutils literal"><span class="pre">galpy.orbit</span></tt> to fit the orbit of the Ophiuchus stream to newly obtained observational data and the routines in <tt class="docutils literal"><span class="pre">galpy.df.streamdf</span></tt> to model the creation of the stream.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>The LMC geometry and outer stellar populations from early DES data</em>, Eduardo Balbinot, B. X. Santiago, L. Girardi, et al. (2015), <em>Mon. Not. Roy. Astron. Soc.</em>, <strong>449</strong>, 1129 (<a class="reference external" href="http://arxiv.org/abs/1502.05050">arXiv/1502.05050</a>):</dt>
+<dd><p class="first last">Employs <tt class="docutils literal"><span class="pre">galpy.potential.MWPotential</span></tt> as a mass model for the Milky Way to constrain the mass of the LMC.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Young Pulsars and the Galactic Center GeV Gamma-ray Excess</em>, Ryan M. O’Leary, Matthew D. Kistler, Matthew Kerr, &amp; Jason Dexter (2015), <em>Phys. Rev. Lett.</em>, submitted (<a class="reference external" href="http://arxiv.org/abs/1504.02477">arXiv/1504.02477</a>):</dt>
+<dd><p class="first last">Uses galpy orbit integration  and <tt class="docutils literal"><span class="pre">galpy.potential.MWPotential2014</span></tt> as part of a Monte Carlo simulation of the Galactic young-pulsar population.</p>
+</dd>
+</dl>
+</li>
+</ol>
 </div>
 <div class="section" id="acknowledging-galpy">
 <h2>Acknowledging galpy<a class="headerlink" href="#acknowledging-galpy" title="Permalink to this headline">¶</a></h2>
-<p>If you use galpy in a publication, please cite <a class="reference external" href="http://sns.ias.edu/~bovy/galpy-paper.html">Bovy (2015)</a> and link to
-<tt class="docutils literal"><span class="pre">http://github.com/jobovy/galpy</span></tt>. Please also send me a reference to
-the paper or send a pull request including your paper in the list of
-galpy papers on this page (this page is at
+<p>If you use galpy in a publication, please cite the following paper</p>
+<ul class="simple">
+<li><em>galpy: A Python Library for Galactic Dynamics</em>, Jo Bovy (2015), <em>Astrophys. J. Supp.</em>, <strong>216</strong>, 29 (<a class="reference external" href="http://arxiv.org/abs/1412.3451">arXiv/1412.3451</a>).</li>
+</ul>
+<p>and link to <tt class="docutils literal"><span class="pre">http://github.com/jobovy/galpy</span></tt>. Please also send me a
+reference to the paper or send a pull request including your paper in
+the list of galpy papers on this page (this page is at
 doc/source/index.rst). Thanks!</p>
-<p>When using the <tt class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleAdiabatic</span></tt> and <tt class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleStaeckel</span></tt> modules, please cite <a class="reference external" href="http://adsabs.harvard.edu/abs/2013ApJ...779..115B">2013ApJ...779..115B</a> in addition to the papers describing the algorithm used. When using <tt class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleIsochroneApprox</span></tt>, please cite <a class="reference external" href="http://arxiv.org/abs/1401.2985">arXiv/1401.2985</a>, which introduced this technique.</p>
+<p>When using the <tt class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleAdiabatic</span></tt> and <tt class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleStaeckel</span></tt> modules, please cite <a class="reference external" href="http://adsabs.harvard.edu/abs/2013ApJ...779..115B">2013ApJ...779..115B</a> in addition to the papers describing the algorithm used. When using <tt class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleIsochroneApprox</span></tt>, please cite <a class="reference external" href="http://adsabs.harvard.edu/abs/2014ApJ...795...95B">2014ApJ...795...95B</a>, which introduced this technique.</p>
 </div>
 </div>
 <div class="section" id="indices-and-tables">
@@ -304,12 +346,12 @@ doc/source/index.rst). Thanks!</p>
         <li class="right" >
           <a href="installation.html" title="Installation"
              >next</a> |</li>
-        <li><a href="#">galpy 1.0 documentation</a> &raquo;</li> 
+        <li><a href="#">galpy 1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2010 - 2014, Jo Bovy.
-      Last updated on Dec 07, 2014.
+        &copy; Copyright 2010 - 2015, Jo Bovy.
+      Last updated on Jul 07, 2015.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>

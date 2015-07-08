@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Three Miyamoto-Nagai disk approximation to an exponential disk &mdash; galpy 1.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/logo-small.ico"/>
+    <link rel="top" title="galpy 1.1 documentation" href="../index.html" />
+    <link rel="up" title="Potential" href="potential.html" />
+    <link rel="next" title="Moving object potential" href="potentialmovingobj.html" />
+    <link rel="prev" title="Miyamoto-Nagai potential" href="potentialmiyamoto.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="potentialmovingobj.html" title="Moving object potential"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="potentialmiyamoto.html" title="Miyamoto-Nagai potential"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
+          <li><a href="potential.html" accesskey="U">Potential</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="potentialmiyamoto.html"
+                        title="previous chapter">Miyamoto-Nagai potential</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="potentialmovingobj.html"
+                        title="next chapter">Moving object potential</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/reference/potential3mn.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="three-miyamoto-nagai-disk-approximation-to-an-exponential-disk">
+<h1>Three Miyamoto-Nagai disk approximation to an exponential disk<a class="headerlink" href="#three-miyamoto-nagai-disk-approximation-to-an-exponential-disk" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="galpy.potential.MN3ExponentialDiskPotential">
+<em class="property">class </em><tt class="descclassname">galpy.potential.</tt><tt class="descname">MN3ExponentialDiskPotential</tt><big>(</big><em>amp=1.0</em>, <em>hr=0.3333333333333333</em>, <em>hz=0.0625</em>, <em>sech=False</em>, <em>posdens=False</em>, <em>normalize=False</em><big>)</big><a class="headerlink" href="#galpy.potential.MN3ExponentialDiskPotential" title="Permalink to this definition">¶</a></dt>
+<dd><p>class that implements the three Miyamoto-Nagai approximation to a radially-exponential disk potential of <a class="reference external" href="http://adsabs.harvard.edu/abs/2015arXiv150200627S">Smith et al. 2015</a></p>
+<div class="math">
+\[\rho(R,z) = \mathrm{amp}\,\exp\left(-R/h_R-|z|/h_z\right)\]</div>
+<p>or</p>
+<div class="math">
+\[\rho(R,z) = \mathrm{amp}\,\exp\left(-R/h_R\right)\mathrm{sech}^2\left(-|z|/h_z\right)\]</div>
+<p>depending on whether sech=True or not. This density is approximated using three Miyamoto-Nagai disks</p>
+<dl class="method">
+<dt id="galpy.potential.MN3ExponentialDiskPotential.__init__">
+<tt class="descname">__init__</tt><big>(</big><em>amp=1.0</em>, <em>hr=0.3333333333333333</em>, <em>hz=0.0625</em>, <em>sech=False</em>, <em>posdens=False</em>, <em>normalize=False</em><big>)</big><a class="headerlink" href="#galpy.potential.MN3ExponentialDiskPotential.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>NAME:</p>
+<blockquote>
+<div>__init__</div></blockquote>
+<p>PURPOSE:</p>
+<blockquote>
+<div>initialize a 3MN approximation to an exponential disk potential</div></blockquote>
+<p>INPUT:</p>
+<blockquote>
+<div><p>amp - amplitude to be applied to the potential (default: 1)</p>
+<p>hr - disk scale-length</p>
+<p>hz - scale-height</p>
+<p>sech= (False) if True, hz is the scale height of a sech vertical profile (default is exponential vertical profile)</p>
+<p>posdens= (False) if True, allow only positive density solutions (Table 2 in Smith et al. rather than Table 1)</p>
+<p>normalize - if True, normalize such that vc(1.,0.)=1., or, if given as a number, such that the force is this fraction of the force necessary to make vc(1.,0.)=1.</p>
+</div></blockquote>
+<p>OUTPUT:</p>
+<blockquote>
+<div>MN3ExponentialDiskPotential object</div></blockquote>
+<p>HISTORY:</p>
+<blockquote>
+<div>2015-02-07 - Written - Bovy (IAS)</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="potentialmovingobj.html" title="Moving object potential"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="potentialmiyamoto.html" title="Miyamoto-Nagai potential"
+             >previous</a> |</li>
+        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
+          <li><a href="potential.html" >Potential</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2010 - 2015, Jo Bovy.
+      Last updated on Jul 07, 2015.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

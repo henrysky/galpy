@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Action-angle coordinates &mdash; galpy 1.0 documentation</title>
+    <title>Action-angle coordinates &mdash; galpy 1.1 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.0',
+        VERSION:     '1.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="galpy 1.0 documentation" href="index.html" />
+    <link rel="shortcut icon" href="_static/logo-small.ico"/>
+    <link rel="top" title="galpy 1.1 documentation" href="index.html" />
     <link rel="next" title="Three-dimensional disk distribution functions" href="diskdf.html" />
     <link rel="prev" title="A closer look at orbit integration" href="orbit.html" /> 
   </head>
@@ -41,7 +42,7 @@
         <li class="right" >
           <a href="orbit.html" title="A closer look at orbit integration"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">galpy 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">galpy 1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -59,6 +60,7 @@
 <li><a class="reference internal" href="#action-angle-coordinates-using-an-orbit-integration-based-approximation">Action-angle coordinates using an orbit-integration-based approximation</a></li>
 <li><a class="reference internal" href="#accessing-action-angle-coordinates-for-orbit-instances">Accessing action-angle coordinates for Orbit instances</a></li>
 <li><a class="reference internal" href="#example-evidence-for-a-lindblad-resonance-in-the-solar-neighborhood">Example: Evidence for a Lindblad resonance in the Solar neighborhood</a></li>
+<li><a class="reference internal" href="#new-example-actions-in-an-n-body-simulation"><strong>NEW</strong>: Example: actions in an N-body simulation</a></li>
 </ul>
 </li>
 </ul>
@@ -889,6 +891,82 @@ download of the GCS data set; if you use your own version, you will
 need to modify the part of the code that reads the data). For more
 information see <a class="reference external" href="http://adsabs.harvard.edu/abs/2010MNRAS.409..145S">2010MNRAS.409..145S</a>.</p>
 </div>
+<div class="section" id="new-example-actions-in-an-n-body-simulation">
+<h2><strong>NEW</strong>: Example: actions in an N-body simulation<a class="headerlink" href="#new-example-actions-in-an-n-body-simulation" title="Permalink to this headline">¶</a></h2>
+<p>To illustrate how we can use <tt class="docutils literal"><span class="pre">galpy</span></tt> to calculate actions in a
+snapshot of an N-body simulation, we again look at the <tt class="docutils literal"><span class="pre">g15784</span></tt>
+snapshot in the <tt class="docutils literal"><span class="pre">pynbody</span></tt> test suite, discussed in <a class="reference internal" href="potential.html#potnbody"><em>The
+potential of N-body simulations</em></a>. Please look at that
+section for information on how to setup the potential of this snapshot
+in <tt class="docutils literal"><span class="pre">galpy</span></tt>. One change is that we should set <tt class="docutils literal"><span class="pre">enable_c=True</span></tt> in
+the instantiation of the <tt class="docutils literal"><span class="pre">InterpSnapshotRZPotential</span></tt> object</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">spi</span><span class="o">=</span> <span class="n">InterpSnapshotRZPotential</span><span class="p">(</span><span class="n">h1</span><span class="p">,</span><span class="n">rgrid</span><span class="o">=</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span><span class="n">numpy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">20.</span><span class="p">),</span><span class="mi">101</span><span class="p">),</span><span class="n">logR</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">zgrid</span><span class="o">=</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="mf">10.</span><span class="p">,</span><span class="mi">101</span><span class="p">),</span><span class="n">interpPot</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">zsym</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">enable_c</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spi</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">R0</span><span class="o">=</span><span class="mf">10.</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where we again normalize the potential to use galpy&#8217;s <cite>natural units</cite>.</p>
+<p>We first load a pristine copy of the simulation (because the normalization above leads to some inconsistent behavior in pynbody)</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sc</span> <span class="o">=</span> <span class="n">pynbody</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s">&#39;Repos/pynbody-testdata/g15784.lr.01024.gz&#39;</span><span class="p">);</span> <span class="n">hc</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">halos</span><span class="p">();</span> <span class="n">hc1</span><span class="o">=</span> <span class="n">hc</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span> <span class="n">pynbody</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">halo</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">hc1</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">&#39;hyb&#39;</span><span class="p">);</span> <span class="n">pynbody</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">angmom</span><span class="o">.</span><span class="n">faceon</span><span class="p">(</span><span class="n">hc1</span><span class="p">,</span> <span class="n">cen</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">mode</span><span class="o">=</span><span class="s">&#39;ssc&#39;</span><span class="p">);</span> <span class="n">sc</span><span class="o">.</span><span class="n">physical_units</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>and then select particles near <cite>R=8</cite> kpc by doing</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sn</span><span class="o">=</span> <span class="n">pynbody</span><span class="o">.</span><span class="n">filt</span><span class="o">.</span><span class="n">BandPass</span><span class="p">(</span><span class="s">&#39;rxy&#39;</span><span class="p">,</span><span class="s">&#39;7 kpc&#39;</span><span class="p">,</span><span class="s">&#39;9 kpc&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">R</span><span class="p">,</span><span class="n">vR</span><span class="p">,</span><span class="n">vT</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">vz</span> <span class="o">=</span> <span class="p">[</span><span class="n">numpy</span><span class="o">.</span><span class="n">ascontiguousarray</span><span class="p">(</span><span class="n">hc1</span><span class="o">.</span><span class="n">s</span><span class="p">[</span><span class="n">sn</span><span class="p">][</span><span class="n">x</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="s">&#39;rxy&#39;</span><span class="p">,</span><span class="s">&#39;vr&#39;</span><span class="p">,</span><span class="s">&#39;vt&#39;</span><span class="p">,</span><span class="s">&#39;z&#39;</span><span class="p">,</span><span class="s">&#39;vz&#39;</span><span class="p">)]</span>
+</pre></div>
+</div>
+<p>These have physical units, so we normalize them (the velocity
+normalization is the circular velocity at <cite>R=10</cite> kpc, see
+<a class="reference internal" href="potential.html#potnbody"><em>here</em></a>).</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ro</span><span class="p">,</span> <span class="n">vo</span><span class="o">=</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">294.62723076942245</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">R</span><span class="o">/=</span> <span class="n">ro</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span><span class="o">/=</span> <span class="n">ro</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vR</span><span class="o">/=</span> <span class="n">vo</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vT</span><span class="o">/=</span> <span class="n">vo</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vz</span><span class="o">/=</span> <span class="n">vo</span>
+</pre></div>
+</div>
+<p>We will calculate actions using <tt class="docutils literal"><span class="pre">actionAngleStaeckel</span></tt> above. We can
+first integrate a random orbit in this potential</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">galpy.orbit</span> <span class="kn">import</span> <span class="n">Orbit</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ii</span><span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">permutation</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">o</span><span class="o">=</span> <span class="n">Orbit</span><span class="p">([</span><span class="n">R</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span><span class="n">vR</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span><span class="n">vT</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span><span class="n">z</span><span class="p">[</span><span class="n">ii</span><span class="p">],</span><span class="n">vz</span><span class="p">[</span><span class="n">ii</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="mf">100.</span><span class="p">,</span><span class="mi">1001</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">o</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span><span class="n">spi</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This orbit looks like this</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">o</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_images/actionAngle-nbody-orbit.png" src="_images/actionAngle-nbody-orbit.png" />
+<p>We can now calculate the actions by doing</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">galpy.actionAngle</span> <span class="kn">import</span> <span class="n">actionAngleStaeckel</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">aAS</span><span class="o">=</span> <span class="n">actionAngleStaeckel</span><span class="p">(</span><span class="n">pot</span><span class="o">=</span><span class="n">spi</span><span class="p">,</span><span class="n">delta</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span><span class="n">c</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">jr</span><span class="p">,</span><span class="n">lz</span><span class="p">,</span><span class="n">jz</span><span class="o">=</span> <span class="n">aAS</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">vR</span><span class="p">,</span><span class="n">vT</span><span class="p">,</span><span class="n">z</span><span class="p">,</span><span class="n">vz</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>These actions are also in <cite>natural units</cite>; you can obtain physical
+units by multiplying with <cite>ro*vo</cite>. We can now plot these actions</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">galpy.util</span> <span class="kn">import</span> <span class="n">bovy_plot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">bovy_plot</span><span class="o">.</span><span class="n">scatterplot</span><span class="p">(</span><span class="n">lz</span><span class="p">,</span><span class="n">jr</span><span class="p">,</span><span class="s">&#39;k.&#39;</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s">r&#39;$J_\phi$&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s">r&#39;$J_R$&#39;</span><span class="p">,</span><span class="nb">xrange</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span><span class="mf">1.3</span><span class="p">],</span><span class="n">yrange</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span><span class="o">.</span><span class="mi">6</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>which gives</p>
+<img alt="_images/actionAngle-nbody-jrjphi.png" src="_images/actionAngle-nbody-jrjphi.png" />
+<p>Note the similarity between this figure and the GCS figure above. The
+curve shape is due to the selection (low angular momentum stars can
+only enter the selected radial ring if they are very elliptical and
+therefore have large radial action) and the density gradient in
+angular momentum is due to the falling surface density of the disk. We
+can also look at the distribution of radial and vertical actions.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">bovy_plot</span><span class="o">.</span><span class="n">bovy_plot</span><span class="p">(</span><span class="n">jr</span><span class="p">,</span><span class="n">jz</span><span class="p">,</span><span class="s">&#39;k,&#39;</span><span class="p">,</span><span class="n">xlabel</span><span class="o">=</span><span class="s">r&#39;$J_R$&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s">r&#39;$J_z$&#39;</span><span class="p">,</span><span class="nb">xrange</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span><span class="o">.</span><span class="mi">4</span><span class="p">],</span><span class="n">yrange</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.2</span><span class="p">],</span><span class="n">onedhists</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/actionAngle-nbody-jrjz.png" src="_images/actionAngle-nbody-jrjz.png" />
+<p>With the other methods in the actionAngle module we can also calculate
+frequencies and angles.</p>
+</div>
 </div>
 
 
@@ -909,12 +987,12 @@ information see <a class="reference external" href="http://adsabs.harvard.edu/ab
         <li class="right" >
           <a href="orbit.html" title="A closer look at orbit integration"
              >previous</a> |</li>
-        <li><a href="index.html">galpy 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">galpy 1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2010 - 2014, Jo Bovy.
-      Last updated on Dec 07, 2014.
+        &copy; Copyright 2010 - 2015, Jo Bovy.
+      Last updated on Jul 07, 2015.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>

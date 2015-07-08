@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Potentials in galpy &mdash; galpy 1.0 documentation</title>
+    <title>Potentials in galpy &mdash; galpy 1.1 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.0',
+        VERSION:     '1.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -24,7 +24,8 @@
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
     <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="galpy 1.0 documentation" href="index.html" />
+    <link rel="shortcut icon" href="_static/logo-small.ico"/>
+    <link rel="top" title="galpy 1.1 documentation" href="index.html" />
     <link rel="next" title="Two-dimensional disk distribution functions" href="basic_df.html" />
     <link rel="prev" title="Introduction" href="getting_started.html" /> 
   </head>
@@ -41,7 +42,7 @@
         <li class="right" >
           <a href="getting_started.html" title="Introduction"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">galpy 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">galpy 1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
       <div class="sphinxsidebar">
@@ -56,6 +57,8 @@
 <li><a class="reference internal" href="#densities">Densities</a></li>
 <li><a class="reference internal" href="#close-to-circular-orbits-and-orbital-frequencies">Close-to-circular orbits and orbital frequencies</a></li>
 <li><a class="reference internal" href="#using-interpolations-of-potentials">Using interpolations of potentials</a></li>
+<li><a class="reference internal" href="#new-the-potential-of-n-body-simulations"><strong>NEW</strong>: The potential of N-body simulations</a></li>
+<li><a class="reference internal" href="#new-conversion-to-nemo-potentials"><strong>NEW</strong>: Conversion to NEMO potentials</a></li>
 <li><a class="reference internal" href="#adding-potentials-to-the-galpy-framework">Adding potentials to the galpy framework</a></li>
 </ul>
 </li>
@@ -348,6 +351,222 @@ be used anywhere that general three-dimensional galpy potentials can
 be used. Some care must be taken with outside-the-interpolation-grid
 evaluations for functions that use <tt class="docutils literal"><span class="pre">C</span></tt> to speed up computations.</p>
 </div>
+<div class="section" id="new-the-potential-of-n-body-simulations">
+<h2><strong>NEW</strong>: The potential of N-body simulations<a class="headerlink" href="#new-the-potential-of-n-body-simulations" title="Permalink to this headline">¶</a></h2>
+<p id="potnbody"><tt class="docutils literal"><span class="pre">galpy</span></tt> can setup and work with the frozen potential of an N-body
+simulation. This allows us to study the properties of such potentials
+in the same way as other potentials in <tt class="docutils literal"><span class="pre">galpy</span></tt>. We can also
+investigate the properties of orbits in these potentials and calculate
+action-angle coordinates, using the <tt class="docutils literal"><span class="pre">galpy</span></tt> framework. Currently,
+this functionality is limited to axisymmetrized versions of the N-body
+snapshots, although this capability could be somewhat
+straightforwardly expanded to full triaxial potentials. The use of
+this functionality requires <a class="reference external" href="https://github.com/pynbody/pynbody">pynbody</a> to be installed; the potential
+of any snapshot that can be loaded with <tt class="docutils literal"><span class="pre">pynbody</span></tt> can be used within
+<tt class="docutils literal"><span class="pre">galpy</span></tt>.</p>
+<p>As a first, simple example of this we look at the potential of a
+single simulation particle, which should correspond to galpy&#8217;s
+<tt class="docutils literal"><span class="pre">KeplerPotential</span></tt>. We can create such a single-particle snapshot
+using <tt class="docutils literal"><span class="pre">pynbody</span></tt> by doing</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pynbody</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">=</span> <span class="n">pynbody</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="n">star</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="s">&#39;mass&#39;</span><span class="p">]</span><span class="o">=</span> <span class="mf">1.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">[</span><span class="s">&#39;eps&#39;</span><span class="p">]</span><span class="o">=</span> <span class="mf">0.</span>
+</pre></div>
+</div>
+<p>and we get the potential of this snapshot in <tt class="docutils literal"><span class="pre">galpy</span></tt> by doing</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">galpy.potential</span> <span class="kn">import</span> <span class="n">SnapshotRZPotential</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sp</span><span class="o">=</span> <span class="n">SnapshotRZPotential</span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="n">num_threads</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With these definitions, this snapshot potential should be the same as
+<tt class="docutils literal"><span class="pre">KeplerPotential</span></tt> with an amplitude of one, which we can test as
+follows</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">galpy.potential</span> <span class="kn">import</span> <span class="n">KeplerPotential</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kp</span><span class="o">=</span> <span class="n">KeplerPotential</span><span class="p">(</span><span class="n">amp</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">sp</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.</span><span class="p">),</span><span class="n">kp</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.</span><span class="p">),</span><span class="n">sp</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.</span><span class="p">)</span><span class="o">-</span><span class="n">kp</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.</span><span class="p">))</span>
+<span class="go">(-0.90909090909090906, -0.9090909090909091, 0.0)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="n">sp</span><span class="o">.</span><span class="n">Rforce</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.</span><span class="p">),</span><span class="n">kp</span><span class="o">.</span><span class="n">Rforce</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.</span><span class="p">),</span><span class="n">sp</span><span class="o">.</span><span class="n">Rforce</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.</span><span class="p">)</span><span class="o">-</span><span class="n">kp</span><span class="o">.</span><span class="n">Rforce</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.</span><span class="p">))</span>
+<span class="go">(-0.82644628099173545, -0.8264462809917353, -1.1102230246251565e-16)</span>
+</pre></div>
+</div>
+<p><tt class="docutils literal"><span class="pre">SnapshotRZPotential</span></tt> instances can be used wherever other <tt class="docutils literal"><span class="pre">galpy</span></tt>
+potentials can be used (note that the second derivatives have not been
+implemented, such that functions depending on those will not
+work). For example, we can plot the rotation curve</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sp</span><span class="o">.</span><span class="n">plotRotcurve</span><span class="p">()</span>
+</pre></div>
+</div>
+<img alt="_images/sp-rotcurve.png" src="_images/sp-rotcurve.png" />
+<p>Because evaluating the potential and forces of a snapshot is
+computationally expensive, most useful applications of frozen N-body
+potentials employ interpolated versions of the snapshot
+potential. These can be setup in <tt class="docutils literal"><span class="pre">galpy</span></tt> using an
+<tt class="docutils literal"><span class="pre">InterpSnapshotRZPotential</span></tt> class that is a subclass of the
+<tt class="docutils literal"><span class="pre">interpRZPotential</span></tt> described above and that can be used in the same
+manner. To illustrate its use we will make use of one of <tt class="docutils literal"><span class="pre">pynbody</span></tt>&#8216;s
+example snapshots, <tt class="docutils literal"><span class="pre">g15784</span></tt>. This snapshot is used <a class="reference external" href="http://pynbody.github.io/pynbody/tutorials/snapshot_manipulation.html">here</a>
+to illustrate <tt class="docutils literal"><span class="pre">pynbody</span></tt>&#8216;s use. Please follow the instructions there
+on how to download this snapshot.</p>
+<p>Once you have downloaded the <tt class="docutils literal"><span class="pre">pynbody</span></tt> testdata, we can load this
+snapshot using</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">pynbody</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s">&#39;testdata/g15784.lr.01024.gz&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>(please adjust the path according to where you downloaded the
+<tt class="docutils literal"><span class="pre">pynbody</span></tt> testdata). We get the main galaxy in this snapshot, center
+the simulation on it, and align the galaxy face-on using</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">halos</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h1</span> <span class="o">=</span> <span class="n">h</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pynbody</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">halo</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="n">h1</span><span class="p">,</span><span class="n">mode</span><span class="o">=</span><span class="s">&#39;hyb&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pynbody</span><span class="o">.</span><span class="n">analysis</span><span class="o">.</span><span class="n">angmom</span><span class="o">.</span><span class="n">faceon</span><span class="p">(</span><span class="n">h1</span><span class="p">,</span> <span class="n">cen</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span><span class="n">mode</span><span class="o">=</span><span class="s">&#39;ssc&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>we also convert the simulation to physical units, but set <cite>G=1</cite> by
+doing the following</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">physical_units</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">galpy.util.bovy_conversion</span> <span class="kn">import</span> <span class="n">_G</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">=</span> <span class="n">pynbody</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">SimArray</span><span class="p">(</span><span class="n">_G</span><span class="o">/</span><span class="mf">1000.</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span><span class="o">.</span><span class="n">units</span><span class="o">=</span> <span class="s">&#39;kpc Msol**-1 km**2 s**-2 G**-1&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="o">.</span><span class="n">_arrays</span><span class="p">[</span><span class="s">&#39;mass&#39;</span><span class="p">]</span><span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">_arrays</span><span class="p">[</span><span class="s">&#39;mass&#39;</span><span class="p">]</span><span class="o">*</span><span class="n">g</span>
+</pre></div>
+</div>
+<p>We can now load an interpolated version of this snapshot&#8217;s potential
+into <tt class="docutils literal"><span class="pre">galpy</span></tt> using</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">galpy.potential</span> <span class="kn">import</span> <span class="n">InterpSnapshotRZPotential</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spi</span><span class="o">=</span> <span class="n">InterpSnapshotRZPotential</span><span class="p">(</span><span class="n">h1</span><span class="p">,</span><span class="n">rgrid</span><span class="o">=</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.01</span><span class="p">),</span><span class="n">numpy</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">20.</span><span class="p">),</span><span class="mi">101</span><span class="p">),</span><span class="n">logR</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">zgrid</span><span class="o">=</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="mf">10.</span><span class="p">,</span><span class="mi">101</span><span class="p">),</span><span class="n">interpPot</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">zsym</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>where we further assume that the potential is symmetric around the
+mid-plane (<cite>z=0</cite>). This instantiation will take about ten to fiteen
+minutes. This potential instance has <cite>physical</cite> units (and thus the
+<tt class="docutils literal"><span class="pre">rgrid=</span></tt> and <tt class="docutils literal"><span class="pre">zgrid=</span></tt> inputs are given in kpc if the simulation&#8217;s
+distance unit is kpc). For example, if we ask for the rotation curve,
+we get the following:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">spi</span><span class="o">.</span><span class="n">plotRotcurve</span><span class="p">(</span><span class="n">Rrange</span><span class="o">=</span><span class="p">[</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">19.9</span><span class="p">],</span><span class="n">xlabel</span><span class="o">=</span><span class="s">r&#39;$R\,(\mathrm{kpc})$&#39;</span><span class="p">,</span><span class="n">ylabel</span><span class="o">=</span><span class="s">r&#39;$v_c(R)\,(\mathrm{km\,s}^{-1})$&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/spi-rotcurve-phys.png" src="_images/spi-rotcurve-phys.png" />
+<p>This can be compared to the rotation curve calculated by <tt class="docutils literal"><span class="pre">pynbody</span></tt>,
+see <a class="reference external" href="http://pynbody.github.io/pynbody/tutorials/snapshot_manipulation.html">here</a>.</p>
+<p>Because <tt class="docutils literal"><span class="pre">galpy</span></tt> works best in a system of <cite>natural units</cite> as
+explained in <a class="reference internal" href="getting_started.html#units"><em>Units in galpy</em></a>, we will convert this
+instance to natural units using the circular velocity at <cite>R=10</cite> kpc,
+which is</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">spi</span><span class="o">.</span><span class="n">vcirc</span><span class="p">(</span><span class="mf">10.</span><span class="p">)</span>
+<span class="go">294.62723076942245</span>
+</pre></div>
+</div>
+<p>To convert to <cite>natural units</cite> we do</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">spi</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">R0</span><span class="o">=</span><span class="mf">10.</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can then again plot the rotation curve, keeping in mind that the
+distance unit is now <span class="math">\(R_0\)</span></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">spi</span><span class="o">.</span><span class="n">plotRotcurve</span><span class="p">(</span><span class="n">Rrange</span><span class="o">=</span><span class="p">[</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">1.99</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>which gives</p>
+<img alt="_images/spi-rotcurve.png" src="_images/spi-rotcurve.png" />
+<p>in particular</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">spi</span><span class="o">.</span><span class="n">vcirc</span><span class="p">(</span><span class="mf">1.</span><span class="p">)</span>
+<span class="go">1.0000000000000002</span>
+</pre></div>
+</div>
+<p>We can also plot the potential</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">spi</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">rmin</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span><span class="n">rmax</span><span class="o">=</span><span class="mf">1.9</span><span class="p">,</span><span class="n">nrs</span><span class="o">=</span><span class="mi">51</span><span class="p">,</span><span class="n">zmin</span><span class="o">=-</span><span class="mf">0.99</span><span class="p">,</span><span class="n">zmax</span><span class="o">=</span><span class="mf">0.99</span><span class="p">,</span><span class="n">nzs</span><span class="o">=</span><span class="mi">51</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="_images/spi-pot.png" src="_images/spi-pot.png" />
+<p>Clearly, this simulation&#8217;s potential is quite spherical, which is
+confirmed by looking at the flattening</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">spi</span><span class="o">.</span><span class="n">flattening</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="go">0.86675711023391921</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spi</span><span class="o">.</span><span class="n">flattening</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="go">0.94442750306256895</span>
+</pre></div>
+</div>
+<p>The epicyle and vertical frequencies can also be interpolated by
+setting the <tt class="docutils literal"><span class="pre">interpepifreq=True</span></tt> or <tt class="docutils literal"><span class="pre">interpverticalfreq=True</span></tt>
+keywords when instantiating the <tt class="docutils literal"><span class="pre">InterpSnapshotRZPotential</span></tt> object.</p>
+</div>
+<div class="section" id="new-conversion-to-nemo-potentials">
+<span id="nemopot"></span><h2><strong>NEW</strong>: Conversion to NEMO potentials<a class="headerlink" href="#new-conversion-to-nemo-potentials" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://bima.astro.umd.edu/nemo/">NEMO</a> is a set of tools for
+studying stellar dynamics. Some of its functionality overlaps with
+that of <tt class="docutils literal"><span class="pre">galpy</span></tt>, but many of its programs are very complementary to
+<tt class="docutils literal"><span class="pre">galpy</span></tt>. In particular, it has the ability to perform N-body
+simulations with a variety of poisson solvers, which is currently not
+supported by <tt class="docutils literal"><span class="pre">galpy</span></tt> (and likely will never be directly
+supported). To encourage interaction between <tt class="docutils literal"><span class="pre">galpy</span></tt> and NEMO it
+is quite useful to be able to convert potentials between these two
+frameworks, which is not completely trivial. In particular, NEMO
+contains Walter Dehnen&#8217;s fast collisionless <tt class="docutils literal"><span class="pre">gyrfalcON</span></tt> code (see
+<a class="reference external" href="http://adsabs.harvard.edu/abs/2000ApJ...536L..39D">2000ApJ...536L..39D</a> and
+<a class="reference external" href="http://adsabs.harvard.edu/abs/2002JCoPh.179...27D">2002JCoPh.179...27D</a>) and the
+discussion here focuses on how to run N-body simulations using
+external potentials defined in <tt class="docutils literal"><span class="pre">galpy</span></tt>.</p>
+<p>Some <tt class="docutils literal"><span class="pre">galpy</span></tt> potential instances support the functions
+<tt class="docutils literal"><span class="pre">nemo_accname</span></tt> and <tt class="docutils literal"><span class="pre">nemo_accpars</span></tt> that return the name of the
+NEMO potential corresponding to this <tt class="docutils literal"><span class="pre">galpy</span></tt> Potential and its
+parameters in NEMO units. These functions assume that you use NEMO
+with WD_units, that is, positions are specified in kpc, velocities in
+kpc/Gyr, times in Gyr, and G=1. For the Miyamoto-Nagai potential
+above, you can get its name in the NEMO framework as</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mp</span><span class="o">.</span><span class="n">nemo_accname</span><span class="p">()</span>
+<span class="go">&#39;MiyamotoNagai&#39;</span>
+</pre></div>
+</div>
+<p>and its parameters as</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mp</span><span class="o">.</span><span class="n">nemo_accpars</span><span class="p">(</span><span class="mf">220.</span><span class="p">,</span><span class="mf">8.</span><span class="p">)</span>
+<span class="go">&#39;0,592617.11132,4.0,0.3&#39;</span>
+</pre></div>
+</div>
+<p>assuming that we scale velocities by <tt class="docutils literal"><span class="pre">vo=220</span></tt> km/s and positions by
+<tt class="docutils literal"><span class="pre">ro=8</span></tt> kpc in galpy. These two strings can then be given to the
+<tt class="docutils literal"><span class="pre">gyrfalcON</span></tt> <tt class="docutils literal"><span class="pre">accname=</span></tt> and <tt class="docutils literal"><span class="pre">accpars=</span></tt> keywords.</p>
+<p>We can do the same for lists of potentials. For example, for
+<tt class="docutils literal"><span class="pre">MWPotential2014</span></tt> we do</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">galpy.potential</span> <span class="kn">import</span> <span class="n">nemo_accname</span><span class="p">,</span> <span class="n">nemo_accpars</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nemo_accname</span><span class="p">(</span><span class="n">MWPotential2014</span><span class="p">)</span>
+<span class="go">&#39;PowSphwCut+MiyamotoNagai+NFW&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">nemo_accpars</span><span class="p">(</span><span class="n">MWPotential2014</span><span class="p">,</span><span class="mf">220.</span><span class="p">,</span><span class="mf">8.</span><span class="p">)</span>
+<span class="go">&#39;0,1001.79126907,1.8,1.9#0,306770.418682,3.0,0.28#0,16.0,162.958241887&#39;</span>
+</pre></div>
+</div>
+<p>Therefore, these are the <tt class="docutils literal"><span class="pre">accname=</span></tt> and <tt class="docutils literal"><span class="pre">accpars=</span></tt> that one needs
+to provide to <tt class="docutils literal"><span class="pre">gyrfalcON</span></tt> to run a simulation in
+<tt class="docutils literal"><span class="pre">MWPotential2014</span></tt>.</p>
+<p>Note that the NEMO potential <tt class="docutils literal"><span class="pre">PowSphwCut</span></tt> is <em>not</em> a standard
+NEMO potential. This potential can be found in the nemo/ directory of
+the <tt class="docutils literal"><span class="pre">galpy</span></tt> source code; this directory also contains a Makefile that
+can be used to compile the extra NEMO potential and install it in
+the correct NEMO directory (this requires one to have NEMO
+running, i.e., having sourced nemo_start).</p>
+<p>You can use the <tt class="docutils literal"><span class="pre">PowSphwCut.cc</span></tt> file in the nemo/ directory as a
+template for adding additional potentials in <tt class="docutils literal"><span class="pre">galpy</span></tt> to the NEMO
+framework. To figure out how to convert the normalized <tt class="docutils literal"><span class="pre">galpy</span></tt>
+potential to an amplitude when scaling to physical coordinates (like
+kpc and kpc/Gyr), one needs to look at the scaling of the radial force
+with R. For example, from the definition of MiyamotoNagaiPotential, we
+see that the radial force scales as <span class="math">\(R^{-2}\)</span>. For a general
+scaling <span class="math">\(R^{-\alpha}\)</span>, the amplitude will scale as
+<span class="math">\(V_0^2\,R_0^{\alpha-1}\)</span> with the velocity <span class="math">\(V_0\)</span> and
+position <span class="math">\(R_0\)</span> of the <tt class="docutils literal"><span class="pre">v=1</span></tt> at <tt class="docutils literal"><span class="pre">R=1</span></tt>
+normalization. Therefore, for the MiyamotoNagaiPotential, the physical
+amplitude scales as <span class="math">\(V_0^2\,R_0\)</span>. For the
+LogarithmicHaloPotential, the radial force scales as <span class="math">\(R^{-1}\)</span>,
+so the amplitude scales as <span class="math">\(V_0^2\)</span>.</p>
+<p>Currently, only the <tt class="docutils literal"><span class="pre">MiyamotoNagaiPotential</span></tt>, <tt class="docutils literal"><span class="pre">NFWPotential</span></tt>,
+<tt class="docutils literal"><span class="pre">PowerSphericalPotentialwCutoff</span></tt>, <tt class="docutils literal"><span class="pre">PlummerPotential</span></tt>,
+<tt class="docutils literal"><span class="pre">MN3ExponentialDiskPotential</span></tt>, and the <tt class="docutils literal"><span class="pre">LogarithmicHaloPotential</span></tt>
+have this NEMO support. Combinations of the first three are also
+supported (e.g., <tt class="docutils literal"><span class="pre">MWPotential2014</span></tt>); they can also be combined with
+spherical <tt class="docutils literal"><span class="pre">LogarithmicHaloPotentials</span></tt>. Because of the definition of
+the logarithmic potential in NEMO, it cannot be flattened in <tt class="docutils literal"><span class="pre">z</span></tt>, so
+to use a flattened logarithmic potential, one has to flip <tt class="docutils literal"><span class="pre">y</span></tt> and
+<tt class="docutils literal"><span class="pre">z</span></tt> between <tt class="docutils literal"><span class="pre">galpy</span></tt> and NEMO (one can flatten in <tt class="docutils literal"><span class="pre">y</span></tt>).</p>
+</div>
 <div class="section" id="adding-potentials-to-the-galpy-framework">
 <h2>Adding potentials to the galpy framework<a class="headerlink" href="#adding-potentials-to-the-galpy-framework" title="Permalink to this headline">¶</a></h2>
 <p>Potentials in galpy can be used in many places such as orbit
@@ -483,12 +702,12 @@ used in any galpy context in which C is used to speed up computations.</p>
         <li class="right" >
           <a href="getting_started.html" title="Introduction"
              >previous</a> |</li>
-        <li><a href="index.html">galpy 1.0 documentation</a> &raquo;</li> 
+        <li><a href="index.html">galpy 1.1 documentation</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer">
-        &copy; Copyright 2010 - 2014, Jo Bovy.
-      Last updated on Dec 07, 2014.
+        &copy; Copyright 2010 - 2015, Jo Bovy.
+      Last updated on Jul 07, 2015.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
     </div>
   </body>
