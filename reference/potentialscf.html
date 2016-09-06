@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Hernquist &amp; Ostriker Self-Consistent-Field-type potential &mdash; galpy 1.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/logo-small.ico"/>
+    <link rel="top" title="galpy 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Potential (galpy.potential)" href="potential.html" />
+    <link rel="next" title="Triaxial Jaffe potential" href="potentialtriaxialjaffe.html" />
+    <link rel="prev" title="Moving object potential" href="potentialmovingobj.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="potentialtriaxialjaffe.html" title="Triaxial Jaffe potential"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="potentialmovingobj.html" title="Moving object potential"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="potential.html" accesskey="U">Potential (<code class="docutils literal"><span class="pre">galpy.potential</span></code>)</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="potentialmovingobj.html"
+                        title="previous chapter">Moving object potential</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="potentialtriaxialjaffe.html"
+                        title="next chapter">Triaxial Jaffe potential</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/potentialscf.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="hernquist-ostriker-self-consistent-field-type-potential">
+<span id="scf-potential"></span><h1>Hernquist &amp; Ostriker Self-Consistent-Field-type potential<a class="headerlink" href="#hernquist-ostriker-self-consistent-field-type-potential" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="galpy.potential.SCFPotential">
+<em class="property">class </em><code class="descclassname">galpy.potential.</code><code class="descname">SCFPotential</code><span class="sig-paren">(</span><em>amp=1.0</em>, <em>Acos=array([[[1]]])</em>, <em>Asin=None</em>, <em>a=1.0</em>, <em>normalize=False</em>, <em>ro=None</em>, <em>vo=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.potential.SCFPotential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class that implements the <a class="reference external" href="http://adsabs.harvard.edu/abs/1992ApJ...386..375H">Hernquist &amp; Ostriker (1992)</a> Self-Consistent-Field-type potential. 
+Note that we divide the amplitude by 2 such that <span class="math">\(Acos = \delta_{0n}\delta_{0l}\delta_{0m}\)</span> and <span class="math">\(Asin = 0\)</span> corresponds to <a class="reference internal" href="potentialhernquist.html#hernquist-potential"><span>Galpy&#8217;s Hernquist Potential</span></a>.</p>
+<div class="math">
+\[\rho(r, \theta, \phi) = \frac{amp}{2}\sum_{n=0}^{\infty} \sum_{l=0}^{\infty} \sum_{m=0}^l N_{lm} P_{lm}(\cos(\theta))  \tilde{\rho}_{nl}(r) \left(A_{cos, nlm} \cos(m\phi) + A_{sin, nlm} \sin(m\phi)\right)\]</div>
+<p>where</p>
+<div class="math">
+\[\tilde{\rho}_{nl}(r) = \frac{K_{nl}}{\sqrt{\pi}} \frac{(a r)^l}{(r/a) (a + r)^{2l + 3}} C_{n}^{2l + 3/2}(\xi)         \]</div>
+<div class="math">
+\[\Phi(r, \theta, \phi) = \sum_{n=0}^{\infty} \sum_{l=0}^{\infty} \sum_{m=0}^l N_{lm} P_{lm}(\cos(\theta))  \tilde{\Phi}_{nl}(r) \left(A_{cos, nlm} \cos(m\phi) + A_{sin, nlm} \sin(m\phi)\right)\]</div>
+<p>where</p>
+<div class="math">
+\[\tilde{\Phi}_{nl}(r) = -\sqrt{4 \pi}K_{nl} \frac{(ar)^l}{(a + r)^{2l + 1}} C_{n}^{2l + 3/2}(\xi)     \]</div>
+<p>where</p>
+<div class="math">
+\[\xi = \frac{r - a}{r + a} \qquad
+N_{lm} = \sqrt{\frac{2l + 1}{4\pi} \frac{(l - m)!}{(l + m)!}}(2 - \delta_{m0}) \qquad
+K_{nl} = \frac{1}{2} n (n + 4l + 3) + (l + 1)(2l + 1)\]</div>
+<p>and <span class="math">\(P_{lm}\)</span> is the Associated Legendre Polynomials whereas <span class="math">\(C_n^{\alpha}\)</span> is the Gegenbauer polynomial.</p>
+<dl class="method">
+<dt id="galpy.potential.SCFPotential.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>amp=1.0</em>, <em>Acos=array([[[1]]])</em>, <em>Asin=None</em>, <em>a=1.0</em>, <em>normalize=False</em>, <em>ro=None</em>, <em>vo=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.potential.SCFPotential.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>NAME:</p>
+<blockquote>
+<div>__init__</div></blockquote>
+<p>PURPOSE:</p>
+<blockquote>
+<div>initialize a SCF Potential</div></blockquote>
+<p>INPUT:</p>
+<blockquote>
+<div><p>amp - amplitude to be applied to the potential (default: 1); can be a Quantity with units of mass or Gxmass</p>
+<p>Acos - The real part of the expansion coefficent  (NxLxL matrix, or optionally NxLx1 if Asin=None)</p>
+<p>Asin - The imaginary part of the expansion coefficient (NxLxL matrix or None)</p>
+<p>a - scale length (can be Quantity)</p>
+<p>normalize - if True, normalize such that vc(1.,0.)=1., or, if given as a number, such that the force is this fraction of the force necessary to make vc(1.,0.)=1.</p>
+<p>ro=, vo= distance and velocity scales for translation into internal units (default from configuration file)</p>
+</div></blockquote>
+<p>OUTPUT:</p>
+<blockquote>
+<div>SCFPotential object</div></blockquote>
+<p>HISTORY:</p>
+<blockquote>
+<div>2016-05-13 - Written - Aladdin</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="potentialtriaxialjaffe.html" title="Triaxial Jaffe potential"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="potentialmovingobj.html" title="Moving object potential"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="potential.html" >Potential (<code class="docutils literal"><span class="pre">galpy.potential</span></code>)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

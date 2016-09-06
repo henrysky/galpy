@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>galpy.df.quasiisothermaldf.pvz &mdash; galpy 1.1 documentation</title>
+    <title>galpy.df.quasiisothermaldf.pvz &mdash; galpy 1.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,15 +23,15 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/logo-small.ico"/>
-    <link rel="top" title="galpy 1.1 documentation" href="../index.html" />
-    <link rel="up" title="DF" href="df.html" />
+    <link rel="top" title="galpy 1.2 documentation" href="../index.html" />
+    <link rel="up" title="DF (galpy.df)" href="df.html" />
     <link rel="next" title="galpy.df.quasiisothermaldf.sampleV" href="quasidfsamplev.html" />
     <link rel="prev" title="galpy.df.quasiisothermaldf.pvTvz" href="quasidfpvtvz.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -43,11 +43,11 @@
         <li class="right" >
           <a href="quasidfpvtvz.html" title="galpy.df.quasiisothermaldf.pvTvz"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="df.html" accesskey="U">DF</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="df.html" accesskey="U">DF (<code class="docutils literal"><span class="pre">galpy.df</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
@@ -58,12 +58,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="quasidfsamplev.html"
                         title="next chapter">galpy.df.quasiisothermaldf.sampleV</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/reference/quasidfpvz.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/quasidfpvz.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -82,30 +84,33 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="galpy-df-quasiisothermaldf-pvz">
 <h1>galpy.df.quasiisothermaldf.pvz<a class="headerlink" href="#galpy-df-quasiisothermaldf-pvz" title="Permalink to this headline">¶</a></h1>
 <dl class="method">
 <dt id="galpy.df.quasiisothermaldf.pvz">
-<tt class="descclassname">quasiisothermaldf.</tt><tt class="descname">pvz</tt><big>(</big><em>vz</em>, <em>R</em>, <em>z</em>, <em>gl=True</em>, <em>ngl=20</em>, <em>_return_actions=False</em>, <em>_jr=None</em>, <em>_lz=None</em>, <em>_jz=None</em>, <em>_return_freqs=False</em>, <em>_rg=None</em>, <em>_kappa=None</em>, <em>_nu=None</em>, <em>_Omega=None</em>, <em>_sigmaR1=None</em><big>)</big><a class="headerlink" href="#galpy.df.quasiisothermaldf.pvz" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>NAME:</dt>
-<dd>pvz</dd>
-<dt>PURPOSE:</dt>
-<dd>calculate the marginalized vz probability at this location (NOT normalized by the density)</dd>
-<dt>INPUT:</dt>
-<dd><p class="first">vz - vertical velocity (/vo)</p>
-<p>R - radius (/ro)</p>
-<p>z - height (/ro)</p>
+<code class="descclassname">quasiisothermaldf.</code><code class="descname">pvz</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.df.quasiisothermaldf.pvz" title="Permalink to this definition">¶</a></dt>
+<dd><p>NAME:</p>
+<blockquote>
+<div>pvz</div></blockquote>
+<p>PURPOSE:</p>
+<blockquote>
+<div>calculate the marginalized vz probability at this location (NOT normalized by the density)</div></blockquote>
+<p>INPUT:</p>
+<blockquote>
+<div><p>vz - vertical velocity (can be Quantity)</p>
+<p>R - radius (can be Quantity)</p>
+<p>z - height (can be Quantity)</p>
 <p>gl - use Gauss-Legendre integration (True, currently the only option)</p>
-<p class="last">ngl - order of Gauss-Legendre integration</p>
-</dd>
-<dt>OUTPUT:</dt>
-<dd>p(vz,R,z)</dd>
-<dt>HISTORY:</dt>
-<dd>2012-12-22 - Written - Bovy (IAS)</dd>
-</dl>
+<p>ngl - order of Gauss-Legendre integration</p>
+</div></blockquote>
+<p>OUTPUT:</p>
+<blockquote>
+<div>p(vz,R,z)</div></blockquote>
+<p>HISTORY:</p>
+<blockquote>
+<div>2012-12-22 - Written - Bovy (IAS)</div></blockquote>
 </dd></dl>
 
 </div>
@@ -116,7 +121,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -128,14 +133,14 @@
         <li class="right" >
           <a href="quasidfpvtvz.html" title="galpy.df.quasiisothermaldf.pvTvz"
              >previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="df.html" >DF</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="df.html" >DF (<code class="docutils literal"><span class="pre">galpy.df</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2010 - 2015, Jo Bovy.
-      Last updated on Jul 07, 2015.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

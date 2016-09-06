@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>actionAngleStaeckelGrid &mdash; galpy 1.1 documentation</title>
+    <title>actionAngleStaeckelGrid &mdash; galpy 1.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,15 +23,15 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/logo-small.ico"/>
-    <link rel="top" title="galpy 1.1 documentation" href="../index.html" />
-    <link rel="up" title="actionAngle" href="aa.html" />
+    <link rel="top" title="galpy 1.2 documentation" href="../index.html" />
+    <link rel="up" title="actionAngle (galpy.actionAngle)" href="aa.html" />
     <link rel="next" title="actionAngleIsochroneApprox" href="aaisochroneapprox.html" />
     <link rel="prev" title="actionAngleStaeckel" href="aastaeckel.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -43,11 +43,11 @@
         <li class="right" >
           <a href="aastaeckel.html" title="actionAngleStaeckel"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="aa.html" accesskey="U">actionAngle</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="aa.html" accesskey="U">actionAngle (<code class="docutils literal"><span class="pre">galpy.actionAngle</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
@@ -58,12 +58,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="aaisochroneapprox.html"
                         title="next chapter">actionAngleIsochroneApprox</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/reference/aastaeckelgrid.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/aastaeckelgrid.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -82,17 +84,17 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="actionanglestaeckelgrid">
 <h1>actionAngleStaeckelGrid<a class="headerlink" href="#actionanglestaeckelgrid" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="galpy.actionAngle.actionAngleStaeckelGrid">
-<em class="property">class </em><tt class="descclassname">galpy.actionAngle.</tt><tt class="descname">actionAngleStaeckelGrid</tt><big>(</big><em>pot=None</em>, <em>delta=None</em>, <em>Rmax=5.0</em>, <em>nE=25</em>, <em>npsi=25</em>, <em>nLz=30</em>, <em>numcores=1</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#galpy.actionAngle.actionAngleStaeckelGrid" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">galpy.actionAngle.</code><code class="descname">actionAngleStaeckelGrid</code><span class="sig-paren">(</span><em>pot=None</em>, <em>delta=None</em>, <em>Rmax=5.0</em>, <em>nE=25</em>, <em>npsi=25</em>, <em>nLz=30</em>, <em>numcores=1</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.actionAngle.actionAngleStaeckelGrid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Action-angle formalism for axisymmetric potentials using Binney (2012)&#8217;s Staeckel approximation, grid-based interpolation</p>
 <dl class="method">
 <dt id="galpy.actionAngle.actionAngleStaeckelGrid.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>pot=None</em>, <em>delta=None</em>, <em>Rmax=5.0</em>, <em>nE=25</em>, <em>npsi=25</em>, <em>nLz=30</em>, <em>numcores=1</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#galpy.actionAngle.actionAngleStaeckelGrid.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>pot=None</em>, <em>delta=None</em>, <em>Rmax=5.0</em>, <em>nE=25</em>, <em>npsi=25</em>, <em>nLz=30</em>, <em>numcores=1</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.actionAngle.actionAngleStaeckelGrid.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="docutils">
 <dt>NAME:</dt>
 <dd>__init__</dd>
@@ -100,15 +102,18 @@
 <dd>initialize an actionAngleStaeckelGrid object</dd>
 <dt>INPUT:</dt>
 <dd><p class="first">pot= potential or list of potentials</p>
-<p>delta= focus of prolate confocal coordinate system</p>
-<p>Rmax = Rmax for building grids</p>
+<p>delta= focus of prolate confocal coordinate system (can be Quantity)</p>
+<p>Rmax = Rmax for building grids (natural units)</p>
 <p>nE=, npsi=, nLz= grid size</p>
 <p>numcores= number of cpus to use to parallellize</p>
-<p class="last">+scipy.integrate.quad keywords</p>
+<p>ro= distance from vantage point to GC (kpc; can be Quantity)</p>
+<p class="last">vo= circular velocity at ro (km/s; can be Quantity)</p>
 </dd>
 </dl>
-<p>OUTPUT:
-HISTORY:</p>
+<p>OUTPUT:</p>
+<blockquote>
+<div>instance</div></blockquote>
+<p>HISTORY:</p>
 <blockquote>
 <div>2012-11-29 - Written - Bovy (IAS)</div></blockquote>
 </dd></dl>
@@ -123,7 +128,7 @@ HISTORY:</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -135,14 +140,14 @@ HISTORY:</p>
         <li class="right" >
           <a href="aastaeckel.html" title="actionAngleStaeckel"
              >previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="aa.html" >actionAngle</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="aa.html" >actionAngle (<code class="docutils literal"><span class="pre">galpy.actionAngle</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2010 - 2015, Jo Bovy.
-      Last updated on Jul 07, 2015.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Utilities &mdash; galpy 1.1 documentation</title>
+    <title>Utilities (galpy.util) &mdash; galpy 1.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,45 +23,47 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/logo-small.ico"/>
-    <link rel="top" title="galpy 1.1 documentation" href="../index.html" />
-    <link rel="next" title="galpy.util.bovy_plot" href="bovyplot.html" />
-    <link rel="prev" title="actionAngleIsochroneApprox" href="aaisochroneapprox.html" /> 
+    <link rel="top" title="galpy 1.2 documentation" href="../index.html" />
+    <link rel="next" title="galpy.util.config" href="config.html" />
+    <link rel="prev" title="galpy.df.impulse_deltav_general_fullplummerintegration" href="impulse_deltav_general_fullplummerintegration.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="bovyplot.html" title="galpy.util.bovy_plot"
+          <a href="config.html" title="galpy.util.config"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="aaisochroneapprox.html" title="actionAngleIsochroneApprox"
+          <a href="impulse_deltav_general_fullplummerintegration.html" title="galpy.df.impulse_deltav_general_fullplummerintegration"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
             </a></p>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="aaisochroneapprox.html"
-                        title="previous chapter">actionAngleIsochroneApprox</a></p>
+  <p class="topless"><a href="impulse_deltav_general_fullplummerintegration.html"
+                        title="previous chapter">galpy.df.impulse_deltav_general_fullplummerintegration</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="bovyplot.html"
-                        title="next chapter">galpy.util.bovy_plot</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/reference/util.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <p class="topless"><a href="config.html"
+                        title="next chapter">galpy.util.config</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/util.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -80,12 +82,17 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
-  <div class="section" id="utilities">
-<h1>Utilities<a class="headerlink" href="#utilities" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="utilities-galpy-util">
+<h1>Utilities (<code class="docutils literal"><span class="pre">galpy.util</span></code>)<a class="headerlink" href="#utilities-galpy-util" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="config.html">config: galpy configuration module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="configsetro.html">setro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="configsetvo.html">setvo</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="bovyplot.html">bovy_plot: general wrappers for matplotlib plotting</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="bovydens2d.html">bovy_dens2d</a></li>
 <li class="toctree-l2"><a class="reference internal" href="bovyendprint.html">bovy_end_print</a></li>
@@ -143,25 +150,25 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="bovyplot.html" title="galpy.util.bovy_plot"
+          <a href="config.html" title="galpy.util.config"
              >next</a> |</li>
         <li class="right" >
-          <a href="aaisochroneapprox.html" title="actionAngleIsochroneApprox"
+          <a href="impulse_deltav_general_fullplummerintegration.html" title="galpy.df.impulse_deltav_general_fullplummerintegration"
              >previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2010 - 2015, Jo Bovy.
-      Last updated on Jul 07, 2015.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

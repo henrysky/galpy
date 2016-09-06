@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>NEW in v1.2: What’s new? &mdash; galpy 1.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="_static/logo-small.ico"/>
+    <link rel="top" title="galpy 1.2 documentation" href="index.html" />
+    <link rel="next" title="Introduction" href="getting_started.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="getting_started.html" title="Introduction"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">galpy 1.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="index.html">
+              <img class="logo" src="_static/logo-small.png" alt="Logo"/>
+            </a></p>
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#"><strong>NEW in v1.2</strong>: What&#8217;s new?</a><ul>
+<li><a class="reference internal" href="#v1-2">v1.2</a></li>
+<li><a class="reference internal" href="#v1-1">v1.1</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="installation.html"
+                        title="previous chapter">Installation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="getting_started.html"
+                        title="next chapter">Introduction</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/whatsnew.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="new-in-v1-2-what-s-new">
+<h1><strong>NEW in v1.2</strong>: What&#8217;s new?<a class="headerlink" href="#new-in-v1-2-what-s-new" title="Permalink to this headline">¶</a></h1>
+<p>This page gives some of the key improvements in each galpy
+version. See the <code class="docutils literal"><span class="pre">HISTORY.txt</span></code> file in the galpy source for full
+details on what is new and different in each version.</p>
+<div class="section" id="v1-2">
+<h2>v1.2<a class="headerlink" href="#v1-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Full support for providing inputs to all initializations, methods,
+and functions as <a class="reference external" href="http://docs.astropy.org/en/stable/api/astropy.units.Quantity.html">astropy Quantity</a>
+with <a class="reference external" href="http://docs.astropy.org/en/stable/units/">units</a> and for
+providing outputs as astropy Quantities.</li>
+<li><code class="docutils literal"><span class="pre">galpy.potential.TwoPowerTriaxialPotential</span></code>, a set of triaxial
+potentials with iso-density contours that are arbitrary, similar,
+coaxial ellipsoids whose &#8216;radial&#8217; density is a (different) power-law
+at small and large radii: 1/m^alpha/(1+m)^beta-alpha (the triaxial
+generalization of TwoPowerSphericalPotential, with flattening in the
+density rather than in the potential; includes triaxial Hernquist
+and NFW potentials.</li>
+<li><code class="docutils literal"><span class="pre">galpy.potential.SCFPotential</span></code>, a class that implements general
+density/potential pairs through the basis expansion approach to
+solving the Poisson equation of Hernquist &amp; Ostriker (1992).  Also
+implemented functions to compute the coefficients for a given
+density function. See more explanation <a class="reference internal" href="potential.html#scf-potential-docs"><span>here</span></a>.</li>
+<li><code class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleTorus</span></code>: an experimental interface to
+Binney &amp; McMillan&#8217;s TorusMapper code for computing positions and
+velocities for given actions and angles. See the installation
+instructions for how to properly install this. See <a class="reference internal" href="actionAngle.html#aatorus"><span>this
+section</span></a> and the <code class="docutils literal"><span class="pre">galpy.actionAngle</span></code> API page for
+documentation.</li>
+<li><code class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleIsochroneApprox</span></code> (Bovy 2014) now
+implemented for the general case of a time-independent potential.</li>
+<li><code class="docutils literal"><span class="pre">galpy.df.streamgapdf</span></code>, a module for modeling the effect of a
+dark-matter subhalo on a tidal stream. See <a class="reference external" href="http://adsabs.harvard.edu/abs/2016MNRAS.457.3817S">Sanders et al. (2016)</a>. Also
+includes the fast methods for computing the density along the stream
+and the stream track for a perturbed stream from <a class="reference external" href="http://adsabs.harvard.edu/cgi-bin/bib_query?arXiv:1606.03470">Bovy et al. (2016)</a>.</li>
+<li><code class="docutils literal"><span class="pre">Orbit.flip</span></code> can now flip the velocities of an orbit in-place by
+specifying <code class="docutils literal"><span class="pre">inplace=True</span></code>. This allows correct velocities to be
+easily obtained for backwards-integrated orbits.</li>
+<li><code class="docutils literal"><span class="pre">galpy.potential.PseudoIsothermalPotential</span></code>, a standard
+pseudo-isothermal-sphere
+potential. <code class="docutils literal"><span class="pre">galpy.potential.KuzminDiskPotential</span></code>, a razor-thin
+disk potential.</li>
+<li>Internal transformations between equatorial and Galactic coordinates
+are now performed by default using astropy&#8217;s <a class="reference external" href="http://docs.astropy.org/en/stable/coordinates/index.html">coordinates</a>
+module. Transformation of (ra,dec) to Galactic coordinates for
+general epochs.</li>
+</ul>
+</div>
+<div class="section" id="v1-1">
+<h2>v1.1<a class="headerlink" href="#v1-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Full support for Python 3.</li>
+<li><code class="docutils literal"><span class="pre">galpy.potential.SnapshotRZPotential</span></code>, a potential class that can
+be used to get a frozen snapshot of the potential of an N-body
+simulation.</li>
+<li>Various other potentials: <code class="docutils literal"><span class="pre">PlummerPotential</span></code>, a standard Plummer
+potential; <code class="docutils literal"><span class="pre">MN3ExponentialDiskPotential</span></code>, an approximation to an
+exponential disk using three Miyamoto-Nagai potentials (<a class="reference external" href="http://adsabs.harvard.edu/abs/2015MNRAS.448.2934S">Smith et
+al. 2015</a>);
+<code class="docutils literal"><span class="pre">KuzminKutuzovStaeckelPotential</span></code>, a Staeckel potential that can be
+used to approximate the potential of a disk galaxy (<a class="reference external" href="http://adsabs.harvard.edu/abs/1994A%26A...287...43B">Batsleer &amp;
+Dejonghe 1994</a>).</li>
+<li>Support for converting potential parameters to <a class="reference external" href="http://bima.astro.umd.edu/nemo/">NEMO</a> format and units.</li>
+<li>Orbit fitting in custom sky coordinates.</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="getting_started.html" title="Introduction"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">galpy 1.2 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

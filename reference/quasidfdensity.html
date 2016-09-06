@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>galpy.df.quasiisothermaldf.density &mdash; galpy 1.1 documentation</title>
+    <title>galpy.df.quasiisothermaldf.density &mdash; galpy 1.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,15 +23,15 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/logo-small.ico"/>
-    <link rel="top" title="galpy 1.1 documentation" href="../index.html" />
-    <link rel="up" title="DF" href="df.html" />
+    <link rel="top" title="galpy 1.2 documentation" href="../index.html" />
+    <link rel="up" title="DF (galpy.df)" href="df.html" />
     <link rel="next" title="galpy.df.quasiisothermaldf.estimate_hr" href="quasidfestimatehr.html" />
     <link rel="prev" title="galpy.df.quasiisothermaldf.__call__" href="quasidfcall.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -43,11 +43,11 @@
         <li class="right" >
           <a href="quasidfcall.html" title="galpy.df.quasiisothermaldf.__call__"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="df.html" accesskey="U">DF</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="df.html" accesskey="U">DF (<code class="docutils literal"><span class="pre">galpy.df</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
@@ -58,12 +58,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="quasidfestimatehr.html"
                         title="next chapter">galpy.df.quasiisothermaldf.estimate_hr</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/reference/quasidfdensity.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/quasidfdensity.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -82,38 +84,39 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="galpy-df-quasiisothermaldf-density">
 <h1>galpy.df.quasiisothermaldf.density<a class="headerlink" href="#galpy-df-quasiisothermaldf-density" title="Permalink to this headline">¶</a></h1>
 <dl class="method">
 <dt id="galpy.df.quasiisothermaldf.density">
-<tt class="descclassname">quasiisothermaldf.</tt><tt class="descname">density</tt><big>(</big><em>R</em>, <em>z</em>, <em>nsigma=None</em>, <em>mc=False</em>, <em>nmc=10000</em>, <em>gl=True</em>, <em>ngl=10</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#galpy.df.quasiisothermaldf.density" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>NAME:</dt>
-<dd>density</dd>
-<dt>PURPOSE:</dt>
-<dd>calculate the density at R,z by marginalizing over velocity</dd>
-</dl>
+<code class="descclassname">quasiisothermaldf.</code><code class="descname">density</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.df.quasiisothermaldf.density" title="Permalink to this definition">¶</a></dt>
+<dd><p>NAME:</p>
+<blockquote>
+<div>density</div></blockquote>
+<p>PURPOSE:</p>
+<blockquote>
+<div>calculate the density at R,z by marginalizing over velocity</div></blockquote>
 <p>INPUT:</p>
 <blockquote>
-<div><p>R - radius at which to calculate the density</p>
-<p>z - height at which to calculate the density</p>
+<div><p>R - radius at which to calculate the density (can be Quantity)</p>
+<p>z - height at which to calculate the density (can be Quantity)</p>
 </div></blockquote>
-<dl class="docutils">
-<dt>OPTIONAL INPUT:</dt>
-<dd><p class="first">nsigma - number of sigma to integrate the velocities over</p>
+<p>OPTIONAL INPUT:</p>
+<blockquote>
+<div><p>nsigma - number of sigma to integrate the velocities over</p>
 <p>scipy.integrate.tplquad kwargs epsabs and epsrel</p>
 <p>mc= if True, calculate using Monte Carlo integration</p>
 <p>nmc= if mc, use nmc samples</p>
 <p>gl= if True, calculate using Gauss-Legendre integration</p>
-<p class="last">ngl= if gl, use ngl-th order Gauss-Legendre integration for each dimension</p>
-</dd>
-<dt>OUTPUT:</dt>
-<dd>density at (R,z)</dd>
-<dt>HISTORY:</dt>
-<dd>2012-07-26 - Written - Bovy (<a class="reference external" href="mailto:IAS&#37;&#52;&#48;MPIA">IAS<span>&#64;</span>MPIA</a>)</dd>
-</dl>
+<p>ngl= if gl, use ngl-th order Gauss-Legendre integration for each dimension</p>
+</div></blockquote>
+<p>OUTPUT:</p>
+<blockquote>
+<div>density at (R,z)</div></blockquote>
+<p>HISTORY:</p>
+<blockquote>
+<div>2012-07-26 - Written - Bovy (<a class="reference external" href="mailto:IAS&#37;&#52;&#48;MPIA">IAS<span>&#64;</span>MPIA</a>)</div></blockquote>
 </dd></dl>
 
 </div>
@@ -124,7 +127,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -136,14 +139,14 @@
         <li class="right" >
           <a href="quasidfcall.html" title="galpy.df.quasiisothermaldf.__call__"
              >previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="df.html" >DF</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="df.html" >DF (<code class="docutils literal"><span class="pre">galpy.df</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2010 - 2015, Jo Bovy.
-      Last updated on Jul 07, 2015.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

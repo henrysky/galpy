@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Flattened Power-law potential &mdash; galpy 1.1 documentation</title>
+    <title>Flattened Power-law potential &mdash; galpy 1.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,47 +23,49 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/logo-small.ico"/>
-    <link rel="top" title="galpy 1.1 documentation" href="../index.html" />
-    <link rel="up" title="Potential" href="potential.html" />
-    <link rel="next" title="Hernquist potential" href="potentialhernquist.html" />
-    <link rel="prev" title="Jaffe potential" href="potentialjaffe.html" /> 
+    <link rel="top" title="galpy 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Potential (galpy.potential)" href="potential.html" />
+    <link rel="next" title="Interpolated axisymmetric potential" href="potentialinterprz.html" />
+    <link rel="prev" title="Double exponential disk potential" href="potentialdoubleexp.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="potentialhernquist.html" title="Hernquist potential"
+          <a href="potentialinterprz.html" title="Interpolated axisymmetric potential"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="potentialjaffe.html" title="Jaffe potential"
+          <a href="potentialdoubleexp.html" title="Double exponential disk potential"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="potential.html" accesskey="U">Potential</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="potential.html" accesskey="U">Potential (<code class="docutils literal"><span class="pre">galpy.potential</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
             </a></p>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="potentialjaffe.html"
-                        title="previous chapter">Jaffe potential</a></p>
+  <p class="topless"><a href="potentialdoubleexp.html"
+                        title="previous chapter">Double exponential disk potential</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="potentialhernquist.html"
-                        title="next chapter">Hernquist potential</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/reference/potentialflattenedpower.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <p class="topless"><a href="potentialinterprz.html"
+                        title="next chapter">Interpolated axisymmetric potential</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/potentialflattenedpower.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -82,22 +84,22 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="flattened-power-law-potential">
 <h1>Flattened Power-law potential<a class="headerlink" href="#flattened-power-law-potential" title="Permalink to this headline">¶</a></h1>
 <p>Flattening is in the potential as in <a class="reference external" href="http://adsabs.harvard.edu/abs/1994MNRAS.267..333E">Evans (1994)</a> rather than in the density</p>
 <dl class="class">
 <dt id="galpy.potential.FlattenedPowerPotential">
-<em class="property">class </em><tt class="descclassname">galpy.potential.</tt><tt class="descname">FlattenedPowerPotential</tt><big>(</big><em>amp=1.0</em>, <em>alpha=0.5</em>, <em>q=0.9</em>, <em>core=1e-08</em>, <em>normalize=False</em><big>)</big><a class="headerlink" href="#galpy.potential.FlattenedPowerPotential" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">galpy.potential.</code><code class="descname">FlattenedPowerPotential</code><span class="sig-paren">(</span><em>amp=1.0</em>, <em>alpha=0.5</em>, <em>q=0.9</em>, <em>core=1e-08</em>, <em>normalize=False</em>, <em>r1=1.0</em>, <em>ro=None</em>, <em>vo=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.potential.FlattenedPowerPotential" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class that implements a power-law potential that is flattened in the potential (NOT the density)</p>
 <div class="math">
-\[\Phi(R,z) = -\frac{\mathrm{amp}}{\alpha\,\left(R^2+(z/q)^2+\mathrm{core}^2\right)^{\alpha/2}}\]</div>
+\[\Phi(R,z) = -\frac{\mathrm{amp}\,r_1^\alpha}{\alpha\,\left(R^2+(z/q)^2+\mathrm{core}^2\right)^{\alpha/2}}\]</div>
 <p>and the same as LogarithmicHaloPotential for <span class="math">\(\alpha=0\)</span></p>
 <p>See Figure 1 in <a class="reference external" href="http://adsabs.harvard.edu/abs/1994MNRAS.267..333E">Evans (1994)</a> for combinations of alpha and q that correspond to positive densities</p>
 <dl class="method">
 <dt id="galpy.potential.FlattenedPowerPotential.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>amp=1.0</em>, <em>alpha=0.5</em>, <em>q=0.9</em>, <em>core=1e-08</em>, <em>normalize=False</em><big>)</big><a class="headerlink" href="#galpy.potential.FlattenedPowerPotential.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>amp=1.0</em>, <em>alpha=0.5</em>, <em>q=0.9</em>, <em>core=1e-08</em>, <em>normalize=False</em>, <em>r1=1.0</em>, <em>ro=None</em>, <em>vo=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.potential.FlattenedPowerPotential.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>NAME:</p>
 <blockquote>
 <div>__init__</div></blockquote>
@@ -106,11 +108,13 @@
 <div>initialize a flattened power-law potential</div></blockquote>
 <p>INPUT:</p>
 <blockquote>
-<div><p>amp - amplitude to be applied to the potential (default: 1)</p>
+<div><p>amp - amplitude to be applied to the potential (default: 1); can be a Quantity with units of velocity-squared</p>
 <p>alpha - power</p>
 <p>q - flattening</p>
-<p>core - core radius</p>
+<p>core - core radius (can be Quantity)</p>
+<p>r1= (1.) reference radius for amplitude (can be Quantity)</p>
 <p>normalize - if True, normalize such that vc(1.,0.)=1., or, if given as a number, such that the force is this fraction of the force necessary to make vc(1.,0.)=1.</p>
+<p>ro=, vo= distance and velocity scales for translation into internal units (default from configuration file)</p>
 </div></blockquote>
 <p>OUTPUT:</p>
 <blockquote>
@@ -130,26 +134,26 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="potentialhernquist.html" title="Hernquist potential"
+          <a href="potentialinterprz.html" title="Interpolated axisymmetric potential"
              >next</a> |</li>
         <li class="right" >
-          <a href="potentialjaffe.html" title="Jaffe potential"
+          <a href="potentialdoubleexp.html" title="Double exponential disk potential"
              >previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="potential.html" >Potential</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="potential.html" >Potential (<code class="docutils literal"><span class="pre">galpy.potential</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2010 - 2015, Jo Bovy.
-      Last updated on Jul 07, 2015.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

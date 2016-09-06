@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Cos(m phi) disk potential &mdash; galpy 1.1 documentation</title>
+    <title>Cos(m phi) disk potential &mdash; galpy 1.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,15 +23,15 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/logo-small.ico"/>
-    <link rel="top" title="galpy 1.1 documentation" href="../index.html" />
-    <link rel="up" title="Potential" href="potential.html" />
+    <link rel="top" title="galpy 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Potential (galpy.potential)" href="potential.html" />
     <link rel="next" title="Elliptical disk potential" href="potentialellipticaldisk.html" />
     <link rel="prev" title="Dehnen bar potential" href="potentialdehnenbar.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -43,11 +43,11 @@
         <li class="right" >
           <a href="potentialdehnenbar.html" title="Dehnen bar potential"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="potential.html" accesskey="U">Potential</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="potential.html" accesskey="U">Potential (<code class="docutils literal"><span class="pre">galpy.potential</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
@@ -58,12 +58,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="potentialellipticaldisk.html"
                         title="next chapter">Elliptical disk potential</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/reference/potentialcosmphidisk.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/potentialcosmphidisk.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -82,22 +84,22 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="cos-m-phi-disk-potential">
 <h1>Cos(m phi) disk potential<a class="headerlink" href="#cos-m-phi-disk-potential" title="Permalink to this headline">¶</a></h1>
-<p>Generalization of the <a class="reference internal" href="potentiallopsideddisk.html#lopsideddisk"><em>lopsided</em></a> and
-<a class="reference internal" href="potentialellipticaldisk.html#ellipticaldisk"><em>elliptical</em></a> disk potentials to any m.</p>
+<p>Generalization of the <a class="reference internal" href="potentiallopsideddisk.html#lopsideddisk"><span>lopsided</span></a> and
+<a class="reference internal" href="potentialellipticaldisk.html#ellipticaldisk"><span>elliptical</span></a> disk potentials to any m.</p>
 <dl class="class">
 <dt id="galpy.potential.CosmphiDiskPotential">
-<em class="property">class </em><tt class="descclassname">galpy.potential.</tt><tt class="descname">CosmphiDiskPotential</tt><big>(</big><em>amp=1.0</em>, <em>phib=0.4363323129985824</em>, <em>p=1.0</em>, <em>phio=0.01</em>, <em>m=1.0</em>, <em>tform=None</em>, <em>tsteady=None</em>, <em>cp=None</em>, <em>sp=None</em><big>)</big><a class="headerlink" href="#galpy.potential.CosmphiDiskPotential" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">galpy.potential.</code><code class="descname">CosmphiDiskPotential</code><span class="sig-paren">(</span><em>amp=1.0</em>, <em>phib=0.4363323129985824</em>, <em>p=1.0</em>, <em>phio=0.01</em>, <em>m=1.0</em>, <em>r1=1.0</em>, <em>tform=None</em>, <em>tsteady=None</em>, <em>cp=None</em>, <em>sp=None</em>, <em>ro=None</em>, <em>vo=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.potential.CosmphiDiskPotential" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class that implements the disk potential</p>
 <div class="math">
-\[\Phi(R,\phi) = \phi_0\,R^p\,\cos\left(m\,(\phi-\phi_b)\right)\]</div>
+\[\Phi(R,\phi) = \mathrm{amp}\,\phi_0\,\left(\frac{R}{R_1}\right)^p\,\cos\left(m\,(\phi-\phi_b)\right)\]</div>
 <p>This potential can be grown between  <span class="math">\(t_{\mathrm{form}}\)</span> and  <span class="math">\(t_{\mathrm{form}}+T_{\mathrm{steady}}\)</span> in a similar way as DehnenBarPotential, but times are given directly in galpy time units</p>
 <dl class="method">
 <dt id="galpy.potential.CosmphiDiskPotential.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>amp=1.0</em>, <em>phib=0.4363323129985824</em>, <em>p=1.0</em>, <em>phio=0.01</em>, <em>m=1.0</em>, <em>tform=None</em>, <em>tsteady=None</em>, <em>cp=None</em>, <em>sp=None</em><big>)</big><a class="headerlink" href="#galpy.potential.CosmphiDiskPotential.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>amp=1.0</em>, <em>phib=0.4363323129985824</em>, <em>p=1.0</em>, <em>phio=0.01</em>, <em>m=1.0</em>, <em>r1=1.0</em>, <em>tform=None</em>, <em>tsteady=None</em>, <em>cp=None</em>, <em>sp=None</em>, <em>ro=None</em>, <em>vo=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.potential.CosmphiDiskPotential.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>NAME:</p>
 <blockquote>
 <div>__init__</div></blockquote>
@@ -109,18 +111,19 @@
 <p>INPUT:</p>
 <blockquote>
 <div><p>amp=  amplitude to be applied to the potential (default:
-1.), see twophio below</p>
-<p>tform= start of growth (to smoothly grow this potential</p>
-<p>tsteady= time delay at which the perturbation is fully grown (default: 2.)</p>
+1.), see phio below</p>
+<p>tform= start of growth (to smoothly grow this potential (can be Quantity)</p>
+<p>tsteady= time delay at which the perturbation is fully grown (default: 2; can be Quantity.)</p>
 <p>m= cos( m * (phi - phib) )</p>
 <p>p= power-law index of the phi(R) = (R/Ro)^p part</p>
+<p>r1= (1.) normalization radius for the amplitude (can be Quantity)</p>
 <p>Either:</p>
 <blockquote>
 <div><ol class="loweralpha">
-<li><p class="first">phib= angle (in rad; default=25 degree)</p>
-<p>phio= potential perturbation (in terms of phio/vo^2 if vo=1 at Ro=1)</p>
+<li><p class="first">phib= angle (in rad; default=25 degree; or can be Quantity)</p>
+<p>phio= potential perturbation (in terms of phio/vo^2 if vo=1 at Ro=1; or can be Quantity with units of velocity-squared)</p>
 </li>
-<li><p class="first">cp, sp= m * phio * cos(m * phib), m * phio * sin(m * phib)</p>
+<li><p class="first">cp, sp= m * phio * cos(m * phib), m * phio * sin(m * phib); can be Quantity with units of velocity-squared)</p>
 </li>
 </ol>
 </div></blockquote>
@@ -143,7 +146,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -155,14 +158,14 @@
         <li class="right" >
           <a href="potentialdehnenbar.html" title="Dehnen bar potential"
              >previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="potential.html" >Potential</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="potential.html" >Potential (<code class="docutils literal"><span class="pre">galpy.potential</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2010 - 2015, Jo Bovy.
-      Last updated on Jul 07, 2015.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Moving object potential &mdash; galpy 1.1 documentation</title>
+    <title>Moving object potential &mdash; galpy 1.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,47 +23,49 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/logo-small.ico"/>
-    <link rel="top" title="galpy 1.1 documentation" href="../index.html" />
-    <link rel="up" title="Potential" href="potential.html" />
-    <link rel="next" title="NFW potential" href="potentialnfw.html" />
-    <link rel="prev" title="Three Miyamoto-Nagai disk approximation to an exponential disk" href="potential3mn.html" /> 
+    <link rel="top" title="galpy 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Potential (galpy.potential)" href="potential.html" />
+    <link rel="next" title="Hernquist &amp; Ostriker Self-Consistent-Field-type potential" href="potentialscf.html" />
+    <link rel="prev" title="Double power-law density triaxial potential" href="potentialdoublepowertriaxial.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="potentialnfw.html" title="NFW potential"
+          <a href="potentialscf.html" title="Hernquist &amp; Ostriker Self-Consistent-Field-type potential"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="potential3mn.html" title="Three Miyamoto-Nagai disk approximation to an exponential disk"
+          <a href="potentialdoublepowertriaxial.html" title="Double power-law density triaxial potential"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="potential.html" accesskey="U">Potential</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="potential.html" accesskey="U">Potential (<code class="docutils literal"><span class="pre">galpy.potential</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
             </a></p>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="potential3mn.html"
-                        title="previous chapter">Three Miyamoto-Nagai disk approximation to an exponential disk</a></p>
+  <p class="topless"><a href="potentialdoublepowertriaxial.html"
+                        title="previous chapter">Double power-law density triaxial potential</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="potentialnfw.html"
-                        title="next chapter">NFW potential</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/reference/potentialmovingobj.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <p class="topless"><a href="potentialscf.html"
+                        title="next chapter">Hernquist &amp; Ostriker Self-Consistent-Field-type potential</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/potentialmovingobj.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -82,13 +84,13 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="moving-object-potential">
 <h1>Moving object potential<a class="headerlink" href="#moving-object-potential" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="galpy.potential.MovingObjectPotential">
-<em class="property">class </em><tt class="descclassname">galpy.potential.</tt><tt class="descname">MovingObjectPotential</tt><big>(</big><em>orbit</em>, <em>amp=1.0</em>, <em>GM=0.06</em>, <em>softening=None</em>, <em>softening_model='plummer'</em>, <em>softening_length=0.01</em><big>)</big><a class="headerlink" href="#galpy.potential.MovingObjectPotential" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">galpy.potential.</code><code class="descname">MovingObjectPotential</code><span class="sig-paren">(</span><em>orbit</em>, <em>amp=1.0</em>, <em>GM=0.06</em>, <em>ro=None</em>, <em>vo=None</em>, <em>softening=None</em>, <em>softening_model='plummer'</em>, <em>softening_length=0.01</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.potential.MovingObjectPotential" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class that implements the potential coming from a moving object</p>
 <div class="math">
 \[\Phi(R,z,\phi,t) = -\mathrm{amp}\,GM\,S(d)\]</div>
@@ -98,7 +100,7 @@
 <p>Plummer is currently the only implemented softening.</p>
 <dl class="method">
 <dt id="galpy.potential.MovingObjectPotential.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>orbit</em>, <em>amp=1.0</em>, <em>GM=0.06</em>, <em>softening=None</em>, <em>softening_model='plummer'</em>, <em>softening_length=0.01</em><big>)</big><a class="headerlink" href="#galpy.potential.MovingObjectPotential.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>orbit</em>, <em>amp=1.0</em>, <em>GM=0.06</em>, <em>ro=None</em>, <em>vo=None</em>, <em>softening=None</em>, <em>softening_model='plummer'</em>, <em>softening_length=0.01</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.potential.MovingObjectPotential.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>NAME:</p>
 <blockquote>
 <div>__init__</div></blockquote>
@@ -108,18 +110,19 @@
 <p>INPUT:</p>
 <blockquote>
 <div><p>orbit - the Orbit of the object (Orbit object)</p>
-<p>amp= - amplitude to be applied to the potential (default: 1)</p>
-<p>GM - &#8216;mass&#8217; of the object (degenerate with amp)</p>
+<p>amp= - amplitude to be applied to the potential (default: 1); can be a Quantity with units of mass or Gxmass</p>
+<p>GM - &#8216;mass&#8217; of the object (degenerate with amp, don&#8217;t use both); can be a Quantity with units of mass or Gxmass</p>
 <p>Softening: either provide</p>
 <blockquote>
 <div><ol class="loweralpha">
 <li><p class="first">softening= with a ForceSoftening-type object</p>
 </li>
 <li><p class="first">softening_model=  type of softening to use (&#8216;plummer&#8217;)</p>
-<p>softening_length= (optional)</p>
+<p>softening_length= (optional; can be Quantity)</p>
 </li>
 </ol>
 </div></blockquote>
+<p>ro=, vo= distance and velocity scales for translation into internal units (default from configuration file)</p>
 </div></blockquote>
 <p>OUTPUT:</p>
 <blockquote>
@@ -139,26 +142,26 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="potentialnfw.html" title="NFW potential"
+          <a href="potentialscf.html" title="Hernquist &amp; Ostriker Self-Consistent-Field-type potential"
              >next</a> |</li>
         <li class="right" >
-          <a href="potential3mn.html" title="Three Miyamoto-Nagai disk approximation to an exponential disk"
+          <a href="potentialdoublepowertriaxial.html" title="Double power-law density triaxial potential"
              >previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="potential.html" >Potential</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="potential.html" >Potential (<code class="docutils literal"><span class="pre">galpy.potential</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2010 - 2015, Jo Bovy.
-      Last updated on Jul 07, 2015.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

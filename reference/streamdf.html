@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>The stream DF &mdash; galpy 1.1 documentation</title>
+    <title>The stream DF &mdash; galpy 1.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,15 +23,15 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/logo-small.ico"/>
-    <link rel="top" title="galpy 1.1 documentation" href="../index.html" />
-    <link rel="up" title="DF" href="df.html" />
+    <link rel="top" title="galpy 1.2 documentation" href="../index.html" />
+    <link rel="up" title="DF (galpy.df)" href="df.html" />
     <link rel="next" title="galpy.df.streamdf.calc_stream_lb" href="streamdfcalcstreamlb.html" />
     <link rel="prev" title="galpy.df.streamdf.__call__" href="streamdfcall.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -43,11 +43,11 @@
         <li class="right" >
           <a href="streamdfcall.html" title="galpy.df.streamdf.__call__"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="df.html" accesskey="U">DF</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="df.html" accesskey="U">DF (<code class="docutils literal"><span class="pre">galpy.df</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
@@ -58,12 +58,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="streamdfcalcstreamlb.html"
                         title="next chapter">galpy.df.streamdf.calc_stream_lb</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/reference/streamdf.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/streamdf.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -82,17 +84,17 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="the-stream-df">
 <h1>The stream DF<a class="headerlink" href="#the-stream-df" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="galpy.df.streamdf">
-<em class="property">class </em><tt class="descclassname">galpy.df.</tt><tt class="descname">streamdf</tt><big>(</big><em>sigv, progenitor=None, pot=None, aA=None, tdisrupt=None, sigMeanOffset=6.0, leading=True, sigangle=None, deltaAngleTrack=None, nTrackChunks=None, nTrackIterations=None, progIsTrack=False, Vnorm=220.0, Rnorm=8.0, R0=8.0, Zsun=0.025, vsun=[-11.1, 241.92, 7.25], multi=None, interpTrack=True, useInterp=True, nosetup=False</em><big>)</big><a class="headerlink" href="#galpy.df.streamdf" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">galpy.df.</code><code class="descname">streamdf</code><span class="sig-paren">(</span><em>sigv, progenitor=None, pot=None, aA=None, useTM=False, tdisrupt=None, sigMeanOffset=6.0, leading=True, sigangle=None, deltaAngleTrack=None, nTrackChunks=None, nTrackIterations=None, progIsTrack=False, ro=None, vo=None, Vnorm=None, Rnorm=None, R0=8.0, Zsun=0.025, vsun=[-11.1, 241.92, 7.25], multi=None, interpTrack=True, useInterp=True, nosetup=False, nospreadsetup=False, approxConstTrackFreq=False, useTMHessian=False, custom_transform=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.df.streamdf" title="Permalink to this definition">¶</a></dt>
 <dd><p>The DF of a tidal stream</p>
 <dl class="method">
 <dt id="galpy.df.streamdf.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>sigv, progenitor=None, pot=None, aA=None, tdisrupt=None, sigMeanOffset=6.0, leading=True, sigangle=None, deltaAngleTrack=None, nTrackChunks=None, nTrackIterations=None, progIsTrack=False, Vnorm=220.0, Rnorm=8.0, R0=8.0, Zsun=0.025, vsun=[-11.1, 241.92, 7.25], multi=None, interpTrack=True, useInterp=True, nosetup=False</em><big>)</big><a class="headerlink" href="#galpy.df.streamdf.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>sigv, progenitor=None, pot=None, aA=None, useTM=False, tdisrupt=None, sigMeanOffset=6.0, leading=True, sigangle=None, deltaAngleTrack=None, nTrackChunks=None, nTrackIterations=None, progIsTrack=False, ro=None, vo=None, Vnorm=None, Rnorm=None, R0=8.0, Zsun=0.025, vsun=[-11.1, 241.92, 7.25], multi=None, interpTrack=True, useInterp=True, nosetup=False, nospreadsetup=False, approxConstTrackFreq=False, useTMHessian=False, custom_transform=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.df.streamdf.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>NAME:</p>
 <blockquote>
 <div>__init__</div></blockquote>
@@ -101,8 +103,8 @@
 <div>Initialize a quasi-isothermal DF</div></blockquote>
 <p>INPUT:</p>
 <blockquote>
-<div><p>sigv - radial velocity dispersion of the progenitor</p>
-<p>tdisrupt= (5 Gyr) time since start of disruption (natural units)</p>
+<div><p>sigv - radial velocity dispersion of the progenitor (can be Quantity)</p>
+<p>tdisrupt= (5 Gyr) time since start of disruption (can be Quantity)</p>
 <dl class="docutils">
 <dt>leading= (True) if True, model the leading part of the stream</dt>
 <dd>if False, model the trailing part</dd>
@@ -111,6 +113,7 @@
 <p>progIsTrack= (False) if True, then the progenitor (x,v) is actually the (x,v) of the stream track at zero angle separation; useful when initializing with an orbit fit; the progenitor&#8217;s position will be calculated</p>
 <p>pot= Potential instance or list thereof</p>
 <p>aA= actionAngle instance used to convert (x,v) to actions</p>
+<p>useTM= (False) if set to an actionAngleTorus instance, use this to speed up calculations</p>
 <dl class="docutils">
 <dt>sigMeanOffset= (6.) offset between the mean of the frequencies</dt>
 <dd>and the progenitor, in units of the largest 
@@ -118,9 +121,9 @@ eigenvalue of the frequency covariance matrix
 (along the largest eigenvector), should be positive;
 to model the trailing part, set leading=False</dd>
 <dt>sigangle= (sigv/122/[1km/s]=1.8sigv in natural coordinates)</dt>
-<dd>estimate of the angle spread of the debris initially</dd>
+<dd>estimate of the angle spread of the debris initially (can be Quantity)</dd>
 </dl>
-<p>deltaAngleTrack= (None) angle to estimate the stream track over (rad)</p>
+<p>deltaAngleTrack= (None) angle to estimate the stream track over (rad; or can be Quantity)</p>
 <p>nTrackChunks= (floor(deltaAngleTrack/0.15)+1) number of chunks to divide the progenitor track in</p>
 <p>nTrackIterations= Number of iterations to perform when establishing the track; each iteration starts from a previous approximation to the track in (x,v) and calculates a new track based on the deviation between the previous track and the desired track in action-angle coordinates; if not set, an appropriate value is determined based on the magnitude of the misalignment between stream and orbit, with larger numbers of iterations for larger misalignments</p>
 <dl class="docutils">
@@ -133,14 +136,18 @@ self._interpolate_stream_track_aA())</dd>
 <dt>nosetup= (False) if True, don&#8217;t setup the stream track and anything</dt>
 <dd>else that is expensive</dd>
 </dl>
+<p>nospreadsetup= (False) if True, don&#8217;t setup the spread around the stream track (only for nosetup is False)</p>
 <p>multi= (None) if set, use multi-processing</p>
 <p>Coordinate transformation inputs:</p>
 <blockquote>
-<div><p>Vnorm= (220) circular velocity to normalize velocities with</p>
-<p>Rnorm= (8) Galactocentric radius to normalize positions with</p>
-<p>R0= (8) Galactocentric radius of the Sun (kpc)</p>
-<p>Zsun= (0.025) Sun&#8217;s height above the plane (kpc)</p>
-<p>vsun= ([-11.1,241.92,7.25]) Sun&#8217;s motion in cylindrical coordinates (vR positive away from center)</p>
+<div><p>vo= (220) circular velocity to normalize velocities with [used to be Vnorm; can be Quantity]</p>
+<p>ro= (8) Galactocentric radius to normalize positions with [used to be Rnorm; can be Quantity]</p>
+<p>R0= (8) Galactocentric radius of the Sun (kpc) [can be different from ro; can be Quantity]</p>
+<p>Zsun= (0.025) Sun&#8217;s height above the plane (kpc; can be Quantity)</p>
+<p>vsun= ([-11.1,241.92,7.25]) Sun&#8217;s motion in cylindrical coordinates (vR positive away from center) (can be Quantity)</p>
+<p>custom_transform= (None) matrix implementing the rotation from (ra,dec) to a custom set of sky coordinates</p>
+<p>approxConstTrackFreq= (False) if True, approximate the stream assuming that the frequency is constant along the stream (only works with useTM, for which this leads to a significant speed-up)</p>
+<p>useTMHessian= (False) if True, compute the basic Hessian dO/dJ_prog using TM; otherwise use aA</p>
 </div></blockquote>
 </div></blockquote>
 <p>OUTPUT:</p>
@@ -163,7 +170,7 @@ self._interpolate_stream_track_aA())</dd>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -175,14 +182,14 @@ self._interpolate_stream_track_aA())</dd>
         <li class="right" >
           <a href="streamdfcall.html" title="galpy.df.streamdf.__call__"
              >previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="df.html" >DF</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="df.html" >DF (<code class="docutils literal"><span class="pre">galpy.df</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2010 - 2015, Jo Bovy.
-      Last updated on Jul 07, 2015.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to galpy’s documentation &mdash; galpy 1.1 documentation</title>
+    <title>Welcome to galpy’s documentation &mdash; galpy 1.2 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.1',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,13 +23,13 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/logo-small.ico"/>
-    <link rel="top" title="galpy 1.1 documentation" href="#" />
+    <link rel="top" title="galpy 1.2 documentation" href="#" />
     <link rel="next" title="Installation" href="installation.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -38,10 +38,10 @@
         <li class="right" >
           <a href="installation.html" title="Installation"
              accesskey="N">next</a> |</li>
-        <li><a href="#">galpy 1.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="#">galpy 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="#">
               <img class="logo" src="_static/logo-small.png" alt="Logo"/>
@@ -52,8 +52,8 @@
 <li><a class="reference internal" href="#quick-start-guide">Quick-start guide</a></li>
 <li><a class="reference internal" href="#tutorials">Tutorials</a></li>
 <li><a class="reference internal" href="#library-reference">Library reference</a></li>
-<li><a class="reference internal" href="#papers-using-galpy">Papers using galpy</a></li>
 <li><a class="reference internal" href="#acknowledging-galpy">Acknowledging galpy</a></li>
+<li><a class="reference internal" href="#papers-using-galpy">Papers using galpy</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
@@ -62,12 +62,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="installation.html"
                         title="next chapter">Installation</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/index.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -86,11 +88,11 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">You are looking at the rarely updated, GitHub version of this documentation, <strong>please go to</strong> <a class="reference external" href="http://galpy.readthedocs.org">galpy.readthedocs.org</a> <strong>for the latest documentation</strong>.</p>
+<p class="last">You are looking at the rarely updated, GitHub version of this documentation, <strong>please go to</strong> <a class="reference external" href="http://galpy.readthedocs.io">galpy.readthedocs.io</a> <strong>for the latest documentation</strong>.</p>
 </div>
 <div class="section" id="welcome-to-galpy-s-documentation">
 <h1>Welcome to galpy&#8217;s documentation<a class="headerlink" href="#welcome-to-galpy-s-documentation" title="Permalink to this headline">¶</a></h1>
@@ -103,12 +105,19 @@ coordinates for all static potentials.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#advanced-installation">Advanced installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#new-in-v1-2-installing-the-torusmapper-code"><strong>NEW in v1.2</strong>: Installing the TorusMapper code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#installation-faq">Installation FAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="installation.html#new-in-v1-2-configuration-file"><strong>NEW in v1.2</strong>: Configuration file</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="whatsnew.html"><strong>NEW in v1.2</strong>: What&#8217;s new?</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="whatsnew.html#v1-2">v1.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="whatsnew.html#v1-1">v1.1</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="getting_started.html">Introduction</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html#rotation-curves">Rotation curves</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started.html#units-in-galpy">Units in galpy</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html#updated-in-v1-2-units-in-galpy"><strong>UPDATED in v1.2</strong>: Units in galpy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html#orbit-integration">Orbit integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started.html#escape-velocity-curves">Escape velocity curves</a></li>
 </ul>
@@ -118,8 +127,10 @@ coordinates for all static potentials.</p>
 <li class="toctree-l2"><a class="reference internal" href="potential.html#densities">Densities</a></li>
 <li class="toctree-l2"><a class="reference internal" href="potential.html#close-to-circular-orbits-and-orbital-frequencies">Close-to-circular orbits and orbital frequencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="potential.html#using-interpolations-of-potentials">Using interpolations of potentials</a></li>
-<li class="toctree-l2"><a class="reference internal" href="potential.html#new-the-potential-of-n-body-simulations"><strong>NEW</strong>: The potential of N-body simulations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="potential.html#new-conversion-to-nemo-potentials"><strong>NEW</strong>: Conversion to NEMO potentials</a></li>
+<li class="toctree-l2"><a class="reference internal" href="potential.html#new-in-v1-2-initializing-potentials-with-parameters-with-units"><strong>NEW in v1.2</strong>: Initializing potentials with parameters with units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="potential.html#new-in-v1-2-general-density-potential-pairs-with-basis-function-expansions"><strong>NEW in v1.2</strong>: General density/potential pairs with basis-function expansions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="potential.html#the-potential-of-n-body-simulations">The potential of N-body simulations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="potential.html#conversion-to-nemo-potentials">Conversion to NEMO potentials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="potential.html#adding-potentials-to-the-galpy-framework">Adding potentials to the galpy framework</a></li>
 </ul>
 </li>
@@ -134,8 +145,8 @@ coordinates for all static potentials.</p>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="orbit.html">A closer look at orbit integration</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="orbit.html#orbit-initialization">Orbit initialization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="orbit.html#orbit-integration">Orbit integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="orbit.html#updated-in-v1-2-orbit-initialization"><strong>UPDATED in v1.2</strong>: Orbit initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="orbit.html#updated-in-v1-2-orbit-integration"><strong>UPDATED in v1.2</strong>: Orbit integration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="orbit.html#displaying-the-orbit">Displaying the orbit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="orbit.html#orbit-characterization">Orbit characterization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="orbit.html#accessing-the-raw-orbit">Accessing the raw orbit</a></li>
@@ -150,9 +161,10 @@ coordinates for all static potentials.</p>
 <li class="toctree-l2"><a class="reference internal" href="actionAngle.html#action-angle-coordinates-using-the-adiabatic-approximation">Action-angle coordinates using the adiabatic approximation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actionAngle.html#action-angle-coordinates-using-the-staeckel-approximation">Action-angle coordinates using the Staeckel approximation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actionAngle.html#action-angle-coordinates-using-an-orbit-integration-based-approximation">Action-angle coordinates using an orbit-integration-based approximation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actionAngle.html#new-in-v1-2-action-angle-coordinates-using-the-torusmapper-code"><strong>NEW in v1.2</strong> Action-angle coordinates using the TorusMapper code</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actionAngle.html#accessing-action-angle-coordinates-for-orbit-instances">Accessing action-angle coordinates for Orbit instances</a></li>
 <li class="toctree-l2"><a class="reference internal" href="actionAngle.html#example-evidence-for-a-lindblad-resonance-in-the-solar-neighborhood">Example: Evidence for a Lindblad resonance in the Solar neighborhood</a></li>
-<li class="toctree-l2"><a class="reference internal" href="actionAngle.html#new-example-actions-in-an-n-body-simulation"><strong>NEW</strong>: Example: actions in an N-body simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="actionAngle.html#example-actions-in-an-n-body-simulation">Example: actions in an N-body simulation</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="diskdf.html">Three-dimensional disk distribution functions</a><ul>
@@ -173,6 +185,7 @@ coordinates for all static potentials.</p>
 <li class="toctree-l2"><a class="reference internal" href="streamdf.html#calculating-the-average-stream-location-track">Calculating the average stream location (track)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="streamdf.html#mock-stream-data-generation">Mock stream data generation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="streamdf.html#evaluating-and-marginalizing-the-full-pdf">Evaluating and marginalizing the full PDF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="streamdf.html#new-in-v1-2-modeling-gaps-in-streams"><strong>NEW in v1.2</strong>: Modeling gaps in streams</a></li>
 </ul>
 </li>
 </ul>
@@ -182,30 +195,32 @@ coordinates for all static potentials.</p>
 <h2>Library reference<a class="headerlink" href="#library-reference" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="reference/orbit.html">Orbit</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="reference/orbit.html">Orbit (<code class="docutils literal"><span class="pre">galpy.orbit</span></code>)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="reference/orbit.html#class">Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reference/orbit.html#methods">Methods</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="reference/potential.html">Potential</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="reference/potential.html">Potential (<code class="docutils literal"><span class="pre">galpy.potential</span></code>)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="reference/potential.html#d-potentials">3D potentials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reference/potential.html#id1">2D potentials</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reference/potential.html#id4">1D potentials</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="reference/df.html">DF</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="reference/aa.html">actionAngle (<code class="docutils literal"><span class="pre">galpy.actionAngle</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/aa.html#x-v-j-o-a">(<strong>x</strong>, <strong>v</strong>) &#8211;&gt; (<strong>J</strong>, <strong>O</strong>, <strong>a</strong>)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/aa.html#j-a-x-v-o">(<strong>J</strong>, <strong>a</strong>) &#8211;&gt; (<strong>x</strong>, <strong>v</strong>, <strong>O</strong>)</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="reference/df.html">DF (<code class="docutils literal"><span class="pre">galpy.df</span></code>)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="reference/df.html#two-dimensional-axisymmetric-disk-distribution-functions">Two-dimensional, axisymmetric disk distribution functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reference/df.html#two-dimensional-non-axisymmetric-disk-distribution-functions">Two-dimensional, non-axisymmetric disk distribution functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reference/df.html#three-dimensional-disk-distribution-functions">Three-dimensional disk distribution functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reference/df.html#the-distribution-function-of-a-tidal-stream">The distribution function of a tidal stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="reference/df.html#the-distribution-function-of-a-gap-in-a-tidal-stream">The distribution function of a gap in a tidal stream</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="reference/aa.html">actionAngle</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="reference/aa.html#general-instance-routines">General instance routines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="reference/aa.html#specific-actionangle-modules">Specific actionAngle modules</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="reference/util.html">Utilities</a><ul>
+<li class="toctree-l1"><a class="reference internal" href="reference/util.html">Utilities (<code class="docutils literal"><span class="pre">galpy.util</span></code>)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="reference/config.html">config: galpy configuration module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reference/bovyplot.html">bovy_plot: general wrappers for matplotlib plotting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reference/bovyconversion.html">bovy_conversion: transformation between *natural* units and *physical* units</a></li>
 <li class="toctree-l2"><a class="reference internal" href="reference/bovycoords.html">bovy_coords: coordinate transformation functions</a></li>
@@ -215,13 +230,28 @@ coordinates for all static potentials.</p>
 </ul>
 </div>
 </div>
-<div class="section" id="papers-using-galpy">
-<h2>Papers using galpy<a class="headerlink" href="#papers-using-galpy" title="Permalink to this headline">¶</a></h2>
-<p><tt class="docutils literal"><span class="pre">galpy</span></tt> is described in detail in this publication:</p>
+<div class="section" id="acknowledging-galpy">
+<h2>Acknowledging galpy<a class="headerlink" href="#acknowledging-galpy" title="Permalink to this headline">¶</a></h2>
+<p>If you use galpy in a publication, please cite the following paper</p>
 <ul class="simple">
 <li><em>galpy: A Python Library for Galactic Dynamics</em>, Jo Bovy (2015), <em>Astrophys. J. Supp.</em>, <strong>216</strong>, 29 (<a class="reference external" href="http://arxiv.org/abs/1412.3451">arXiv/1412.3451</a>).</li>
 </ul>
-<p>The following is a list of publications using <tt class="docutils literal"><span class="pre">galpy</span></tt>; please let me (bovy -at- ias.edu) know if you make use of <tt class="docutils literal"><span class="pre">galpy</span></tt> in a publication.</p>
+<p>and link to <code class="docutils literal"><span class="pre">http://github.com/jobovy/galpy</span></code>. Some of the code&#8217;s
+functionality is introduced in separate papers (like
+<code class="docutils literal"><span class="pre">galpy.df.streamdf</span></code> and <code class="docutils literal"><span class="pre">galpy.df.streamgapdf</span></code>, see below), so
+please also cite those papers when using these functions. Please also
+send me a reference to the paper or send a pull request including your
+paper in the list of galpy papers on this page (this page is at
+doc/source/index.rst). Thanks!</p>
+<p>When using the <code class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleAdiabatic</span></code> and <code class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleStaeckel</span></code> modules, please cite <a class="reference external" href="http://adsabs.harvard.edu/abs/2013ApJ...779..115B">2013ApJ...779..115B</a> in addition to the papers describing the algorithm used. When using <code class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleIsochroneApprox</span></code>, please cite <a class="reference external" href="http://adsabs.harvard.edu/abs/2014ApJ...795...95B">2014ApJ...795...95B</a>, which introduced this technique.</p>
+</div>
+<div class="section" id="papers-using-galpy">
+<h2>Papers using galpy<a class="headerlink" href="#papers-using-galpy" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">galpy</span></code> is described in detail in this publication:</p>
+<ul class="simple">
+<li><em>galpy: A Python Library for Galactic Dynamics</em>, Jo Bovy (2015), <em>Astrophys. J. Supp.</em>, <strong>216</strong>, 29 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2015ApJS..216...29B">2015ApJS..216...29B</a>).</li>
+</ul>
+<p>The following is a list of publications using <code class="docutils literal"><span class="pre">galpy</span></code>; please let me (bovy at astro dot utoronto dot ca) know if you make use of <code class="docutils literal"><span class="pre">galpy</span></code> in a publication.</p>
 <ol class="arabic">
 <li><dl class="first docutils">
 <dt><em>Tracing the Hercules stream around the Galaxy</em>, Jo Bovy (2010), <em>Astrophys. J.</em> <strong>725</strong>, 1676 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2010ApJ...725.1676B">2010ApJ...725.1676B</a>):</dt>
@@ -231,13 +261,13 @@ coordinates for all static potentials.</p>
 </li>
 <li><dl class="first docutils">
 <dt><em>The spatial structure of mono-abundance sub-populations of the Milky Way disk</em>, Jo Bovy, Hans-Walter Rix, Chao Liu, et al. (2012), <em>Astrophys. J.</em> <strong>753</strong>, 148 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2012ApJ...753..148B">2012ApJ...753..148B</a>):</dt>
-<dd><p class="first last">Employs galpy orbit integration in <tt class="docutils literal"><span class="pre">galpy.potential.MWPotential</span></tt> to characterize the orbits in the SEGUE G dwarf sample.</p>
+<dd><p class="first last">Employs galpy orbit integration in <code class="docutils literal"><span class="pre">galpy.potential.MWPotential</span></code> to characterize the orbits in the SEGUE G dwarf sample.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><em>On the local dark matter density</em>, Jo Bovy &amp; Scott Tremaine (2012), <em>Astrophys. J.</em> <strong>756</strong>, 89 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2012ApJ...756...89B">2012ApJ...756...89B</a>):</dt>
-<dd><p class="first last">Uses <tt class="docutils literal"><span class="pre">galpy.potential</span></tt> force and density routines to characterize the difference between the vertical force and the surface density at large heights above the MW midplane.</p>
+<dd><p class="first last">Uses <code class="docutils literal"><span class="pre">galpy.potential</span></code> force and density routines to characterize the difference between the vertical force and the surface density at large heights above the MW midplane.</p>
 </dd>
 </dl>
 </li>
@@ -261,73 +291,197 @@ coordinates for all static potentials.</p>
 </li>
 <li><dl class="first docutils">
 <dt><em>Chemodynamics of the Milky Way. I. The first year of APOGEE data</em>, Friedrich Anders, Christina Chiappini, Basilio X. Santiago, et al. (2013), <em>Astron. &amp; Astrophys.</em>, <strong>564</strong>, A115 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2014A%26A...564A.115A">2014A&amp;A...564A.115A</a>):</dt>
-<dd><p class="first last">Employs galpy to perform orbit integrations in <tt class="docutils literal"><span class="pre">galpy.potential.MWPotential</span></tt> to characterize the orbits of stars in the APOGEE sample.</p>
+<dd><p class="first last">Employs galpy to perform orbit integrations in <code class="docutils literal"><span class="pre">galpy.potential.MWPotential</span></code> to characterize the orbits of stars in the APOGEE sample.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><em>Dynamical modeling of tidal streams</em>, Jo Bovy (2014), <em>Astrophys. J.</em>, <strong>795</strong>, 95 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2014ApJ...795...95B">2014ApJ...795...95B</a>):</dt>
-<dd><p class="first last">Introduces <tt class="docutils literal"><span class="pre">galpy.df.streamdf</span></tt> and <tt class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleIsochroneApprox</span></tt> for modeling tidal streams using simple models formulated in action-angle space (see the tutorial above).</p>
+<dd><p class="first last">Introduces <code class="docutils literal"><span class="pre">galpy.df.streamdf</span></code> and <code class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleIsochroneApprox</span></code> for modeling tidal streams using simple models formulated in action-angle space (see the tutorial above).</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
 <dt><em>The Milky Way Tomography with SDSS. V. Mapping the Dark Matter Halo</em>, Sarah R. Loebman, Zeljko Ivezic Thomas R. Quinn, Jo Bovy, Charlotte R. Christensen, Mario Juric, Rok Roskar, Alyson M. Brooks, &amp; Fabio Governato (2014), <em>Astrophys. J.</em>, <strong>794</strong>, 151 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2014ApJ...794..151L">2014ApJ...794..151L</a>):</dt>
-<dd><p class="first last">Uses <tt class="docutils literal"><span class="pre">galpy.potential</span></tt> functions to calculate the acceleration field of the best-fit potential in Bovy &amp; Rix (2013) above.</p>
+<dd><p class="first last">Uses <code class="docutils literal"><span class="pre">galpy.potential</span></code> functions to calculate the acceleration field of the best-fit potential in Bovy &amp; Rix (2013) above.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt><em>The power spectrum of the Milky Way: Velocity fluctuations in the Galactic disk</em>, Jo Bovy, Jonathan C. Bird, Ana E. Garcia Perez, Steven M. Majewski, David L. Nidever, &amp; Gail Zasowski (2015), <em>Astrophys. J.</em>, <strong>800</strong>, 83 (<a class="reference external" href="http://arxiv.org/abs/1410.8135">arXiv/1410.8135</a>):</dt>
-<dd><p class="first last">Uses <tt class="docutils literal"><span class="pre">galpy.df.evolveddiskdf</span></tt> to calculate the mean non-axisymmetric velocity field due to different non-axisymmetric perturbations and compares it to APOGEE data.</p>
+<dt><em>The Proper Motion of the Galactic Center Pulsar Relative to Sagittarius A*</em>, Geoffrey C. Bower, Adam Deller, Paul Demorest, et al. (2015), <em>Astrophys. J.</em>, <strong>798</strong>, 120 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2015ApJ...798..120B">2015ApJ...798..120B</a>):</dt>
+<dd><p class="first last">Utilizes <code class="docutils literal"><span class="pre">galpy.orbit</span></code> integration in Monte Carlo simulations of the possible origin of the pulsar PSR J1745-2900 near the black hole at the center of the Milky Way.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt><em>Generation of mock tidal streams</em>, Mark A. Fardal, Shuiyao Huang, &amp; Martin D. Weinberg (2014), <em>Mon. Not. Roy. Astron. Soc.</em>, submitted (<a class="reference external" href="http://arxiv.org/abs/1410.1861">arXiv/1410.1861</a>):</dt>
-<dd><p class="first last">Uses <tt class="docutils literal"><span class="pre">galpy.potential</span></tt> and <tt class="docutils literal"><span class="pre">galpy.orbit</span></tt> for orbit integration in creating a <em>particle-spray</em> model for tidal streams.</p>
+<dt><em>The power spectrum of the Milky Way: Velocity fluctuations in the Galactic disk</em>, Jo Bovy, Jonathan C. Bird, Ana E. Garcia Perez, Steven M. Majewski, David L. Nidever, &amp; Gail Zasowski (2015), <em>Astrophys. J.</em>, <strong>800</strong>, 83 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2015ApJ...800...83B">2015ApJ...800...83B</a>):</dt>
+<dd><p class="first last">Uses <code class="docutils literal"><span class="pre">galpy.df.evolveddiskdf</span></code> to calculate the mean non-axisymmetric velocity field due to different non-axisymmetric perturbations and compares it to APOGEE data.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt><em>The nature and orbit of the Ophiuchus stream</em>, Branimir Sesar, Jo Bovy, Edouard J. Bernard, et al. (2015), <em>Astrophys. J.</em>, submitted (<a class="reference external" href="http://arxiv.org/abs/1501.00581">arXiv/1501.00581</a>):</dt>
-<dd><p class="first last">Uses the Orbit.fit routine in <tt class="docutils literal"><span class="pre">galpy.orbit</span></tt> to fit the orbit of the Ophiuchus stream to newly obtained observational data and the routines in <tt class="docutils literal"><span class="pre">galpy.df.streamdf</span></tt> to model the creation of the stream.</p>
+<dt><em>The LMC geometry and outer stellar populations from early DES data</em>, Eduardo Balbinot, B. X. Santiago, L. Girardi, et al. (2015), <em>Mon. Not. Roy. Astron. Soc.</em>, <strong>449</strong>, 1129 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2015MNRAS.449.1129B">2015MNRAS.449.1129B</a>):</dt>
+<dd><p class="first last">Employs <code class="docutils literal"><span class="pre">galpy.potential.MWPotential</span></code> as a mass model for the Milky Way to constrain the mass of the LMC.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt><em>The LMC geometry and outer stellar populations from early DES data</em>, Eduardo Balbinot, B. X. Santiago, L. Girardi, et al. (2015), <em>Mon. Not. Roy. Astron. Soc.</em>, <strong>449</strong>, 1129 (<a class="reference external" href="http://arxiv.org/abs/1502.05050">arXiv/1502.05050</a>):</dt>
-<dd><p class="first last">Employs <tt class="docutils literal"><span class="pre">galpy.potential.MWPotential</span></tt> as a mass model for the Milky Way to constrain the mass of the LMC.</p>
+<dt><em>Generation of mock tidal streams</em>, Mark A. Fardal, Shuiyao Huang, &amp; Martin D. Weinberg (2015), <em>Mon. Not. Roy. Astron. Soc.</em>, <strong>452</strong>, 301 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2015MNRAS.452..301F">2015MNRAS.452..301F</a>):</dt>
+<dd><p class="first last">Uses <code class="docutils literal"><span class="pre">galpy.potential</span></code> and <code class="docutils literal"><span class="pre">galpy.orbit</span></code> for orbit integration in creating a <em>particle-spray</em> model for tidal streams.</p>
 </dd>
 </dl>
 </li>
 <li><dl class="first docutils">
-<dt><em>Young Pulsars and the Galactic Center GeV Gamma-ray Excess</em>, Ryan M. O’Leary, Matthew D. Kistler, Matthew Kerr, &amp; Jason Dexter (2015), <em>Phys. Rev. Lett.</em>, submitted (<a class="reference external" href="http://arxiv.org/abs/1504.02477">arXiv/1504.02477</a>):</dt>
-<dd><p class="first last">Uses galpy orbit integration  and <tt class="docutils literal"><span class="pre">galpy.potential.MWPotential2014</span></tt> as part of a Monte Carlo simulation of the Galactic young-pulsar population.</p>
+<dt><em>The nature and orbit of the Ophiuchus stream</em>, Branimir Sesar, Jo Bovy, Edouard J. Bernard, et al. (2015), <em>Astrophys. J.</em>, <strong>809</strong>, 59 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2015ApJ...809...59S">2015ApJ...809...59S</a>):</dt>
+<dd><p class="first last">Uses the <code class="docutils literal"><span class="pre">Orbit.fit</span></code> routine in <code class="docutils literal"><span class="pre">galpy.orbit</span></code> to fit the orbit of the Ophiuchus stream to newly obtained observational data and the routines in <code class="docutils literal"><span class="pre">galpy.df.streamdf</span></code> to model the creation of the stream.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Young Pulsars and the Galactic Center GeV Gamma-ray Excess</em>, Ryan M. O&#8217;Leary, Matthew D. Kistler, Matthew Kerr, &amp; Jason Dexter (2015), <em>Phys. Rev. Lett.</em>, submitted (<a class="reference external" href="http://arxiv.org/abs/1504.02477">arXiv/1504.02477</a>):</dt>
+<dd><p class="first last">Uses galpy orbit integration  and <code class="docutils literal"><span class="pre">galpy.potential.MWPotential2014</span></code> as part of a Monte Carlo simulation of the Galactic young-pulsar population.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Phase Wrapping of Epicyclic Perturbations in the Wobbly Galaxy</em>, Alexander de la Vega, Alice C. Quillen, Jeffrey L. Carlin, Sukanya Chakrabarti, &amp; Elena D&#8217;Onghia (2015), <em>Mon. Not. Roy. Astron. Soc.</em>, <strong>454</strong>, 933 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2015MNRAS.454..933D">2015MNRAS.454..933D</a>):</dt>
+<dd><p class="first last">Employs galpy orbit integration, <code class="docutils literal"><span class="pre">galpy.potential</span></code> functions, and <code class="docutils literal"><span class="pre">galpy.potential.MWPotential2014</span></code> to investigate epicyclic motions induced by the pericentric passage of a large dwarf galaxy and how these motions give rise to streaming motions in the vertical velocities of Milky Way disk stars.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Chemistry of the Most Metal-poor Stars in the Bulge and the z ≳ 10 Universe</em>, Andrew R. Casey &amp; Kevin C. Schlaufman (2015), <em>Astrophys. J.</em>, <strong>809</strong>, 110 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2015ApJ...809..110C">2015ApJ...809..110C</a>):</dt>
+<dd><p class="first last">This paper employs galpy orbit integration in <code class="docutils literal"><span class="pre">MWPotential</span></code> to characterize the orbits of three very metal-poor stars in the Galactic bulge.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first"><em>The Phoenix stream: a cold stream in the Southern hemisphere</em>, E. Balbinot, B. Yanny, T. S. Li, et al. (2015), <em>Astrophys. J.</em>, <strong>820</strong>, 58 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2016ApJ...820...58B">2016ApJ...820...58B</a>).</p>
+</li>
+<li><dl class="first docutils">
+<dt><em>Discovery of a Stellar Overdensity in Eridanus-Phoenix in the Dark Energy Survey</em>, T. S. Li, E. Balbinot, N. Mondrik, et al. (2015), <em>Astrophys. J.</em>, <strong>817</strong>, 135 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2016ApJ...817..135L">2016ApJ...817..135L</a>):</dt>
+<dd><p class="first last">Both of these papers use galpy orbit integration to integrate the orbit of NGC 1261 to investigate a possible association of this cluster with the newly discovered Phoenix stream and Eridanus-Phoenix overdensity.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>The Proper Motion of Palomar 5</em>, T. K. Fritz &amp; N. Kallivayalil (2015), <em>Astrophys. J.</em>, <strong>811</strong>, 123 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2015ApJ...811..123F">2015ApJ...811..123F</a>):</dt>
+<dd><p class="first last">This paper makes use of the <code class="docutils literal"><span class="pre">galpy.df.streamdf</span></code> model for tidal streams to constrain the Milky Way&#8217;s gravitational potential using the kinematics of the Palomar 5 cluster and stream.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Spiral- and bar-driven peculiar velocities in Milky Way-sized galaxy simulations</em>, Robert J. J. Grand, Jo Bovy, Daisuke Kawata, Jason A. S. Hunt, Benoit Famaey, Arnaud Siebert, Giacomo Monari, &amp; Mark Cropper (2015), <em>Mon. Not. Roy. Astron. Soc.</em>, <strong>453</strong>, 1867 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2015MNRAS.453.1867G">2015MNRAS.453.1867G</a>):</dt>
+<dd><p class="first last">Uses <code class="docutils literal"><span class="pre">galpy.df.evolveddiskdf</span></code> to calculate the mean non-axisymmetric velocity field due to the bar in different parts of the Milky Way.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Vertical kinematics of the thick disc at 4.5 ≲ R ≲ 9.5 kpc</em>, Kohei Hattori &amp; Gerard Gilmore (2015), <em>Mon. Not. Roy. Astron. Soc.</em>, <strong>454</strong>, 649 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2015MNRAS.454..649H">2015MNRAS.454..649H</a>):</dt>
+<dd><p class="first last">This paper uses <code class="docutils literal"><span class="pre">galpy.potential</span></code> functions to set up a realistic Milky-Way potential for investigating the kinematics of stars in the thick disk.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Local Stellar Kinematics from RAVE data - VI. Metallicity Gradients Based on the F-G Main-sequence Stars</em>, O. Plevne, T. Ak, S. Karaali, S. Bilir, S. Ak, Z. F. Bostanci (2015), <em>Pub. Astron. Soc. Aus.</em>, <strong>32</strong>, 43 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2015PASA...32...43P">2015PASA...32...43P</a>):</dt>
+<dd><p class="first last">This paper employs galpy orbit integration in <code class="docutils literal"><span class="pre">MWPotential2014</span></code> to calculate orbital parameters for a sample of RAVE F and G dwarfs to investigate the metallicity gradient in the Milky Way.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Dynamics of stream-subhalo interactions</em>, Jason L. Sanders, Jo Bovy, &amp; Denis Erkal (2015), <em>Mon. Not. Roy. Astron. Soc.</em>, <strong>457</strong>, 3817 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2016MNRAS.457.3817S">2016MNRAS.457.3817S</a>):</dt>
+<dd><p class="first last">Uses and extends <code class="docutils literal"><span class="pre">galpy.df.streamdf</span></code> to build a generative model of the dynamical effect of sub-halo impacts on tidal streams. This new functionality is contained in <code class="docutils literal"><span class="pre">galpy.df.streamgapdf</span></code>, a subclass of <code class="docutils literal"><span class="pre">galpy.df.streamdf</span></code>, and can be used to efficiently model the effect of impacts on the present-day structure of streams in position and velocity space.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Extremely metal-poor stars from the cosmic dawn in the bulge of the Milky Way</em>, L. M. Howes, A. R. Casey, M. Asplund, et al. (2015), <em>Nature</em>, <strong>527</strong>, 484 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2015Natur.527..484H">2015Natur.527..484H</a>):</dt>
+<dd><p class="first last">Employs galpy orbit integration in <code class="docutils literal"><span class="pre">MWPotential2014</span></code> to characterize the orbits of a sample of extremely metal-poor stars found in the bulge of the Milky Way. This analysis demonstrates that the orbits of these metal-poor stars are always close to the center of the Milky Way and that these stars are therefore true bulge stars rather than halo stars passing through the bulge.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Detecting the disruption of dark-matter halos with stellar streams</em>, Jo Bovy (2016), <em>Phys. Rev. Lett.</em>, <strong>116</strong>, 121301 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2016PhRvL.116l1301B">2016PhRvL.116l1301B</a>):</dt>
+<dd><p class="first last">Uses galpy functions in <code class="docutils literal"><span class="pre">galpy.df</span></code> to estimate the velocity kick imparted by a disrupting dark-matter halo on a stellar stream. Also employs <code class="docutils literal"><span class="pre">galpy.orbit</span></code> integration and <code class="docutils literal"><span class="pre">galpy.actionAngle</span></code> functions to analyze <em>N</em>-body simulations of such an interaction.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Identification of Globular Cluster Stars in RAVE data II: Extended tidal debris around NGC 3201</em>, B. Anguiano, G. M. De Silva, K. Freeman, et al. (2016), <em>Mon. Not. Roy. Astron. Soc.</em>, <strong>457</strong>, 2078 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2016MNRAS.457.2078A">2016MNRAS.457.2078A</a>):</dt>
+<dd><p class="first last">Employs <code class="docutils literal"><span class="pre">galpy.orbit</span></code> integration to study the orbits of potential tidal-debris members of NGC 3201.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Young and Millisecond Pulsar GeV Gamma-ray Fluxes from the Galactic Center and Beyond</em>, Ryan M. O&#8217;Leary, Matthew D. Kistler, Matthew Kerr, &amp; Jason Dexter (2016), <em>Phys. Rev. D</em>, submitted (<a class="reference external" href="http://arxiv.org/abs/1601.05797">arXiv/1601.05797</a>):</dt>
+<dd><p class="first last">Uses <code class="docutils literal"><span class="pre">galpy.orbit</span></code> integration in <code class="docutils literal"><span class="pre">MWPotential2014</span></code> for orbit integration of pulsars kicked out of the central region of the Milky Way.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Abundances and kinematics for ten anticentre open clusters</em>, T. Cantat-Gaudin, P. Donati, A. Vallenari, R. Sordo, A. Bragaglia, L. Magrini (2016), <em>Astron. &amp; Astrophys.</em>, <strong>588</strong>, A120 (<a class="reference external" href="http://adsabs.harvard.edu/abs/2016A%26A...588A.120C">2016A&amp;A...588A.120C</a>):</dt>
+<dd><p class="first last">Uses <code class="docutils literal"><span class="pre">galpy.orbit</span></code> integration in <code class="docutils literal"><span class="pre">MWPotential2014</span></code> to characterize the orbits of 10 open clusters located toward the Galactic anti-center, finding that the most distant clusters have high-eccentricity orbits.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>A Magellanic Origin of the DES Dwarfs</em>, P. Jethwa, D. Erkal, &amp; V. Belokurov (2016), <em>Mon. Not. Roy. Astron. Soc.</em>, submitted (<a class="reference external" href="http://arxiv.org/abs/1603.04420">arXiv/1603.04420</a>):</dt>
+<dd><p class="first last">Employs the C implementations of <code class="docutils literal"><span class="pre">galpy.potential</span></code>s to compute forces in orbit integrations of the LMC&#8217;s satellite-galaxy population.</p>
+</dd>
+</dl>
+</li>
+<li><p class="first"><em>PSR J1024-0719: A Millisecond Pulsar in an Unusual Long-Period Orbit</em>, D. L. Kaplan, T. Kupfer, D. J. Nice, et al. (2016), <em>Astrophys. J.</em>, submitted (<a class="reference external" href="http://arxiv.org/abs/1604.00131">arXiv/1604.00131</a>):</p>
+</li>
+<li><dl class="first docutils">
+<dt><em>A millisecond pulsar in an extremely wide binary system</em>, C. G. Bassa, G. H. Janssen, B. W. Stappers, et al. (2016), <em>Mon. Not. Roy. Astron. Soc.</em>, submitted (<a class="reference external" href="http://arxiv.org/abs/1604.00129">arXiv/1604.00129</a>):</dt>
+<dd><p class="first last">Both of these papers use <code class="docutils literal"><span class="pre">galpy.orbit</span></code> integration in <code class="docutils literal"><span class="pre">MWPotential2014</span></code> to determine the orbit of the milli-second pulsar PSR J1024−0719, a pulsar in an unusual binary system.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>The first low-mass black hole X-ray binary identified in quiescence outside of a globular cluster</em>, B. E. Tetarenko, A. Bahramian, R. M. Arnason, et al. (2016), <em>Astrophys. J.</em>, in press (<a class="reference external" href="http://arxiv.org/abs/1605.00270">arXiv/1605.00270</a>):</dt>
+<dd><p class="first last">This paper employs <code class="docutils literal"><span class="pre">galpy.orbit</span></code> integration of orbits within the position-velocity uncertainty ellipse of the radio source VLA J213002.08+120904 to help characterize its nature (specifically, to rule out that it is a magnetar based on its birth location).</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Action-based Dynamical Modelling for the Milky Way Disk</em>, Wilma H. Trick, Jo Bovy, &amp; Hans-Walter Rix (2016), <em>Astrophys. J.</em>, in press (<a class="reference external" href="http://arxiv.org/abs/1605.08601">arXiv/1605.08601</a>):</dt>
+<dd><p class="first last">Makes use of potential models, the Staeckel actionAngle modules, and the quasiisothermal DF to develop a robust dynamical modeling approach for recovering the Milky Way&#8217;s gravitational potential from kinematics of disk stars.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>A Dipole on the Sky: Predictions for Hypervelocity Stars from the Large Magellanic Cloud</em>, Douglas Boubert &amp; N. W. Evans (2016), <em>Astrophys. J. Lett.</em>, in press (<a class="reference external" href="http://arxiv.org/abs/1606.02548">arXiv/1606.02548</a>):</dt>
+<dd><p class="first last">Uses <code class="docutils literal"><span class="pre">galpy.orbit</span></code> integration to investigate the orbits of hyper-velocity stars that could be ejected from the Large Magellanic Cloud and their distribution on the sky.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Linear perturbation theory for tidal streams and the small-scale CDM power spectrum</em>, Jo Bovy, Denis Erkal, &amp; Jason L. Sanders (2016), <em>Mon. Not. Roy. Astron. Soc.</em>, submitted (<a class="reference external" href="http://arxiv.org/abs/1606.03470">arXiv/1606.03470</a>):</dt>
+<dd><p class="first last">Uses and extends <code class="docutils literal"><span class="pre">galpy.df.streamdf</span></code> and <code class="docutils literal"><span class="pre">galpy.df.streamgapdf</span></code> to quickly compute the effect of impacts from dark-matter subhalos on stellar streams and investigates the structure of perturbed streams and how this structure relates to the CDM subhalo mass spectrum.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Local Stellar Kinematics from RAVE data - VII. Metallicity Gradients from Red Clump Stars</em>, O. Onal Tas, S. Bilir, G. M. Seabroke, S. Karaali, S. Ak, T. Ak, &amp; Z. F. Bostanci, <em>Pub. Astron. Soc. Aus.</em>, in press (<a class="reference external" href="http://arxiv.org/abs/1607.07049">arXiv/1607.07049</a>):</dt>
+<dd><p class="first last">Employs galpy orbit integration in <code class="docutils literal"><span class="pre">MWPotential2014</span></code> to calculate orbital parameters for a sample of red clump stars in RAVE to investigate the metallicity gradient in the Milky Way.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><em>Study of Eclipsing Binary and Multiple Systems in OB Associations IV: Cas OB6 Member DN Cas</em>, V. Bakis, H. Bakis, S. Bilir, Z. Eker, <em>Pub. Astron. Soc. Aus.</em>, in press (<a class="reference external" href="http://arxiv.org/abs/1608.00456">arXiv/1608.00456</a>):</dt>
+<dd><p class="first last">Uses galpy orbit integration in <code class="docutils literal"><span class="pre">MWPotential2014</span></code> to calculate the orbit and orbital parameters of the spectroscopic binary DN Cas in the Milky Way.</p>
 </dd>
 </dl>
 </li>
 </ol>
 </div>
-<div class="section" id="acknowledging-galpy">
-<h2>Acknowledging galpy<a class="headerlink" href="#acknowledging-galpy" title="Permalink to this headline">¶</a></h2>
-<p>If you use galpy in a publication, please cite the following paper</p>
-<ul class="simple">
-<li><em>galpy: A Python Library for Galactic Dynamics</em>, Jo Bovy (2015), <em>Astrophys. J. Supp.</em>, <strong>216</strong>, 29 (<a class="reference external" href="http://arxiv.org/abs/1412.3451">arXiv/1412.3451</a>).</li>
-</ul>
-<p>and link to <tt class="docutils literal"><span class="pre">http://github.com/jobovy/galpy</span></tt>. Please also send me a
-reference to the paper or send a pull request including your paper in
-the list of galpy papers on this page (this page is at
-doc/source/index.rst). Thanks!</p>
-<p>When using the <tt class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleAdiabatic</span></tt> and <tt class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleStaeckel</span></tt> modules, please cite <a class="reference external" href="http://adsabs.harvard.edu/abs/2013ApJ...779..115B">2013ApJ...779..115B</a> in addition to the papers describing the algorithm used. When using <tt class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleIsochroneApprox</span></tt>, please cite <a class="reference external" href="http://adsabs.harvard.edu/abs/2014ApJ...795...95B">2014ApJ...795...95B</a>, which introduced this technique.</p>
-</div>
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
-<li><a class="reference internal" href="genindex.html"><em>Index</em></a></li>
-<li><a class="reference internal" href="py-modindex.html"><em>Module Index</em></a></li>
-<li><a class="reference internal" href="search.html"><em>Search Page</em></a></li>
+<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span>Search Page</span></a></li>
 </ul>
 </div>
 
@@ -337,7 +491,7 @@ doc/source/index.rst). Thanks!</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -346,13 +500,13 @@ doc/source/index.rst). Thanks!</p>
         <li class="right" >
           <a href="installation.html" title="Installation"
              >next</a> |</li>
-        <li><a href="#">galpy 1.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="#">galpy 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2010 - 2015, Jo Bovy.
-      Last updated on Jul 07, 2015.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

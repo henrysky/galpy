@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Introduction &mdash; galpy 1.1 documentation</title>
+    <title>Introduction &mdash; galpy 1.2 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.1',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,14 +23,14 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/logo-small.ico"/>
-    <link rel="top" title="galpy 1.1 documentation" href="index.html" />
+    <link rel="top" title="galpy 1.2 documentation" href="index.html" />
     <link rel="next" title="Potentials in galpy" href="potential.html" />
-    <link rel="prev" title="Installation" href="installation.html" /> 
+    <link rel="prev" title="NEW in v1.2: What’s new?" href="whatsnew.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -40,12 +40,12 @@
           <a href="potential.html" title="Potentials in galpy"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="installation.html" title="Installation"
+          <a href="whatsnew.html" title="NEW in v1.2: What’s new?"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">galpy 1.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">galpy 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/logo-small.png" alt="Logo"/>
@@ -54,7 +54,11 @@
   <ul>
 <li><a class="reference internal" href="#">Introduction</a><ul>
 <li><a class="reference internal" href="#rotation-curves">Rotation curves</a></li>
-<li><a class="reference internal" href="#units-in-galpy">Units in galpy</a></li>
+<li><a class="reference internal" href="#updated-in-v1-2-units-in-galpy"><strong>UPDATED in v1.2</strong>: Units in galpy</a><ul>
+<li><a class="reference internal" href="#internal-natural-units">Internal (natural) units</a></li>
+<li><a class="reference internal" href="#physical-units">Physical units</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#orbit-integration">Orbit integration</a></li>
 <li><a class="reference internal" href="#escape-velocity-curves">Escape velocity curves</a></li>
 </ul>
@@ -62,17 +66,19 @@
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="installation.html"
-                        title="previous chapter">Installation</a></p>
+  <p class="topless"><a href="whatsnew.html"
+                        title="previous chapter"><strong>NEW in v1.2</strong>: What&#8217;s new?</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="potential.html"
                         title="next chapter">Potentials in galpy</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/getting_started.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/getting_started.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -91,14 +97,14 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
 <p>The most basic features of galpy are its ability to display rotation
 curves and perform orbit integration for arbitrary combinations of
 potentials. This section introduce the most basic features of
-<tt class="docutils literal"><span class="pre">galpy.potential</span></tt> and <tt class="docutils literal"><span class="pre">galpy.orbit</span></tt>.</p>
+<code class="docutils literal"><span class="pre">galpy.potential</span></code> and <code class="docutils literal"><span class="pre">galpy.orbit</span></code>.</p>
 <div class="section" id="rotation-curves">
 <span id="rotcurves"></span><h2>Rotation curves<a class="headerlink" href="#rotation-curves" title="Permalink to this headline">¶</a></h2>
 <p>The following code example shows how to initialize a Miyamoto-Nagai disk potential and plot its rotation curve</p>
@@ -107,9 +113,11 @@ potentials. This section introduce the most basic features of
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mp</span><span class="o">.</span><span class="n">plotRotcurve</span><span class="p">(</span><span class="n">Rrange</span><span class="o">=</span><span class="p">[</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">10.</span><span class="p">],</span><span class="n">grid</span><span class="o">=</span><span class="mi">1001</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The <tt class="docutils literal"><span class="pre">normalize=1.</span></tt> option normalizes the potential such that the
-radial force is a fraction <tt class="docutils literal"><span class="pre">normalize=1.</span></tt> of the radial force
-necessary to make the circular velocity 1 at R=1.</p>
+<p>The <code class="docutils literal"><span class="pre">normalize=1.</span></code> option normalizes the potential such that the
+radial force is a fraction <code class="docutils literal"><span class="pre">normalize=1.</span></code> of the radial force
+necessary to make the circular velocity 1 at R=1. Starting in v1.2 you
+can also initialize potentials with amplitudes and other parameters in
+physical units; see below and other parts of this documentation.</p>
 <p>Similarly we can initialize other potentials and plot the combined
 rotation curve</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">galpy.potential</span> <span class="kn">import</span> <span class="n">NFWPotential</span><span class="p">,</span> <span class="n">HernquistPotential</span>
@@ -120,7 +128,7 @@ rotation curve</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">plotRotcurve</span><span class="p">([</span><span class="n">hp</span><span class="p">,</span><span class="n">mp</span><span class="p">,</span><span class="n">np</span><span class="p">],</span><span class="n">Rrange</span><span class="o">=</span><span class="p">[</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">10.</span><span class="p">],</span><span class="n">grid</span><span class="o">=</span><span class="mi">1001</span><span class="p">,</span><span class="n">yrange</span><span class="o">=</span><span class="p">[</span><span class="mf">0.</span><span class="p">,</span><span class="mf">1.2</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Note that the <tt class="docutils literal"><span class="pre">normalize</span></tt> values add up to 1. such that the circular
+<p>Note that the <code class="docutils literal"><span class="pre">normalize</span></code> values add up to 1. such that the circular
 velocity will be 1 at R=1. The resulting rotation curve is
 approximately flat. To show the rotation curves of the three
 components do</p>
@@ -131,23 +139,25 @@ components do</p>
 </div>
 <p>You&#8217;ll see the following</p>
 <img alt="_images/rotcurve.png" src="_images/rotcurve.png" />
-<p>As a shortcut the <tt class="docutils literal"><span class="pre">[hp,mp,np]</span></tt> Milky-Way-like potential is defined as</p>
+<p>As a shortcut the <code class="docutils literal"><span class="pre">[hp,mp,np]</span></code> Milky-Way-like potential is defined as</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">galpy.potential</span> <span class="kn">import</span> <span class="n">MWPotential</span>
 </pre></div>
 </div>
 <p>This is <em>not</em> the recommended Milky-Way-like potential in
-<tt class="docutils literal"><span class="pre">galpy</span></tt>. The (currently) recommended Milky-Way-like potential is
-<tt class="docutils literal"><span class="pre">MWPotential2014</span></tt>:</p>
+<code class="docutils literal"><span class="pre">galpy</span></code>. The (currently) recommended Milky-Way-like potential is
+<code class="docutils literal"><span class="pre">MWPotential2014</span></code>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">galpy.potential</span> <span class="kn">import</span> <span class="n">MWPotential2014</span>
 </pre></div>
 </div>
-<p><tt class="docutils literal"><span class="pre">MWPotential2014</span></tt> has a more realistic bulge model and is actually
+<p><code class="docutils literal"><span class="pre">MWPotential2014</span></code> has a more realistic bulge model and is actually
 fit to various dynamical constraints on the Milky Way (see
-<a class="reference internal" href="reference/potential.html#potential-mw"><em>here</em></a> and the <tt class="docutils literal"><span class="pre">galpy</span></tt> paper).</p>
+<a class="reference internal" href="reference/potential.html#potential-mw"><span>here</span></a> and the <code class="docutils literal"><span class="pre">galpy</span></code> paper).</p>
 </div>
-<div class="section" id="units-in-galpy">
-<h2>Units in galpy<a class="headerlink" href="#units-in-galpy" title="Permalink to this headline">¶</a></h2>
-<p id="units">Above we normalized the potentials such that they give a circular
+<div class="section" id="updated-in-v1-2-units-in-galpy">
+<span id="units"></span><h2><strong>UPDATED in v1.2</strong>: Units in galpy<a class="headerlink" href="#updated-in-v1-2-units-in-galpy" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="internal-natural-units">
+<h3>Internal (natural) units<a class="headerlink" href="#internal-natural-units" title="Permalink to this headline">¶</a></h3>
+<p>Above we normalized the potentials such that they give a circular
 velocity of 1 at R=1. These are the standard galpy units (sometimes
 referred to as <em>natural units</em> in the documentation). galpy will work
 most robustly when using these natural units. When using galpy to
@@ -155,11 +165,14 @@ model a real galaxy with, say, a circular velocity of 220 km/s at R=8
 kpc, all of the velocities should be scaled as v= V/[220 km/s] and all
 of the positions should be scaled as x = X/[8 kpc] when using galpy&#8217;s
 natural units.</p>
-<p>For convenience, a utility module <tt class="docutils literal"><span class="pre">bovy_conversion</span></tt> is included in
+<p>For convenience, a utility module <code class="docutils literal"><span class="pre">bovy_conversion</span></code> is included in
 galpy that helps in converting between physical units and natural
-units for various quantities. For example, in natural units the
-orbital time of a circular orbit at R=1 is <span class="math">\(2\pi\)</span>; in
-physical units this corresponds to</p>
+units for various quantities. Alternatively, you can use the
+<code class="docutils literal"><span class="pre">astropy</span></code> <a class="reference external" href="http://docs.astropy.org/en/stable/units/">units</a>
+module to specify inputs in physical units and get outputs with units
+(see the <a class="reference internal" href="#physunits"><span>next subsection</span></a> below).  For example, in
+natural units the orbital time of a circular orbit at R=1 is
+<span class="math">\(2\pi\)</span>; in physical units this corresponds to</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">galpy.util</span> <span class="kn">import</span> <span class="n">bovy_conversion</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="mf">2.</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">bovy_conversion</span><span class="o">.</span><span class="n">time_in_Gyr</span><span class="p">(</span><span class="mf">220.</span><span class="p">,</span><span class="mf">8.</span><span class="p">)</span>
 <span class="go">0.223405444283</span>
@@ -184,9 +197,9 @@ kpc above the plane is approximately <span class="math">\(70\,(2\pi G\,
 M_\odot\,\mathrm{pc}^{-2})\)</span> (e.g., <a class="reference external" href="http://adsabs.harvard.edu/abs/2013arXiv1309.0809B">2013arXiv1309.0809B</a>), this shows
 that our Milky-Way-like potential has a realistic disk (at least in
 this respect).</p>
-<p><tt class="docutils literal"><span class="pre">bovy_conversion</span></tt> further has functions to convert densities,
+<p><code class="docutils literal"><span class="pre">bovy_conversion</span></code> further has functions to convert densities,
 masses, surface densities, and frequencies to physical units (actions
-are considered to be too obvious to be included); see <a class="reference internal" href="reference/bovyconversion.html#bovyconversion"><em>here</em></a> for a full list. As a final example, the local dark
+are considered to be too obvious to be included); see <a class="reference internal" href="reference/bovyconversion.html#bovyconversion"><span>here</span></a> for a full list. As a final example, the local dark
 matter density in the Milky-Way-like potential is given by</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">MWPotential2014</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">dens</span><span class="p">(</span><span class="mf">1.</span><span class="p">,</span><span class="mf">0.</span><span class="p">)</span><span class="o">*</span><span class="n">bovy_conversion</span><span class="o">.</span><span class="n">dens_in_msolpc3</span><span class="p">(</span><span class="mf">220.</span><span class="p">,</span><span class="mf">8.</span><span class="p">)</span>
 <span class="go">0.0075419566970079373</span>
@@ -200,12 +213,202 @@ matter density in the Milky-Way-like potential is given by</p>
 <p>or about <span class="math">\(0.0075\,M_\odot\,\mathrm{pc}^{-3} \approx
 0.3\,\mathrm{GeV\,cm}^{-3}\)</span>, in line with current measurements (e.g.,
 <a class="reference external" href="http://adsabs.harvard.edu/abs/2012ApJ...756...89B">2012ApJ...756...89B</a>).</p>
-<p>When <tt class="docutils literal"><span class="pre">galpy</span></tt> Orbits are initialized using a distance scale <tt class="docutils literal"><span class="pre">ro=</span></tt>
-and a velocity scale <tt class="docutils literal"><span class="pre">vo=</span></tt> output quantities returned and plotted in
-physical coordinates. Specifically, positions are are returned in
-units of kpc, velocities in km/s, energies and the Jacobi integral in
-(km/s)^2, the angular momentum o.L() and actions in km/s kpc,
-frequencies in 1/Gyr, and times and periods in Gyr.</p>
+<p>When <code class="docutils literal"><span class="pre">galpy</span></code> Potentials, Orbits, actionAngles, or DFs are
+initialized using a distance scale <code class="docutils literal"><span class="pre">ro=</span></code> and a velocity scale
+<code class="docutils literal"><span class="pre">vo=</span></code> output quantities returned and plotted in physical
+coordinates. Specifically, positions are returned in the units in the
+table below. If <code class="docutils literal"><span class="pre">astropy-units</span> <span class="pre">=</span> <span class="pre">True</span></code> in the <a class="reference internal" href="installation.html#configfile"><span>configuration
+file</span></a>, then an <a class="reference external" href="http://docs.astropy.org/en/stable/api/astropy.units.Quantity.html">astropy Quantity</a>
+which includes the units is returned instead (see below).</p>
+<table border="1" class="docutils" id="unitstable">
+<colgroup>
+<col width="53%" />
+<col width="47%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Quantity</th>
+<th class="head">Default unit</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>position</td>
+<td>kpc</td>
+</tr>
+<tr class="row-odd"><td>velocity</td>
+<td>km/s</td>
+</tr>
+<tr class="row-even"><td>energy</td>
+<td>(km/s)^2</td>
+</tr>
+<tr class="row-odd"><td>Jacobi integral</td>
+<td>(km/s)^2</td>
+</tr>
+<tr class="row-even"><td>angular momentum</td>
+<td>km/s x kpc</td>
+</tr>
+<tr class="row-odd"><td>actions</td>
+<td>km/s x kpc</td>
+</tr>
+<tr class="row-even"><td>frequencies</td>
+<td>1/Gyr</td>
+</tr>
+<tr class="row-odd"><td>time</td>
+<td>Gyr</td>
+</tr>
+<tr class="row-even"><td>period</td>
+<td>Gyr</td>
+</tr>
+<tr class="row-odd"><td>potential</td>
+<td>(km/s)^2</td>
+</tr>
+<tr class="row-even"><td>force</td>
+<td>km/s/Myr</td>
+</tr>
+<tr class="row-odd"><td>force derivative</td>
+<td>1/Gyr^2</td>
+</tr>
+<tr class="row-even"><td>density</td>
+<td>Msun/pc^3</td>
+</tr>
+<tr class="row-odd"><td>number density</td>
+<td>1/pc^3</td>
+</tr>
+<tr class="row-even"><td>surface density</td>
+<td>Msun/pc^2</td>
+</tr>
+<tr class="row-odd"><td>mass</td>
+<td>Msun</td>
+</tr>
+<tr class="row-even"><td>angle</td>
+<td>rad</td>
+</tr>
+<tr class="row-odd"><td>proper motion</td>
+<td>mas/yr</td>
+</tr>
+<tr class="row-even"><td>phase-space density</td>
+<td>1/(kpc x km/s)^3</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="physical-units">
+<span id="physunits"></span><h3>Physical units<a class="headerlink" href="#physical-units" title="Permalink to this headline">¶</a></h3>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">With <code class="docutils literal"><span class="pre">apy-units</span> <span class="pre">=</span> <span class="pre">True</span></code> in the configuration file and specifying all inputs using astropy Quantity with units, <code class="docutils literal"><span class="pre">galpy</span></code> will return outputs in convenient, unambiguous units.</p>
+</div>
+<p>Full support for unitful quantities using <a class="reference external" href="http://docs.astropy.org/en/stable/api/astropy.units.Quantity.html">astropy Quantity</a>
+was added in v1.2. Thus, <em>any</em> input to a galpy Potential, Orbit,
+actionAngle, or DF instantiation, method, or function can now be
+specified in physical units as a Quantity. For example, we can set up
+a Miyamoto-Nagai disk potential with a mass of
+<span class="math">\(5\times10^{10}\,M_\odot\)</span>, a scale length of 3 kpc, and a scale
+height of 300 pc as follows</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">galpy.potential</span> <span class="kn">import</span> <span class="n">MiyamotoNagaiPotential</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">astropy</span> <span class="kn">import</span> <span class="n">units</span>
+<span class="gp">&gt;&gt;&gt; </span> <span class="n">mp</span><span class="o">=</span> <span class="n">MiyamotoNagaiPotential</span><span class="p">(</span><span class="n">amp</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">10</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">Msun</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="mf">3.</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">kpc</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mf">300.</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">pc</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Internally, galpy uses a set of normalized units, where positions are
+divided by a scale <code class="docutils literal"><span class="pre">ro</span></code> and velocities are divided by a scale
+<code class="docutils literal"><span class="pre">vo</span></code>. If these are not specified, the default set from the
+<a class="reference internal" href="installation.html#configfile"><span>configuration file</span></a> is used. However, they can also
+be specified on an instance-by-instance manner for all Potential,
+Orbit, actionAngle, and DF instances. For example</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mp</span><span class="o">=</span> <span class="n">MiyamotoNagaiPotential</span><span class="p">(</span><span class="n">amp</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">10</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">Msun</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="mf">3.</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">kpc</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mf">300.</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">pc</span><span class="p">,</span><span class="n">ro</span><span class="o">=</span><span class="mi">9</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">kpc</span><span class="p">,</span><span class="n">vo</span><span class="o">=</span><span class="mf">230.</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">km</span><span class="o">/</span><span class="n">units</span><span class="o">.</span><span class="n">s</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>uses differently normalized internal units. When you specify the
+parameters of a Potential, Orbit, etc. in physical units (e.g., the
+Miyamoto-Nagai setup above), the internal set of units is unimportant
+as long as you receive output in physical units (see below) and it is
+unnecessary to change the values of <code class="docutils literal"><span class="pre">ro</span></code> and <code class="docutils literal"><span class="pre">vo</span></code>, unless you are
+modeling a system with very different distance and velocity scales
+from the default set (for example, if you are looking at internal
+globular cluster dynamics rather than galaxy dynamics). If you find an
+input to any galpy function that does not take a Quantity as an input
+(or that does it wrong), please report an <a class="reference external" href="https://github.com/jobovy/galpy/issues">Issue</a>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If you combine potentials in a list, galpy uses the <code class="docutils literal"><span class="pre">ro</span></code> and <code class="docutils literal"><span class="pre">vo</span></code> scales from the first potential in the list for physical &lt;-&gt; internal unit conversion. galpy does <strong>not</strong> always check whether the unit systems of various objects are consistent when they are combined (but does check this for many common cases, e.g., integrating an Orbit in a Potential).</p>
+</div>
+<p>galpy can also return values with units as an astropy
+Quantity. Whether or not this is done is specified by the
+<code class="docutils literal"><span class="pre">apy-units</span></code> option in the <a class="reference internal" href="installation.html#configfile"><span>configuration file</span></a>. If
+you want to get return values as a Quantity, set <code class="docutils literal"><span class="pre">apy-units</span> <span class="pre">=</span> <span class="pre">True</span></code>
+in the configuration file. Then you can do for the Miyamoto-Nagai
+potential above</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mp</span><span class="o">.</span><span class="n">vcirc</span><span class="p">(</span><span class="mf">10.</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">kpc</span><span class="p">)</span>
+<span class="go">&lt;Quantity 135.72399857308042 km / s&gt;</span>
+</pre></div>
+</div>
+<p>Note that if you do not specify the argument as a Quantity with units,
+galpy will assume that it is given in natural units, viz.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mp</span><span class="o">.</span><span class="n">vcirc</span><span class="p">(</span><span class="mf">10.</span><span class="p">)</span>
+<span class="go">&lt;Quantity 51.78776595740726 km / s&gt;</span>
+</pre></div>
+</div>
+<p>because this input is considered equal to 10 times the distance scale
+(this is for the case using the default <code class="docutils literal"><span class="pre">ro</span></code> and <code class="docutils literal"><span class="pre">vo</span></code>, the first
+Miyamoto-Nagai instantiation of this subsection)</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mp</span><span class="o">.</span><span class="n">vcirc</span><span class="p">(</span><span class="mf">10.</span><span class="o">*</span><span class="mf">8.</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">kpc</span><span class="p">)</span>
+<span class="go">&lt;Quantity 51.78776595740726 km / s&gt;</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">If you do not specify arguments of methods and functions using a Quantity with units, galpy assumes that the argument has internal (natural) units.</p>
+</div>
+<p>If you do not use astropy Quantities (<code class="docutils literal"><span class="pre">apy-units</span> <span class="pre">=</span> <span class="pre">False</span></code> in the
+configuration file), you can still get output in physical units when
+you have specified <code class="docutils literal"><span class="pre">ro=</span></code> and <code class="docutils literal"><span class="pre">vo=</span></code> during instantiation of the
+Potential, Orbit, etc. For example, for the Miyamoto-Nagai potential
+above in a session with <code class="docutils literal"><span class="pre">apy-units</span> <span class="pre">=</span> <span class="pre">False</span></code></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mp</span><span class="o">=</span> <span class="n">MiyamotoNagaiPotential</span><span class="p">(</span><span class="n">amp</span><span class="o">=</span><span class="mi">5</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">10</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">Msun</span><span class="p">,</span><span class="n">a</span><span class="o">=</span><span class="mf">3.</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">kpc</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mf">300.</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">pc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mp</span><span class="o">.</span><span class="n">vcirc</span><span class="p">(</span><span class="mf">10.</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">kpc</span><span class="p">)</span>
+<span class="go">135.72399857308042</span>
+</pre></div>
+</div>
+<p>This return value is in km/s (see the <a class="reference internal" href="#unitstable"><span>table</span></a> at the
+end of the previous section for default units for different
+quantities). Note that as long as astropy is installed, we can still
+provide arguments as a Quantity, but the return value will not be a
+Quantity when <code class="docutils literal"><span class="pre">apy-units</span> <span class="pre">=</span> <span class="pre">False</span></code>. If you setup a Potential, Orbit,
+actionAngle, or DF object with parameters specified as a Quantity, the
+default is to return any output in physical units. This is why
+<code class="docutils literal"><span class="pre">mp.vcirc</span></code> returns the velocity in km/s above. Potential and Orbit
+instances (or lists of Potentials) also support the functions
+<code class="docutils literal"><span class="pre">turn_physical_off</span></code> and <code class="docutils literal"><span class="pre">turn_physical_on</span></code> to turn physical output
+off or on. For example, if we do</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mp</span><span class="o">.</span><span class="n">turn_physical_off</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>outputs will be in internal units</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mp</span><span class="o">.</span><span class="n">vcirc</span><span class="p">(</span><span class="mf">10.</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">kpc</span><span class="p">)</span>
+<span class="go">0.61692726624127459</span>
+</pre></div>
+</div>
+<p>If you setup a Potential, Orbit, etc. object without specifying the
+parameters as a Quantity, the default is to return output in natural
+units, except when <code class="docutils literal"><span class="pre">ro=</span></code> and <code class="docutils literal"><span class="pre">vo=</span></code> scales are specified. <code class="docutils literal"><span class="pre">ro=</span></code>
+and <code class="docutils literal"><span class="pre">vo=</span></code> can always be given as a Quantity themselves. <code class="docutils literal"><span class="pre">ro=</span></code>
+and <code class="docutils literal"><span class="pre">vo=</span></code> can always also be specified on a method-by-method basis,
+overwriting an object&#8217;s default. For example</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mp</span><span class="o">.</span><span class="n">vcirc</span><span class="p">(</span><span class="mf">10.</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">kpc</span><span class="p">,</span><span class="n">ro</span><span class="o">=</span><span class="mf">12.</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">kpc</span><span class="p">)</span>
+<span class="go">0.69273212489609337</span>
+</pre></div>
+</div>
+<p>Physical output can also be turned off on a method-by-method or function-by-function basis, for example</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">mp</span><span class="o">.</span><span class="n">turn_physical_on</span><span class="p">()</span> <span class="c"># turn overall physical output on</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mp</span><span class="o">.</span><span class="n">vcirc</span><span class="p">(</span><span class="mf">10.</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">kpc</span><span class="p">)</span>
+<span class="go">135.72399857308042 # km/s</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mp</span><span class="o">.</span><span class="n">vcirc</span><span class="p">(</span><span class="mf">10.</span><span class="o">*</span><span class="n">units</span><span class="o">.</span><span class="n">kpc</span><span class="p">,</span><span class="n">use_physical</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="go">0.61692726624127459 # in natural units</span>
+</pre></div>
+</div>
+<p>Further examples of specifying inputs with units will be given
+throughout the documentation.</p>
+</div>
 </div>
 <div class="section" id="orbit-integration">
 <h2>Orbit integration<a class="headerlink" href="#orbit-integration" title="Permalink to this headline">¶</a></h2>
@@ -216,14 +419,18 @@ simple Miyamoto-Nagai potential, we initialize an orbit as follows</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">o</span><span class="o">=</span> <span class="n">Orbit</span><span class="p">(</span><span class="n">vxvv</span><span class="o">=</span><span class="p">[</span><span class="mf">1.</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">1.1</span><span class="p">,</span><span class="mf">0.</span><span class="p">,</span><span class="mf">0.1</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>Since we gave <tt class="docutils literal"><span class="pre">Orbit()</span></tt> a five-dimensional initial condition
-<tt class="docutils literal"><span class="pre">[R,vR,vT,z,vz]</span></tt>, we assume we are dealing with a three-dimensional
+<p>Since we gave <code class="docutils literal"><span class="pre">Orbit()</span></code> a five-dimensional initial condition
+<code class="docutils literal"><span class="pre">[R,vR,vT,z,vz]</span></code>, we assume we are dealing with a three-dimensional
 axisymmetric potential in which we do not wish to track the
-azimuth. We then integrate the orbit for a set of times <tt class="docutils literal"><span class="pre">ts</span></tt></p>
+azimuth. We then integrate the orbit for a set of times <code class="docutils literal"><span class="pre">ts</span></code></p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">o</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span><span class="n">mp</span><span class="p">,</span><span class="n">nethod</span><span class="o">=</span><span class="s">&#39;odeint&#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">o</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span><span class="n">mp</span><span class="p">,</span><span class="n">method</span><span class="o">=</span><span class="s">&#39;odeint&#39;</span><span class="p">)</span>
 </pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Like for the Miyamoto-Nagai example in the section above, the Orbit and integration times can also be specified in physical units, e.g., <code class="docutils literal"><span class="pre">o=</span> <span class="pre">Orbit(vxvv=[8.*units.kpc,22.*units.km/units.s,242.*units.km/units.s.0.*units.pc,20.*units.km/s])</span></code> and <code class="docutils literal"><span class="pre">ts=</span> <span class="pre">numpy.linspace(0.,10.,10000)*units.Gyr</span></code></p>
 </div>
 <p>Now we plot the resulting orbit as</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">o</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -247,8 +454,8 @@ error remains constant</p>
 tens of times, using symplectic integrators is mostly unnecessary
 (compared to planetary systems which orbits millions or billions of
 times). galpy contains fast integrators written in C, which can be
-accessed through the <tt class="docutils literal"><span class="pre">method=</span></tt> keyword (e.g.,
-<tt class="docutils literal"><span class="pre">integrate(...,method='dopr54_c')</span></tt> is a fast high-order
+accessed through the <code class="docutils literal"><span class="pre">method=</span></code> keyword (e.g.,
+<code class="docutils literal"><span class="pre">integrate(...,method='dopr54_c')</span></code> is a fast high-order
 Dormand-Prince method).</p>
 <p>When we integrate for much longer we see how the orbit fills up a
 torus (this could take a minute)</p>
@@ -258,7 +465,7 @@ torus (this could take a minute)</p>
 </pre></div>
 </div>
 <img alt="_images/mp-long-orbit-integration.png" src="_images/mp-long-orbit-integration.png" />
-<p>As before, we can also integrate orbits in combinations of potentials. Assuming <tt class="docutils literal"><span class="pre">mp,</span> <span class="pre">np,</span></tt> and <tt class="docutils literal"><span class="pre">hp</span></tt> were defined as above, we can</p>
+<p>As before, we can also integrate orbits in combinations of potentials. Assuming <code class="docutils literal"><span class="pre">mp,</span> <span class="pre">np,</span></code> and <code class="docutils literal"><span class="pre">hp</span></code> were defined as above, we can</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">o</span><span class="o">.</span><span class="n">integrate</span><span class="p">(</span><span class="n">ts</span><span class="p">,[</span><span class="n">mp</span><span class="p">,</span><span class="n">hp</span><span class="p">,</span><span class="n">np</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">o</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
@@ -287,7 +494,7 @@ above</p>
 </pre></div>
 </div>
 <img alt="_images/esc-comb.png" src="_images/esc-comb.png" />
-<p>For the Milky-Way-like potential <tt class="docutils literal"><span class="pre">MWPotential2014</span></tt>, the
+<p>For the Milky-Way-like potential <code class="docutils literal"><span class="pre">MWPotential2014</span></code>, the
 escape-velocity curve is</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">plotEscapecurve</span><span class="p">(</span><span class="n">MWPotential2014</span><span class="p">,</span><span class="n">Rrange</span><span class="o">=</span><span class="p">[</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">10.</span><span class="p">],</span><span class="n">grid</span><span class="o">=</span><span class="mi">1001</span><span class="p">)</span>
 </pre></div>
@@ -315,7 +522,7 @@ escape-velocity curve is</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -325,15 +532,15 @@ escape-velocity curve is</p>
           <a href="potential.html" title="Potentials in galpy"
              >next</a> |</li>
         <li class="right" >
-          <a href="installation.html" title="Installation"
+          <a href="whatsnew.html" title="NEW in v1.2: What’s new?"
              >previous</a> |</li>
-        <li><a href="index.html">galpy 1.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">galpy 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2010 - 2015, Jo Bovy.
-      Last updated on Jul 07, 2015.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

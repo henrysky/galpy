@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>galpy.potential.LinShuReductionFactor &mdash; galpy 1.1 documentation</title>
+    <title>galpy.potential.LinShuReductionFactor &mdash; galpy 1.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,15 +23,15 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/logo-small.ico"/>
-    <link rel="top" title="galpy 1.1 documentation" href="../index.html" />
-    <link rel="up" title="Potential" href="potential.html" />
+    <link rel="top" title="galpy 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Potential (galpy.potential)" href="potential.html" />
     <link rel="next" title="galpy.potential.plotEscapecurve" href="potentialplotescapecurves.html" />
     <link rel="prev" title="galpy.potential.evaluateplanarR2derivs" href="potential2dr2derivs.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -43,11 +43,11 @@
         <li class="right" >
           <a href="potential2dr2derivs.html" title="galpy.potential.evaluateplanarR2derivs"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="potential.html" accesskey="U">Potential</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="potential.html" accesskey="U">Potential (<code class="docutils literal"><span class="pre">galpy.potential</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
@@ -58,12 +58,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="potentialplotescapecurves.html"
                         title="next chapter">galpy.potential.plotEscapecurve</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/reference/potential2dlinshureductionfactor.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/potential2dlinshureductionfactor.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -82,13 +84,13 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="galpy-potential-linshureductionfactor">
 <h1>galpy.potential.LinShuReductionFactor<a class="headerlink" href="#galpy-potential-linshureductionfactor" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="galpy.potential.LinShuReductionFactor">
-<tt class="descclassname">galpy.potential.</tt><tt class="descname">LinShuReductionFactor</tt><big>(</big><em>axiPot</em>, <em>R</em>, <em>sigmar</em>, <em>nonaxiPot=None</em>, <em>k=None</em>, <em>m=None</em>, <em>OmegaP=None</em><big>)</big><a class="headerlink" href="#galpy.potential.LinShuReductionFactor" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">galpy.potential.</code><code class="descname">LinShuReductionFactor</code><span class="sig-paren">(</span><em>axiPot</em>, <em>R</em>, <em>sigmar</em>, <em>nonaxiPot=None</em>, <em>k=None</em>, <em>m=None</em>, <em>OmegaP=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.potential.LinShuReductionFactor" title="Permalink to this definition">¶</a></dt>
 <dd><p>NAME:</p>
 <blockquote>
 <div>LinShuReductionFactor</div></blockquote>
@@ -98,13 +100,13 @@
 <p>INPUT:</p>
 <blockquote>
 <div><p>axiPot - The background, axisymmetric potential</p>
-<p>R - Cylindrical radius</p>
-<p>sigmar - radial velocity dispersion of the population</p>
+<p>R - Cylindrical radius (can be Quantity)</p>
+<p>sigmar - radial velocity dispersion of the population (can be Quantity)</p>
 <p>Then either provide:</p>
 <ol class="arabic">
 <li><p class="first">m= m in the perturbation&#8217;s m x phi (number of arms for a spiral)</p>
 <p>k= wavenumber (see Binney &amp; Tremaine 2008)</p>
-<p>OmegaP= pattern speed</p>
+<p>OmegaP= pattern speed (can be Quantity)</p>
 </li>
 <li><p class="first">nonaxiPot= a non-axisymmetric Potential instance (such as SteadyLogSpiralPotential) that has functions that return OmegaP, m, and wavenumber</p>
 </li>
@@ -126,7 +128,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -138,14 +140,14 @@
         <li class="right" >
           <a href="potential2dr2derivs.html" title="galpy.potential.evaluateplanarR2derivs"
              >previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="potential.html" >Potential</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="potential.html" >Potential (<code class="docutils literal"><span class="pre">galpy.potential</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2010 - 2015, Jo Bovy.
-      Last updated on Jul 07, 2015.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

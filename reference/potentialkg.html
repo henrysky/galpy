@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Vertical Kuijken &amp; Gilmore potential &mdash; galpy 1.1 documentation</title>
+    <title>Vertical Kuijken &amp; Gilmore potential &mdash; galpy 1.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,15 +23,15 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/logo-small.ico"/>
-    <link rel="top" title="galpy 1.1 documentation" href="../index.html" />
-    <link rel="up" title="Potential" href="potential.html" />
+    <link rel="top" title="galpy 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Potential (galpy.potential)" href="potential.html" />
     <link rel="next" title="galpy.potential.RZToverticalPotential" href="potential1dRZtolinear.html" />
-    <link rel="prev" title="galpy.potential.plotlinearPotentials" href="potential1dplots.html" /> 
+    <link rel="prev" title="galpy.potential.turn_physical_on" href="potentialturnphysicalons.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -41,29 +41,31 @@
           <a href="potential1dRZtolinear.html" title="galpy.potential.RZToverticalPotential"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="potential1dplots.html" title="galpy.potential.plotlinearPotentials"
+          <a href="potentialturnphysicalons.html" title="galpy.potential.turn_physical_on"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="potential.html" accesskey="U">Potential</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="potential.html" accesskey="U">Potential (<code class="docutils literal"><span class="pre">galpy.potential</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
             </a></p>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="potential1dplots.html"
-                        title="previous chapter">galpy.potential.plotlinearPotentials</a></p>
+  <p class="topless"><a href="potentialturnphysicalons.html"
+                        title="previous chapter">galpy.potential.turn_physical_on</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="potential1dRZtolinear.html"
                         title="next chapter">galpy.potential.RZToverticalPotential</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/reference/potentialkg.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/potentialkg.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -82,19 +84,19 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="vertical-kuijken-gilmore-potential">
 <h1>Vertical Kuijken &amp; Gilmore potential<a class="headerlink" href="#vertical-kuijken-gilmore-potential" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="galpy.potential.KGPotential">
-<em class="property">class </em><tt class="descclassname">galpy.potential.</tt><tt class="descname">KGPotential</tt><big>(</big><em>K=1.15</em>, <em>F=0.03</em>, <em>D=1.8</em>, <em>amp=1.0</em><big>)</big><a class="headerlink" href="#galpy.potential.KGPotential" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">galpy.potential.</code><code class="descname">KGPotential</code><span class="sig-paren">(</span><em>K=1.15</em>, <em>F=0.03</em>, <em>D=1.8</em>, <em>amp=1.0</em>, <em>ro=None</em>, <em>vo=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.potential.KGPotential" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class representing the Kuijken &amp; Gilmore (1989) potential</p>
 <div class="math">
 \[\Phi(x) = \mathrm{amp}\,\left(K\,\left(\sqrt{x^2+D^2}-D\right)+F\,x^2\right)\]</div>
 <dl class="method">
 <dt id="galpy.potential.KGPotential.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>K=1.15</em>, <em>F=0.03</em>, <em>D=1.8</em>, <em>amp=1.0</em><big>)</big><a class="headerlink" href="#galpy.potential.KGPotential.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>K=1.15</em>, <em>F=0.03</em>, <em>D=1.8</em>, <em>amp=1.0</em>, <em>ro=None</em>, <em>vo=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.potential.KGPotential.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>NAME:</p>
 <blockquote>
 <div>__init__</div></blockquote>
@@ -103,9 +105,9 @@
 <div>Initialize a KGPotential</div></blockquote>
 <p>INPUT:</p>
 <blockquote>
-<div><p>K= K parameter</p>
-<p>F= F parameter</p>
-<p>D= D parameter</p>
+<div><p>K= K parameter (= <span class="math">\(2\pi \Sigma_{\mathrm{disk}}\)</span>; specify either as surface density or directly as force [i.e., including <span class="math">\(2\pi G\)</span>]; can be Quantity)</p>
+<p>F= F parameter (= <span class="math">\(4\pi\rho_{\mathrm{halo}}\)</span>; specify either as density or directly as second potential derivative [i.e., including <span class="math">\(4\pi G\)</span>]; can be Quantity)</p>
+<p>D= D parameter (natural units or Quantity length units)</p>
 <p>amp - an overall amplitude</p>
 </div></blockquote>
 <p>OUTPUT:</p>
@@ -126,7 +128,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -136,16 +138,16 @@
           <a href="potential1dRZtolinear.html" title="galpy.potential.RZToverticalPotential"
              >next</a> |</li>
         <li class="right" >
-          <a href="potential1dplots.html" title="galpy.potential.plotlinearPotentials"
+          <a href="potentialturnphysicalons.html" title="galpy.potential.turn_physical_on"
              >previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="potential.html" >Potential</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="potential.html" >Potential (<code class="docutils literal"><span class="pre">galpy.potential</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2010 - 2015, Jo Bovy.
-      Last updated on Jul 07, 2015.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

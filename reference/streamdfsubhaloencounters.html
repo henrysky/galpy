@@ -1,0 +1,146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>galpy.df.streamdf.subhalo_encounters &mdash; galpy 1.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/logo-small.ico"/>
+    <link rel="top" title="galpy 1.2 documentation" href="../index.html" />
+    <link rel="up" title="DF (galpy.df)" href="df.html" />
+    <link rel="next" title="The stream gap DF" href="streamgapdf.html" />
+    <link rel="prev" title="galpy.df.streamdf.sigtdAngle" href="streamdfsigtdangle.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="streamgapdf.html" title="The stream gap DF"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="streamdfsigtdangle.html" title="galpy.df.streamdf.sigtdAngle"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="df.html" accesskey="U">DF (<code class="docutils literal"><span class="pre">galpy.df</span></code>)</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="streamdfsigtdangle.html"
+                        title="previous chapter">galpy.df.streamdf.sigtdAngle</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="streamgapdf.html"
+                        title="next chapter">The stream gap DF</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/streamdfsubhaloencounters.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="galpy-df-streamdf-subhalo-encounters">
+<h1>galpy.df.streamdf.subhalo_encounters<a class="headerlink" href="#galpy-df-streamdf-subhalo-encounters" title="Permalink to this headline">¶</a></h1>
+<dl class="method">
+<dt id="galpy.df.streamdf.subhalo_encounters">
+<code class="descclassname">streamdf.</code><code class="descname">subhalo_encounters</code><span class="sig-paren">(</span><em>venc=inf</em>, <em>sigma=0.6818181818181818</em>, <em>nsubhalo=0.3</em>, <em>bmax=0.025</em>, <em>yoon=False</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.df.streamdf.subhalo_encounters" title="Permalink to this definition">¶</a></dt>
+<dd><p>NAME:</p>
+<blockquote>
+<div>subhalo_encounters</div></blockquote>
+<p>PURPOSE:</p>
+<blockquote>
+<div>estimate the number of encounters with subhalos over the lifetime of this stream, using a formalism similar to that of Yoon et al. (2011)</div></blockquote>
+<p>INPUT:</p>
+<blockquote>
+<div><p>venc= (numpy.inf) count encounters with (relative) speeds less than this (relative radial velocity in cylindrical stream frame, unless yoon is True) (can be Quantity)</p>
+<p>sigma= (150/220) velocity dispersion of the DM subhalo population (can be Quantity)</p>
+<p>nsubhalo= (0.3) spatial number density of subhalos (can be Quantity)</p>
+<p>bmax= (0.025) maximum impact parameter (if larger than width of stream) (can be Quantity)</p>
+<p>yoon= (False) if True, use erroneous Yoon et al. formula</p>
+</div></blockquote>
+<p>OUTPUT:</p>
+<blockquote>
+<div>number of encounters</div></blockquote>
+<p>HISTORY:</p>
+<blockquote>
+<div>2016-01-19 - Written - Bovy (UofT)</div></blockquote>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="streamgapdf.html" title="The stream gap DF"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="streamdfsigtdangle.html" title="galpy.df.streamdf.sigtdAngle"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="df.html" >DF (<code class="docutils literal"><span class="pre">galpy.df</span></code>)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

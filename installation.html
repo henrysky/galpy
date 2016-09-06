@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Installation &mdash; galpy 1.1 documentation</title>
+    <title>Installation &mdash; galpy 1.2 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.1',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,29 +23,29 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/logo-small.ico"/>
-    <link rel="top" title="galpy 1.1 documentation" href="index.html" />
-    <link rel="next" title="Introduction" href="getting_started.html" />
+    <link rel="top" title="galpy 1.2 documentation" href="index.html" />
+    <link rel="next" title="NEW in v1.2: What’s new?" href="whatsnew.html" />
     <link rel="prev" title="Welcome to galpy’s documentation" href="index.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="getting_started.html" title="Introduction"
+          <a href="whatsnew.html" title="NEW in v1.2: What’s new?"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Welcome to galpy’s documentation"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">galpy 1.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">galpy 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/logo-small.png" alt="Logo"/>
@@ -53,7 +53,15 @@
   <h3><a href="index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Installation</a><ul>
-<li><a class="reference internal" href="#advanced-installation">Advanced installation</a></li>
+<li><a class="reference internal" href="#new-in-v1-2-installing-the-torusmapper-code"><strong>NEW in v1.2</strong>: Installing the TorusMapper code</a></li>
+<li><a class="reference internal" href="#installation-faq">Installation FAQ</a><ul>
+<li><a class="reference internal" href="#what-is-the-required-numpy-version">What is the required <code class="docutils literal"><span class="pre">numpy</span></code> version?</a></li>
+<li><a class="reference internal" href="#how-do-i-install-the-gsl">How do I install the GSL?</a></li>
+<li><a class="reference internal" href="#the-galpy-installation-fails-because-of-c-compilation-errors">The <code class="docutils literal"><span class="pre">galpy</span></code> installation fails because of C compilation errors</a></li>
+<li><a class="reference internal" href="#i-m-having-issues-with-openmp">I&#8217;m having issues with OpenMP</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#new-in-v1-2-configuration-file"><strong>NEW in v1.2</strong>: Configuration file</a></li>
 </ul>
 </li>
 </ul>
@@ -62,14 +70,16 @@
   <p class="topless"><a href="index.html"
                         title="previous chapter">Welcome to galpy&#8217;s documentation</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="getting_started.html"
-                        title="next chapter">Introduction</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/installation.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <p class="topless"><a href="whatsnew.html"
+                        title="next chapter"><strong>NEW in v1.2</strong>: What&#8217;s new?</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/installation.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -88,7 +98,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
@@ -109,7 +119,7 @@
 <div class="highlight-python"><div class="highlight"><pre>&gt; pip install -U --no-deps --install-option=&quot;--prefix=~/local&quot; git+git://github.com/jobovy/galpy.git#egg=galpy
 </pre></div>
 </div>
-<p>for a local installation. The latest updates can also be installed from the source code downloaded from github using the standard python <tt class="docutils literal"><span class="pre">setup.py</span></tt> installation:</p>
+<p>for a local installation. The latest updates can also be installed from the source code downloaded from github using the standard python <code class="docutils literal"><span class="pre">setup.py</span></code> installation:</p>
 <div class="highlight-python"><div class="highlight"><pre>&gt; python setup.py install
 </pre></div>
 </div>
@@ -122,11 +132,42 @@ numpy/scipy/matplotlib stack. Some basic tests can be performed by executing:</p
 <div class="highlight-python"><div class="highlight"><pre>&gt; nosetests -v -w nose/
 </pre></div>
 </div>
-<div class="section" id="advanced-installation">
-<h2>Advanced installation<a class="headerlink" href="#advanced-installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="new-in-v1-2-installing-the-torusmapper-code">
+<h2><strong>NEW in v1.2</strong>: Installing the TorusMapper code<a class="headerlink" href="#new-in-v1-2-installing-the-torusmapper-code" title="Permalink to this headline">¶</a></h2>
+<p>Since v1.2, <code class="docutils literal"><span class="pre">galpy</span></code> contains a basic interface to the TorusMapper
+code of <a class="reference external" href="http://adsabs.harvard.edu/abs/2016MNRAS.456.1982B">Binney &amp; McMillan (2016)</a>. This interface
+uses a stripped-down version of the TorusMapper code, that is not
+bundled with the galpy code, but kept in a fork of the original
+TorusMapper code. Installation of the TorusMapper interface is
+therefore only possible when installing from source after downloading
+or cloning the galpy code and using the <code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code>
+method above.</p>
+<p>To install the TorusMapper code, <em>before</em> running the installation of
+galpy, navigate to the top-level galpy directory (which contains the
+<code class="docutils literal"><span class="pre">setup.py</span></code> file) and do:</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/jobovy/Torus.git galpy/actionAngle_src/actionAngleTorus_c_ext/torus
+cd galpy/actionAngle_src/actionAngleTorus_c_ext/torus
+git checkout galpy
+cd -
+</pre></div>
+</div>
+<p>Then proceed to install galpy using the <code class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></code>
+technique or its variants as usual.</p>
+</div>
+<div class="section" id="installation-faq">
+<h2>Installation FAQ<a class="headerlink" href="#installation-faq" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-is-the-required-numpy-version">
+<h3>What is the required <code class="docutils literal"><span class="pre">numpy</span></code> version?<a class="headerlink" href="#what-is-the-required-numpy-version" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">galpy</span></code> should mostly work for any relatively recent version of
+<code class="docutils literal"><span class="pre">numpy</span></code>, but some advanced features, including calculating the
+normalization of certain distribution functions using Gauss-Legendre
+integration require <code class="docutils literal"><span class="pre">numpy</span></code> version 1.7.0 or higher.</p>
+</div>
+<div class="section" id="how-do-i-install-the-gsl">
+<h3>How do I install the GSL?<a class="headerlink" href="#how-do-i-install-the-gsl" title="Permalink to this headline">¶</a></h3>
 <p>Certain advanced features require the GNU Scientific Library (<a class="reference external" href="http://www.gnu.org/software/gsl/">GSL</a>), with action calculations
-requiring version 1.14 or higher. On a Mac you can make sure that the
-correct architecture is installed using <a class="reference external" href="http://brew.sh/">Homebrew</a> as:</p>
+requiring version 1.14 or higher. On a Mac, the easiest way to install
+the GSL is using <a class="reference external" href="http://brew.sh/">Homebrew</a> as:</p>
 <div class="highlight-python"><div class="highlight"><pre>&gt; brew install gsl --universal
 </pre></div>
 </div>
@@ -134,13 +175,53 @@ correct architecture is installed using <a class="reference external" href="http
 <div class="highlight-python"><div class="highlight"><pre>&gt; gsl-config --version
 </pre></div>
 </div>
-<p>Other advanced features, including calculating the normalization of
-certain distribution functions using Gauss-Legendre integration
-require numpy version 1.7.0 or higher.</p>
+<p>On Linux distributions with <code class="docutils literal"><span class="pre">apt-get</span></code>, the GSL can be installed using:</p>
+<div class="highlight-python"><div class="highlight"><pre>apt-get install libgsl0-dev
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-galpy-installation-fails-because-of-c-compilation-errors">
+<h3>The <code class="docutils literal"><span class="pre">galpy</span></code> installation fails because of C compilation errors<a class="headerlink" href="#the-galpy-installation-fails-because-of-c-compilation-errors" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">galpy</span></code>&#8216;s installation can fail due to compilation errors, which look like:</p>
+<div class="highlight-python"><div class="highlight"><pre>error: command &#39;gcc&#39; failed with exit status 1
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-python"><div class="highlight"><pre>error: command &#39;clang&#39; failed with exit status 1
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-python"><div class="highlight"><pre>error: command &#39;cc&#39; failed with exit status 1
+</pre></div>
+</div>
+<p>This is typically because the compiler cannot locate the GSL header
+files or the GSL library. You can tell the installation about where
+you&#8217;ve installed the GSL library by defining (for example, when the
+GSL was installed under <code class="docutils literal"><span class="pre">/usr</span></code>):</p>
+<div class="highlight-python"><div class="highlight"><pre>export CFLAGS=-I/usr/include
+export LDFLAGS=-L/usr/lib
+</pre></div>
+</div>
+<p>or:</p>
+<div class="highlight-python"><div class="highlight"><pre>setenv CFLAGS -I/usr/include
+setenv LDFLAGS -L/usr/lib
+</pre></div>
+</div>
+<p>depending on your shell type (change the actual path to the include
+and lib directories that have the gsl directory). If you already have
+<code class="docutils literal"><span class="pre">CFLAGS</span></code> and <code class="docutils literal"><span class="pre">LDFLAGS</span></code> defined you just have to add the
+<code class="docutils literal"><span class="pre">'-I/usr/include'</span></code> and <code class="docutils literal"><span class="pre">'-L/usr/lib'</span></code> to them.</p>
+</div>
+<div class="section" id="i-m-having-issues-with-openmp">
+<h3>I&#8217;m having issues with OpenMP<a class="headerlink" href="#i-m-having-issues-with-openmp" title="Permalink to this headline">¶</a></h3>
 <p>galpy uses <a class="reference external" href="http://www.openmp.org/">OpenMP</a> to parallelize various
 of the computations done in C. galpy can be installed without OpenMP
-by specifying the option <tt class="docutils literal"><span class="pre">--no-openmp</span></tt> when running the <tt class="docutils literal"><span class="pre">python</span>
-<span class="pre">setup.py</span></tt> commands above or when using pip as follows:</p>
+by specifying the option <code class="docutils literal"><span class="pre">--no-openmp</span></code> when running the <code class="docutils literal"><span class="pre">python</span>
+<span class="pre">setup.py</span></code> commands above:</p>
+<div class="highlight-python"><div class="highlight"><pre>python setup.py install --no-openmp
+</pre></div>
+</div>
+<p>or when using pip as follows:</p>
 <div class="highlight-python"><div class="highlight"><pre>&gt; pip install -U --no-deps --install-option=&quot;--no-openmp&quot; git+git://github.com/jobovy/galpy.git#egg=galpy
 </pre></div>
 </div>
@@ -148,9 +229,9 @@ by specifying the option <tt class="docutils literal"><span class="pre">--no-ope
 <div class="highlight-python"><div class="highlight"><pre>&gt; pip install -U --no-deps --install-option=&quot;--prefix=~/local&quot; --install-option=&quot;--no-openmp&quot; git+git://github.com/jobovy/galpy.git#egg=galpy
 </pre></div>
 </div>
-<p>for a local installation. This can be especially useful if one is
-using the <tt class="docutils literal"><span class="pre">clang</span></tt> compiler, which is the new default on macs with OS
-X (&gt;= 10.8), but does not support OpenMP. This leads to errors in the
+<p>for a local installation. This might be useful if one is using the
+<code class="docutils literal"><span class="pre">clang</span></code> compiler, which is the new default on macs with OS X (&gt;=
+10.8), but does not support OpenMP. <code class="docutils literal"><span class="pre">clang</span></code> might lead to errors in the
 installation of galpy such as:</p>
 <div class="highlight-python"><div class="highlight"><pre>ld: library not found for -lgomp
 
@@ -158,8 +239,48 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 </pre></div>
 </div>
 <p>If you get these errors, you can use the commands given above to
-install without OpenMP, or specify to use <tt class="docutils literal"><span class="pre">gcc</span></tt> by specifying the
-<tt class="docutils literal"><span class="pre">CC</span></tt> and <tt class="docutils literal"><span class="pre">LDSHARED</span></tt> environment variables to use <tt class="docutils literal"><span class="pre">gcc</span></tt>.</p>
+install without OpenMP, or specify to use <code class="docutils literal"><span class="pre">gcc</span></code> by specifying the
+<code class="docutils literal"><span class="pre">CC</span></code> and <code class="docutils literal"><span class="pre">LDSHARED</span></code> environment variables to use <code class="docutils literal"><span class="pre">gcc</span></code>. Note
+that <code class="docutils literal"><span class="pre">clang</span></code> does not seem to have this issue anymore in more recent
+versions, but it still does not support <code class="docutils literal"><span class="pre">OpenMP</span></code>.</p>
+</div>
+</div>
+<div class="section" id="new-in-v1-2-configuration-file">
+<span id="configfile"></span><h2><strong>NEW in v1.2</strong>: Configuration file<a class="headerlink" href="#new-in-v1-2-configuration-file" title="Permalink to this headline">¶</a></h2>
+<p>Since v1.2, <code class="docutils literal"><span class="pre">galpy</span></code> uses a configuration file to set a small number
+of configuration variables. This configuration file is parsed using
+<a class="reference external" href="https://docs.python.org/2/library/configparser.html">ConfigParser</a>/<a class="reference external" href="https://docs.python.org/3/library/configparser.html">configparser</a>. It is
+currently used to set a default set of distance and velocity scales
+(<code class="docutils literal"><span class="pre">ro</span></code> and <code class="docutils literal"><span class="pre">vo</span></code> throughout galpy) for conversion between physical
+and internal galpy units, to specify whether output from functions or
+methods should be given as an <a class="reference external" href="http://docs.astropy.org/en/stable/api/astropy.units.Quantity.html">astropy Quantity</a>
+with units as much as possible or not, and whether or not to use
+astropy&#8217;s <a class="reference external" href="http://docs.astropy.org/en/stable/coordinates/index.html">coordinate transformations</a> (these
+are typically somewhat slower than galpy&#8217;s own coordinate
+transformations, but they are more accurate and more general). The
+current configuration file therefore looks like this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">normalization</span><span class="p">]</span>
+<span class="n">ro</span> <span class="o">=</span> <span class="mf">8.</span>
+<span class="n">vo</span> <span class="o">=</span> <span class="mf">220.</span>
+
+<span class="p">[</span><span class="n">astropy</span><span class="p">]</span>
+<span class="n">astropy</span><span class="o">-</span><span class="n">units</span> <span class="o">=</span> <span class="bp">False</span>
+<span class="n">astropy</span><span class="o">-</span><span class="n">coords</span> <span class="o">=</span> <span class="bp">True</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal"><span class="pre">ro</span></code> is the distance scale specified in kpc, <code class="docutils literal"><span class="pre">vo</span></code> the
+velocity scale in km/s, and the setting is to <em>not</em> return output as a
+Quantity. These are the current default settings.</p>
+<p>A user-wide configuration file should be located at
+<code class="docutils literal"><span class="pre">$HOME/.galpyrc</span></code>. This user-wide file can be overridden by a
+<code class="docutils literal"><span class="pre">$PWD/.galpyrc</span></code> file in the current directory. If no configuration
+file is found, the code will automatically write the default
+configuration to <code class="docutils literal"><span class="pre">$HOME/.galpyrc</span></code>. Thus, after installing galpy, you
+can simply use some of its simplest functionality (e.g., integrate an
+orbit), and after this the default configuration file will be present
+at <code class="docutils literal"><span class="pre">$HOME/.galpyrc</span></code>. If you want to change any of the settings (for
+example, you want Quantity output), you can edit this file. The
+default configuration file can also be found <a class="reference download internal" href="_downloads/galpyrc"><code class="xref download docutils literal"><span class="pre">here</span></code></a>.</p>
 </div>
 </div>
 
@@ -169,25 +290,25 @@ install without OpenMP, or specify to use <tt class="docutils literal"><span cla
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="getting_started.html" title="Introduction"
+          <a href="whatsnew.html" title="NEW in v1.2: What’s new?"
              >next</a> |</li>
         <li class="right" >
           <a href="index.html" title="Welcome to galpy’s documentation"
              >previous</a> |</li>
-        <li><a href="index.html">galpy 1.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">galpy 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2010 - 2015, Jo Bovy.
-      Last updated on Jul 07, 2015.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

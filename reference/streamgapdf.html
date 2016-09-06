@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>The stream gap DF &mdash; galpy 1.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/logo-small.ico"/>
+    <link rel="top" title="galpy 1.2 documentation" href="../index.html" />
+    <link rel="up" title="DF (galpy.df)" href="df.html" />
+    <link rel="next" title="galpy.df.streamdf.sample" href="streamdfsample.html" />
+    <link rel="prev" title="galpy.df.streamdf.subhalo_encounters" href="streamdfsubhaloencounters.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="streamdfsample.html" title="galpy.df.streamdf.sample"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="streamdfsubhaloencounters.html" title="galpy.df.streamdf.subhalo_encounters"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="df.html" accesskey="U">DF (<code class="docutils literal"><span class="pre">galpy.df</span></code>)</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="streamdfsubhaloencounters.html"
+                        title="previous chapter">galpy.df.streamdf.subhalo_encounters</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="streamdfsample.html"
+                        title="next chapter">galpy.df.streamdf.sample</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/streamgapdf.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="the-stream-gap-df">
+<h1>The stream gap DF<a class="headerlink" href="#the-stream-gap-df" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="galpy.df.streamgapdf">
+<em class="property">class </em><code class="descclassname">galpy.df.</code><code class="descname">streamgapdf</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.df.streamgapdf" title="Permalink to this definition">¶</a></dt>
+<dd><p>The DF of a gap in a tidal stream</p>
+<dl class="method">
+<dt id="galpy.df.streamgapdf.__init__">
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.df.streamgapdf.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>NAME:</p>
+<blockquote>
+<div>__init__</div></blockquote>
+<p>PURPOSE:</p>
+<blockquote>
+<div>Initialize the DF of a gap in a stellar stream</div></blockquote>
+<p>INPUT:</p>
+<blockquote>
+<div><p>streamdf args and kwargs</p>
+<p>Subhalo and impact parameters:</p>
+<blockquote>
+<div><p>impactb= impact parameter (can be Quantity)</p>
+<p>subhalovel= velocity of the subhalo shape=(3) (can be Quantity)</p>
+<p>timpact time since impact (can be Quantity)</p>
+<p>impact_angle= angle offset from progenitor at which the impact occurred (rad) (can be Quantity)</p>
+<p>Subhalo: specify either 1( mass and size of Plummer sphere or 2( general spherical-potential object (kick is numerically computed)</p>
+<blockquote>
+<div><p>1( GM= mass of the subhalo (can be Quantity)</p>
+<blockquote>
+<div>rs= size parameter of the subhalo (can be Quantity)</div></blockquote>
+<p>2( subhalopot= galpy potential object or list thereof (should be spherical)</p>
+<p>3( hernquist= (False) if True, use Hernquist kicks for GM/rs</p>
+</div></blockquote>
+</div></blockquote>
+<p>deltaAngleTrackImpact= (None) angle to estimate the stream track over to determine the effect of the impact [similar to deltaAngleTrack] (rad)</p>
+<p>nTrackChunksImpact= (floor(deltaAngleTrack/0.15)+1) number of chunks to divide the progenitor track in near the impact [similar to nTrackChunks]</p>
+<p>nKickPoints= (30xnTrackChunksImpact) number of points along the stream to compute the kicks at (kicks are then interpolated); &#8216;30&#8217; chosen such that higherorderTrack can be set to False and get calculations accurate to &gt; 99%</p>
+<p>nokicksetup= (False) if True, only run as far as setting up the coordinate transformation at the time of impact (useful when using this in streampepperdf)</p>
+<p>spline_order= (3) order of the spline to interpolate the kicks with</p>
+<p>higherorderTrack= (False) if True, calculate the track using higher-order terms</p>
+</div></blockquote>
+<p>OUTPUT:</p>
+<blockquote>
+<div>object</div></blockquote>
+<p>HISTORY:</p>
+<blockquote>
+<div>2015-06-02 - Started - Bovy (IAS)</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="streamdfsample.html" title="galpy.df.streamdf.sample"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="streamdfsubhaloencounters.html" title="galpy.df.streamdf.subhalo_encounters"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="df.html" >DF (<code class="docutils literal"><span class="pre">galpy.df</span></code>)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

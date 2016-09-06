@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>galpy.orbit.Orbit &mdash; galpy 1.1 documentation</title>
+    <title>galpy.orbit.Orbit &mdash; galpy 1.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,15 +23,15 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/logo-small.ico"/>
-    <link rel="top" title="galpy 1.1 documentation" href="../index.html" />
-    <link rel="up" title="Orbit" href="orbit.html" />
+    <link rel="top" title="galpy 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Orbit (galpy.orbit)" href="orbit.html" />
     <link rel="next" title="galpy.orbit.Orbit.__add__" href="orbitadd.html" />
-    <link rel="prev" title="Orbit" href="orbit.html" /> 
+    <link rel="prev" title="Orbit (galpy.orbit)" href="orbit.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -41,29 +41,31 @@
           <a href="orbitadd.html" title="galpy.orbit.Orbit.__add__"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="orbit.html" title="Orbit"
+          <a href="orbit.html" title="Orbit (galpy.orbit)"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="orbit.html" accesskey="U">Orbit</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="orbit.html" accesskey="U">Orbit (<code class="docutils literal"><span class="pre">galpy.orbit</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
             </a></p>
   <h4>Previous topic</h4>
   <p class="topless"><a href="orbit.html"
-                        title="previous chapter">Orbit</a></p>
+                        title="previous chapter">Orbit (<code class="docutils literal"><span class="pre">galpy.orbit</span></code>)</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="orbitadd.html"
                         title="next chapter">galpy.orbit.Orbit.__add__</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/reference/orbitinit.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/orbitinit.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -82,17 +84,17 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="galpy-orbit-orbit">
 <h1>galpy.orbit.Orbit<a class="headerlink" href="#galpy-orbit-orbit" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="galpy.orbit.Orbit">
-<em class="property">class </em><tt class="descclassname">galpy.orbit.</tt><tt class="descname">Orbit</tt><big>(</big><em>vxvv=None</em>, <em>uvw=False</em>, <em>lb=False</em>, <em>radec=False</em>, <em>vo=None</em>, <em>ro=None</em>, <em>zo=0.025</em>, <em>solarmotion='hogg'</em><big>)</big><a class="headerlink" href="#galpy.orbit.Orbit" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">galpy.orbit.</code><code class="descname">Orbit</code><span class="sig-paren">(</span><em>vxvv=None</em>, <em>uvw=False</em>, <em>lb=False</em>, <em>radec=False</em>, <em>vo=None</em>, <em>ro=None</em>, <em>zo=0.025</em>, <em>solarmotion='hogg'</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.orbit.Orbit" title="Permalink to this definition">¶</a></dt>
 <dd><p>General orbit class representing an orbit</p>
 <dl class="method">
 <dt id="galpy.orbit.Orbit.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>vxvv=None</em>, <em>uvw=False</em>, <em>lb=False</em>, <em>radec=False</em>, <em>vo=None</em>, <em>ro=None</em>, <em>zo=0.025</em>, <em>solarmotion='hogg'</em><big>)</big><a class="headerlink" href="#galpy.orbit.Orbit.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>vxvv=None</em>, <em>uvw=False</em>, <em>lb=False</em>, <em>radec=False</em>, <em>vo=None</em>, <em>ro=None</em>, <em>zo=0.025</em>, <em>solarmotion='hogg'</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.orbit.Orbit.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>NAME:</p>
 <blockquote>
 <div>__init__</div></blockquote>
@@ -106,11 +108,11 @@
 <dd><blockquote class="first">
 <div>3D can be either</div></blockquote>
 <ol class="last arabic simple">
-<li>in Galactocentric cylindrical coordinates [R,vR,vT(,z,vz,phi)]</li>
-<li>[ra,dec,d,mu_ra, mu_dec,vlos] in [deg,deg,kpc,mas/yr,mas/yr,km/s] (all J2000.0; mu_ra = mu_ra * cos dec)</li>
-<li>[ra,dec,d,U,V,W] in [deg,deg,kpc,km/s,km/s,kms]</li>
-<li>(l,b,d,mu_l, mu_b, vlos) in [deg,deg,kpc,mas/yr,mas/yr,km/s) (all J2000.0; mu_l = mu_l * cos b)</li>
-<li>[l,b,d,U,V,W] in [deg,deg,kpc,km/s,km/s,kms]</li>
+<li>in Galactocentric cylindrical coordinates [R,vR,vT(,z,vz,phi)]; can be Quantities</li>
+<li>[ra,dec,d,mu_ra, mu_dec,vlos] in [deg,deg,kpc,mas/yr,mas/yr,km/s] (all J2000.0; mu_ra = mu_ra * cos dec); can be Quantities</li>
+<li>[ra,dec,d,U,V,W] in [deg,deg,kpc,km/s,km/s,kms]; can be Quantities</li>
+<li>(l,b,d,mu_l, mu_b, vlos) in [deg,deg,kpc,mas/yr,mas/yr,km/s) (all J2000.0; mu_l = mu_l * cos b); can be Quantities</li>
+<li>[l,b,d,U,V,W] in [deg,deg,kpc,km/s,km/s,kms]; can be Quantities</li>
 </ol>
 </dd>
 </dl>
@@ -120,14 +122,14 @@
 </div></blockquote>
 <p>OPTIONAL INPUTS:</p>
 <blockquote>
-<div><p>radec - if True, input is 2) (or 3) above</p>
-<p>uvw - if True, velocities are UVW</p>
-<p>lb - if True, input is 4) or 5) above</p>
-<p>vo - circular velocity at ro (km/s)</p>
-<p>ro - distance from vantage point to GC (kpc)</p>
-<p>zo - offset toward the NGP of the Sun wrt the plane (kpc)</p>
-<p>solarmotion - &#8216;hogg&#8217; or &#8216;dehnen&#8217;, or &#8216;schoenrich&#8217;, or value in 
-[-U,V,W]</p>
+<div><p>radec= if True, input is 2) (or 3) above</p>
+<p>uvw= if True, velocities are UVW</p>
+<p>lb= if True, input is 4) or 5) above</p>
+<p>ro= distance from vantage point to GC (kpc; can be Quantity)</p>
+<p>vo= circular velocity at ro (km/s; can be Quantity)</p>
+<p>zo= offset toward the NGP of the Sun wrt the plane (kpc; can be Quantity)</p>
+<p>solarmotion= &#8216;hogg&#8217; or &#8216;dehnen&#8217;, or &#8216;schoenrich&#8217;, or value in 
+[-U,V,W]; can be Quantity</p>
 </div></blockquote>
 <p>If ro and/or vo are specified, outputs involving distances or velocities (whether as instance methods or in plots) will by default be displayed in the physical coordinates implied by these scales. This can be overwritten for each individual method by using use_physical=False as a keyword for the method.</p>
 <p>OUTPUT:</p>
@@ -148,7 +150,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -158,16 +160,16 @@
           <a href="orbitadd.html" title="galpy.orbit.Orbit.__add__"
              >next</a> |</li>
         <li class="right" >
-          <a href="orbit.html" title="Orbit"
+          <a href="orbit.html" title="Orbit (galpy.orbit)"
              >previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="orbit.html" >Orbit</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="orbit.html" >Orbit (<code class="docutils literal"><span class="pre">galpy.orbit</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2010 - 2015, Jo Bovy.
-      Last updated on Jul 07, 2015.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Dynamical modeling of tidal streams &mdash; galpy 1.1 documentation</title>
+    <title>Dynamical modeling of tidal streams &mdash; galpy 1.2 documentation</title>
     
     <link rel="stylesheet" href="_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.1',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,29 +23,29 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="_static/logo-small.ico"/>
-    <link rel="top" title="galpy 1.1 documentation" href="index.html" />
-    <link rel="next" title="Orbit" href="reference/orbit.html" />
+    <link rel="top" title="galpy 1.2 documentation" href="index.html" />
+    <link rel="next" title="Orbit (galpy.orbit)" href="reference/orbit.html" />
     <link rel="prev" title="Three-dimensional disk distribution functions" href="diskdf.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="reference/orbit.html" title="Orbit"
+          <a href="reference/orbit.html" title="Orbit (galpy.orbit)"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="diskdf.html" title="Three-dimensional disk distribution functions"
              accesskey="P">previous</a> |</li>
-        <li><a href="index.html">galpy 1.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">galpy 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="index.html">
               <img class="logo" src="_static/logo-small.png" alt="Logo"/>
@@ -57,6 +57,7 @@
 <li><a class="reference internal" href="#calculating-the-average-stream-location-track">Calculating the average stream location (track)</a></li>
 <li><a class="reference internal" href="#mock-stream-data-generation">Mock stream data generation</a></li>
 <li><a class="reference internal" href="#evaluating-and-marginalizing-the-full-pdf">Evaluating and marginalizing the full PDF</a></li>
+<li><a class="reference internal" href="#new-in-v1-2-modeling-gaps-in-streams"><strong>NEW in v1.2</strong>: Modeling gaps in streams</a></li>
 </ul>
 </li>
 </ul>
@@ -66,13 +67,15 @@
                         title="previous chapter">Three-dimensional disk distribution functions</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="reference/orbit.html"
-                        title="next chapter">Orbit</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="_sources/streamdf.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+                        title="next chapter">Orbit (<code class="docutils literal"><span class="pre">galpy.orbit</span></code>)</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/streamdf.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="search.html" method="get">
       <input type="text" name="q" />
@@ -91,7 +94,7 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="dynamical-modeling-of-tidal-streams">
 <span id="stream-tutorial"></span><h1>Dynamical modeling of tidal streams<a class="headerlink" href="#dynamical-modeling-of-tidal-streams" title="Permalink to this headline">¶</a></h1>
@@ -101,7 +104,9 @@ the dynamics of the following tidal stream (that of Bovy 2014;
 <a class="reference external" href="http://adsabs.harvard.edu/abs/2014ApJ...795...95B">2014ApJ...795...95B</a>). This movie
 shows the disruption of a cluster on a GD-1-like orbit around the
 Milky Way:</p>
-<embed src="http://sns.ias.edu/~bovy/streams/gd1-sim/gd1_evol_orbplane_comov.mpg" AUTOPLAY="false" LOOP="false" width="600" height="515" Pluginspage="http://www.apple.com/quicktime/" CONTROLLER=True></embed><p>The blue line is the orbit of the progenitor cluster and the black
+<video width="600" height="400" controls>
+  <source src="http://astro.utoronto.ca/~bovy/streams/gd1-sim/gd1_evol_orbplane_comov.mpg" type="video/mp4">
+</video><p>The blue line is the orbit of the progenitor cluster and the black
 points are cluster members. The disruption is shown in an approximate
 orbital plane and the movie is comoving with the progenitor cluster.</p>
 <p>Streams can be represented by simple dynamical models in action-angle
@@ -110,19 +115,23 @@ from the progenitor cluster onto orbits specified by a set of actions
 <span class="math">\((J_R,J_\phi,J_Z)\)</span>, which remain constant after the stars have
 been stripped. This is shown in the following movie, which shows the
 generation of the stream in action space</p>
-<embed src="http://sns.ias.edu/~bovy/streams/gd1-sim/gd1_evol_aai_jrjzlz_debris.mpg" AUTOPLAY="false" LOOP="false" width="600" height="515" Pluginspage="http://www.apple.com/quicktime/" CONTROLLER=True></embed><p>The color-coding gives the angular momentum <span class="math">\(J_\phi\)</span> and the
+<video width="600" height="400" controls>
+  <source src="http://astro.utoronto.ca/~bovy/streams/gd1-sim/gd1_evol_aai_jrjzlz_debris.mpg" type="video/mp4">
+</video><p>The color-coding gives the angular momentum <span class="math">\(J_\phi\)</span> and the
 black dot shows the progenitor orbit. These actions were calculated
-using <tt class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleIsochroneApprox</span></tt>. The points
+using <code class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleIsochroneApprox</span></code>. The points
 move slightly because of small errors in the action calculation (these
 are correlated, so the cloud of points moves coherently because of
 calculation errors). The same movie that also shows the actions of
-stars in the cluster can be found <a class="reference external" href="http://sns.ias.edu/~bovy/streams/gd1-sim/gd1_evol_aai_jrjzlz.mpg">here</a>. This
+stars in the cluster can be found <a class="reference external" href="http://astro.utoronto.ca/~bovy/streams/gd1-sim/gd1_evol_aai_jrjzlz.mpg">here</a>. This
 shows that the actions of stars in the cluster are not conserved
 (because the self-gravity of the cluster is important), but that the
 actions of stream members freeze once they are stripped. The angle
 difference between stars in a stream and the progenitor increases
 linearly with time, which is shown in the following movie:</p>
-<embed src="http://sns.ias.edu/~bovy/streams/gd1-sim/gd1_evol_aai_arazap.mpg" AUTOPLAY="false" LOOP="false" width="600" height="515" Pluginspage="http://www.apple.com/quicktime/" CONTROLLER=True></embed><p>where the radial and vertical angle difference with respect to the
+<video width="600" height="400" controls>
+  <source src="http://astro.utoronto.ca/~bovy/streams/gd1-sim/gd1_evol_aai_arazap.mpg" type="video/mp4">
+</video><p>where the radial and vertical angle difference with respect to the
 progenitor (co-moving at <span class="math">\((\theta_R,\theta_\phi,\theta_Z) =
 (\pi,\pi,\pi)\)</span>) is shown for each snapshot (the color-coding gives
 <span class="math">\(\theta_\phi\)</span>).</p>
@@ -132,7 +141,9 @@ dimensional plane of frequency and angle along the stream (that is,
 both are projections of the three dimensional frequencies or angles
 onto the angle direction along the stream). The points are color-coded
 by the time at which they were removed from the progenitor cluster.</p>
-<embed src="http://sns.ias.edu/~bovy/streams/gd1-sim/gd1_evol_aai_oparapar.mpg" AUTOPLAY="false" LOOP="false" width="600" height="515" Pluginspage="http://www.apple.com/quicktime/" CONTROLLER=True></embed><p>It is clear that disruption happens in bursts (at pericenter passages)
+<video width="600" height="400" controls>
+  <source src="http://astro.utoronto.ca/~bovy/streams/gd1-sim/gd1_evol_aai_oparapar.mpg" type="video/mp4">
+</video><p>It is clear that disruption happens in bursts (at pericenter passages)
 and that the initial frequency distribution at the time of removal
 does not change (much) with time. However, stars removed at larger
 frequency difference move away from the cluster faster, such that the
@@ -143,10 +154,10 @@ on a single orbit.</p>
 <div class="section" id="modeling-streams-in-galpy">
 <h2>Modeling streams in galpy<a class="headerlink" href="#modeling-streams-in-galpy" title="Permalink to this headline">¶</a></h2>
 <p>In galpy we can model streams using the tools in
-<tt class="docutils literal"><span class="pre">galpy.df.streamdf</span></tt>. We setup a streamdf instance by specifying the
-host gravitational potential <tt class="docutils literal"><span class="pre">pot=</span></tt>, an actionAngle method
-(typically <tt class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleIsochroneApprox</span></tt>), a
-<tt class="docutils literal"><span class="pre">galpy.orbit.Orbit</span></tt> instance with the position of the progenitor, a
+<code class="docutils literal"><span class="pre">galpy.df.streamdf</span></code>. We setup a streamdf instance by specifying the
+host gravitational potential <code class="docutils literal"><span class="pre">pot=</span></code>, an actionAngle method
+(typically <code class="docutils literal"><span class="pre">galpy.actionAngle.actionAngleIsochroneApprox</span></code>), a
+<code class="docutils literal"><span class="pre">galpy.orbit.Orbit</span></code> instance with the position of the progenitor, a
 parameter related to the velocity dispersion of the progenitor, and
 the time since disruption began. We first import all of the necessary
 modules</p>
@@ -176,11 +187,11 @@ Macbook Air.</p>
 <p>Bovy (2014) discusses how the calculation of the track needs to be
 iterated for potentials where there is a large offset between the
 track and a single orbit. One can increase the default number of
-iterations by specifying <tt class="docutils literal"><span class="pre">nTrackIterations=</span></tt> in the streamdf
+iterations by specifying <code class="docutils literal"><span class="pre">nTrackIterations=</span></code> in the streamdf
 initialization (the default is set based on the angle between the
 track&#8217;s frequency vector and the progenitor orbit&#8217;s frequency vector;
 you can access the number of iterations used as
-<tt class="docutils literal"><span class="pre">sdf.nTrackIterations</span></tt>). To check whether the track is calculated
+<code class="docutils literal"><span class="pre">sdf.nTrackIterations</span></code>). To check whether the track is calculated
 accurately, one can use the following</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sdf</span><span class="o">.</span><span class="n">plotCompareTrackAAModel</span><span class="p">()</span>
 </pre></div>
@@ -193,7 +204,7 @@ the model should have if it is calculated correctly. The points are
 the frequency and angle offset calculated from the calculated track&#8217;s
 <span class="math">\((\mathbf{x},\mathbf{v})\)</span>. For a properly computed track these
 should line up, as they do in this figure. If they do not line up,
-increasing <tt class="docutils literal"><span class="pre">nTrackIterations</span></tt> is necessary.</p>
+increasing <code class="docutils literal"><span class="pre">nTrackIterations</span></code> is necessary.</p>
 <p>We can calculate some simple properties of the stream, such as the
 ratio of the largest and second-to-largest eigenvalue of the Hessian
 <span class="math">\(\partial \mathbf{\Omega} / \partial \mathbf{J}\)</span></p>
@@ -222,7 +233,7 @@ eigenvector of <span class="math">\(\partial \mathbf{\Omega} / \partial \mathbf{
 <span class="go"> 1.2825116841963993</span>
 </pre></div>
 </div>
-<p>(the reason these are obtained by specifying <tt class="docutils literal"><span class="pre">isotropic=True</span></tt> is
+<p>(the reason these are obtained by specifying <code class="docutils literal"><span class="pre">isotropic=True</span></code> is
 that these would be the ratio of the eigenvalues or the angle if we
 assumed that the disrupted materials action distribution were
 isotropic).</p>
@@ -273,13 +284,13 @@ position is explicitly calculated, by turning off the interpolation</p>
 <p>which displays</p>
 <img alt="_images/sdf_track_ldist.png" src="_images/sdf_track_ldist.png" />
 <p>Coordinate transformations to physical coordinates are done using
-parameters set when initializing the <tt class="docutils literal"><span class="pre">sdf</span></tt> instance. See the help
-for <tt class="docutils literal"><span class="pre">?streamdf</span></tt> for a complete list of initialization parameters.</p>
+parameters set when initializing the <code class="docutils literal"><span class="pre">sdf</span></code> instance. See the help
+for <code class="docutils literal"><span class="pre">?streamdf</span></code> for a complete list of initialization parameters.</p>
 </div>
 <div class="section" id="mock-stream-data-generation">
 <h2>Mock stream data generation<a class="headerlink" href="#mock-stream-data-generation" title="Permalink to this headline">¶</a></h2>
 <p>We can also easily generate mock data from the stream model. This uses
-<tt class="docutils literal"><span class="pre">streamdf.sample</span></tt>. For example,</p>
+<code class="docutils literal"><span class="pre">streamdf.sample</span></code>. For example,</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">RvR</span><span class="o">=</span> <span class="n">sdf</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -422,6 +433,98 @@ PDF. When supplying the closest track point, care needs to be taken
 that this really is the closest track point. Otherwise the approximate
 PDF will not be quite correct.</p>
 </div>
+<div class="section" id="new-in-v1-2-modeling-gaps-in-streams">
+<span id="streamgap-tutorial"></span><h2><strong>NEW in v1.2</strong>: Modeling gaps in streams<a class="headerlink" href="#new-in-v1-2-modeling-gaps-in-streams" title="Permalink to this headline">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">galpy</span></code> also contains tools to model the effect of impacts due to
+dark-matter subhalos on streams (see <a class="reference external" href="http://arxiv.org/abs/1510.03426">Sanders, Bovy, &amp; Erkal 2015</a>). This is implemented as a
+subclass <code class="docutils literal"><span class="pre">streamgapdf</span></code> of <code class="docutils literal"><span class="pre">streamdf</span></code>, because they share many of
+the same methods. Setting up a <code class="docutils literal"><span class="pre">streamgapdf</span></code> object requires the
+same arguments and keywords as setting up a <code class="docutils literal"><span class="pre">streamdf</span></code> instance (to
+specify the smooth underlying stream model and the Galactic potential)
+as well as parameters that specify the impact (impact parameter and
+velocity, location and time of closest approach, mass and structure of
+the subhalo, and helper keywords that specify how the impact should be
+calculated). An example used in the paper (but not that with the
+modifications in Sec. 6.1) is as follows. Imports:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">galpy.df</span> <span class="kn">import</span> <span class="n">streamdf</span><span class="p">,</span> <span class="n">streamgapdf</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">galpy.orbit</span> <span class="kn">import</span> <span class="n">Orbit</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">galpy.potential</span> <span class="kn">import</span> <span class="n">LogarithmicHaloPotential</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">galpy.actionAngle</span> <span class="kn">import</span> <span class="n">actionAngleIsochroneApprox</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">galpy.util</span> <span class="kn">import</span> <span class="n">bovy_conversion</span>
+</pre></div>
+</div>
+<p>Parameters for the smooth stream and the potential:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">lp</span><span class="o">=</span> <span class="n">LogarithmicHaloPotential</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="mf">1.</span><span class="p">,</span><span class="n">q</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">aAI</span><span class="o">=</span> <span class="n">actionAngleIsochroneApprox</span><span class="p">(</span><span class="n">pot</span><span class="o">=</span><span class="n">lp</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prog_unp_peri</span><span class="o">=</span> <span class="n">Orbit</span><span class="p">([</span><span class="mf">2.6556151742081835</span><span class="p">,</span>
+<span class="go">                          0.2183747276300308,</span>
+<span class="go">                          0.67876510797240575,</span>
+<span class="go">                          -2.0143395648974671,</span>
+<span class="go">                          -0.3273737682604374,</span>
+<span class="go">                          0.24218273922966019])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">V0</span><span class="p">,</span> <span class="n">R0</span><span class="o">=</span> <span class="mf">220.</span><span class="p">,</span> <span class="mf">8.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sigv</span><span class="o">=</span> <span class="mf">0.365</span><span class="o">*</span><span class="p">(</span><span class="mf">10.</span><span class="o">/</span><span class="mf">2.</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mf">1.</span><span class="o">/</span><span class="mf">3.</span><span class="p">)</span> <span class="c"># km/s</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">tdisrupt</span><span class="o">=</span> <span class="mf">10.88</span><span class="o">/</span><span class="n">bovy_conversion</span><span class="o">.</span><span class="n">time_in_Gyr</span><span class="p">(</span><span class="n">V0</span><span class="p">,</span><span class="n">R0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>and the parameters of the impact</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">GM</span><span class="o">=</span> <span class="mf">10.</span><span class="o">**-</span><span class="mf">2.</span><span class="o">/</span><span class="n">bovy_conversion</span><span class="o">.</span><span class="n">mass_in_1010msol</span><span class="p">(</span><span class="n">V0</span><span class="p">,</span><span class="n">R0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">rs</span><span class="o">=</span> <span class="mf">0.625</span><span class="o">/</span><span class="n">R0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">impactb</span><span class="o">=</span> <span class="mf">0.</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">subhalovel</span><span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">6.82200571</span><span class="p">,</span><span class="mf">132.7700529</span><span class="p">,</span><span class="mf">149.4174464</span><span class="p">])</span><span class="o">/</span><span class="n">V0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">timpact</span><span class="o">=</span> <span class="mf">0.88</span><span class="o">/</span><span class="n">bovy_conversion</span><span class="o">.</span><span class="n">time_in_Gyr</span><span class="p">(</span><span class="n">V0</span><span class="p">,</span><span class="n">R0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">impact_angle</span><span class="o">=</span> <span class="o">-</span><span class="mf">2.34</span>
+</pre></div>
+</div>
+<p>The setup is then</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sdf_sanders15</span><span class="o">=</span> <span class="n">streamgapdf</span><span class="p">(</span><span class="n">sigv</span><span class="o">/</span><span class="n">V0</span><span class="p">,</span><span class="n">progenitor</span><span class="o">=</span><span class="n">prog_unp_peri</span><span class="p">,</span><span class="n">pot</span><span class="o">=</span><span class="n">lp</span><span class="p">,</span><span class="n">aA</span><span class="o">=</span><span class="n">aAI</span><span class="p">,</span>
+<span class="go">                               leading=False,nTrackChunks=26,</span>
+<span class="go">                               nTrackIterations=1,</span>
+<span class="go">                               sigMeanOffset=4.5,</span>
+<span class="go">                               tdisrupt=tdisrupt,</span>
+<span class="go">                               Vnorm=V0,Rnorm=R0,</span>
+<span class="go">                               impactb=impactb,</span>
+<span class="go">                               subhalovel=subhalovel,</span>
+<span class="go">                               timpact=timpact,</span>
+<span class="go">                               impact_angle=impact_angle,</span>
+<span class="go">                               GM=GM,rs=rs)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">streamgapdf</span></code> implementation is currently not entirely complete
+(for example, one cannot yet evaluate the full phase-space PDF), but
+the model can be sampled as in the paper above. To compare the
+perturbed model to the unperturbed model, we also set up an
+unperturbed model of the same stream</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">sdf_sanders15_unp</span><span class="o">=</span> <span class="n">streamdf</span><span class="p">(</span><span class="n">sigv</span><span class="o">/</span><span class="n">V0</span><span class="p">,</span><span class="n">progenitor</span><span class="o">=</span><span class="n">prog_unp_peri</span><span class="p">,</span><span class="n">pot</span><span class="o">=</span><span class="n">lp</span><span class="p">,</span><span class="n">aA</span><span class="o">=</span><span class="n">aAI</span><span class="p">,</span>
+<span class="go">                               leading=False,nTrackChunks=26,</span>
+<span class="go">                               nTrackIterations=1,</span>
+<span class="go">                               sigMeanOffset=4.5,</span>
+<span class="go">                               tdisrupt=tdisrupt,</span>
+<span class="go">                               Vnorm=V0,Rnorm=R0)</span>
+</pre></div>
+</div>
+<p>We can then sample positions and velocities for the perturbed and
+unperturbed preduction for the <em>same</em> particle by using the same
+random seed:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xv_mock_per</span><span class="o">=</span> <span class="n">sdf_sanders15</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span><span class="n">xy</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="c"># should give same points</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xv_mock_unp</span><span class="o">=</span> <span class="n">sdf_sanders15_unp</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span><span class="n">xy</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+<p>and we can plot the offset due to the perturbation, for example,</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">(</span><span class="n">xv_mock_unp</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">R0</span><span class="p">,(</span><span class="n">xv_mock_per</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">xv_mock_unp</span><span class="p">[:,</span><span class="mi">0</span><span class="p">])</span><span class="o">*</span><span class="n">R0</span><span class="p">,</span><span class="s">&#39;k,&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>for the difference in <span class="math">\(X\)</span> as a function of unperturbed <span class="math">\(X\)</span>:</p>
+<img alt="_images/sdfg_dxx.png" src="_images/sdfg_dxx.png" />
+<p>or</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">plot</span><span class="p">(</span><span class="n">xv_mock_unp</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">R0</span><span class="p">,(</span><span class="n">xv_mock_per</span><span class="p">[:,</span><span class="mi">4</span><span class="p">]</span><span class="o">-</span><span class="n">xv_mock_unp</span><span class="p">[:,</span><span class="mi">4</span><span class="p">])</span><span class="o">*</span><span class="n">V0</span><span class="p">,</span><span class="s">&#39;k,&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>for the difference in <span class="math">\(v_Y\)</span> as a function of unperturbed <span class="math">\(X\)</span>:</p>
+<img alt="_images/sdfg_dvyx.png" src="_images/sdfg_dvyx.png" />
+</div>
 </div>
 
 
@@ -430,25 +533,25 @@ PDF will not be quite correct.</p>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
           <a href="genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="reference/orbit.html" title="Orbit"
+          <a href="reference/orbit.html" title="Orbit (galpy.orbit)"
              >next</a> |</li>
         <li class="right" >
           <a href="diskdf.html" title="Three-dimensional disk distribution functions"
              >previous</a> |</li>
-        <li><a href="index.html">galpy 1.1 documentation</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="index.html">galpy 1.2 documentation</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2010 - 2015, Jo Bovy.
-      Last updated on Jul 07, 2015.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>galpy.df.evolveddiskdf.meanvT &mdash; galpy 1.1 documentation</title>
+    <title>galpy.df.evolveddiskdf.meanvT &mdash; galpy 1.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,15 +23,15 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/logo-small.ico"/>
-    <link rel="top" title="galpy 1.1 documentation" href="../index.html" />
-    <link rel="up" title="DF" href="df.html" />
+    <link rel="top" title="galpy 1.2 documentation" href="../index.html" />
+    <link rel="up" title="DF (galpy.df)" href="df.html" />
     <link rel="next" title="galpy.df.evolveddiskdf.oortA" href="edfoorta.html" />
     <link rel="prev" title="galpy.df.evolveddiskdf.meanvR" href="edfmeanvr.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -43,11 +43,11 @@
         <li class="right" >
           <a href="edfmeanvr.html" title="galpy.df.evolveddiskdf.meanvR"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="df.html" accesskey="U">DF</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="df.html" accesskey="U">DF (<code class="docutils literal"><span class="pre">galpy.df</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
@@ -58,12 +58,14 @@
   <h4>Next topic</h4>
   <p class="topless"><a href="edfoorta.html"
                         title="next chapter">galpy.df.evolveddiskdf.oortA</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/reference/edfmeanvt.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/edfmeanvt.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -82,13 +84,13 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="galpy-df-evolveddiskdf-meanvt">
 <h1>galpy.df.evolveddiskdf.meanvT<a class="headerlink" href="#galpy-df-evolveddiskdf-meanvt" title="Permalink to this headline">¶</a></h1>
 <dl class="method">
 <dt id="galpy.df.evolveddiskdf.meanvT">
-<tt class="descclassname">evolveddiskdf.</tt><tt class="descname">meanvT</tt><big>(</big><em>R</em>, <em>t=0.0</em>, <em>nsigma=None</em>, <em>deg=False</em>, <em>phi=0.0</em>, <em>epsrel=0.01</em>, <em>epsabs=1e-05</em>, <em>grid=None</em>, <em>gridpoints=101</em>, <em>returnGrid=False</em>, <em>surfacemass=None</em>, <em>hierarchgrid=False</em>, <em>nlevels=2</em>, <em>integrate_method='dopr54_c'</em><big>)</big><a class="headerlink" href="#galpy.df.evolveddiskdf.meanvT" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">evolveddiskdf.</code><code class="descname">meanvT</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.df.evolveddiskdf.meanvT" title="Permalink to this definition">¶</a></dt>
 <dd><p>NAME:</p>
 <blockquote>
 <div>meanvT</div></blockquote>
@@ -97,12 +99,12 @@
 <div>calculate the mean vT of the velocity distribution at (R,phi)</div></blockquote>
 <p>INPUT:</p>
 <blockquote>
-<div><p>R - radius at which to calculate the moment(/ro)</p>
-<p>phi= azimuth (rad unless deg=True)</p>
-<p>t= time at which to evaluate the DF (can be a list or ndarray; if this is the case, list needs to be in descending order and equally spaced)</p>
+<div><p>R - radius at which to calculate the moment (can be Quantity)</p>
+<p>phi= azimuth (rad unless deg=True; can be Quantity)</p>
+<p>t= time at which to evaluate the DF (can be a list or ndarray; if this is the case, list needs to be in descending order and equally spaced) (can be Quantity)</p>
 <p>surfacemass= if set use this pre-calculated surfacemass</p>
 <p>nsigma - number of sigma to integrate the velocities over (based on an estimate, so be generous)</p>
-<p>deg= azimuth is in degree (default=False)</p>
+<p>deg= azimuth is in degree (default=False); do not set this when giving phi as a Quantity</p>
 <p>epsrel, epsabs - scipy.integrate keywords (the integration calculates the ratio of this vmoment to that of the initial DF)</p>
 <p>grid= if set to True, build a grid and use that to evaluate integrals; if set to a grid-objects (such as returned by this procedure), use this grid</p>
 <p>gridpoints= number of points to use for the grid in 1D (default=101)</p>
@@ -127,7 +129,7 @@
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -139,14 +141,14 @@
         <li class="right" >
           <a href="edfmeanvr.html" title="galpy.df.evolveddiskdf.meanvR"
              >previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="df.html" >DF</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="df.html" >DF (<code class="docutils literal"><span class="pre">galpy.df</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2010 - 2015, Jo Bovy.
-      Last updated on Jul 07, 2015.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

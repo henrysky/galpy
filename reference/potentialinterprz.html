@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Interpolated axisymmetric potential &mdash; galpy 1.1 documentation</title>
+    <title>Interpolated axisymmetric potential &mdash; galpy 1.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,15 +23,15 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/logo-small.ico"/>
-    <link rel="top" title="galpy 1.1 documentation" href="../index.html" />
-    <link rel="up" title="Potential" href="potential.html" />
+    <link rel="top" title="galpy 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Potential (galpy.potential)" href="potential.html" />
     <link rel="next" title="Interpolated SnapshotRZ potential" href="potentialinterpsnapshotrzpotential.html" />
-    <link rel="prev" title="Hernquist potential" href="potentialhernquist.html" /> 
+    <link rel="prev" title="Flattened Power-law potential" href="potentialflattenedpower.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -41,29 +41,31 @@
           <a href="potentialinterpsnapshotrzpotential.html" title="Interpolated SnapshotRZ potential"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="potentialhernquist.html" title="Hernquist potential"
+          <a href="potentialflattenedpower.html" title="Flattened Power-law potential"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="potential.html" accesskey="U">Potential</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="potential.html" accesskey="U">Potential (<code class="docutils literal"><span class="pre">galpy.potential</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
             </a></p>
   <h4>Previous topic</h4>
-  <p class="topless"><a href="potentialhernquist.html"
-                        title="previous chapter">Hernquist potential</a></p>
+  <p class="topless"><a href="potentialflattenedpower.html"
+                        title="previous chapter">Flattened Power-law potential</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="potentialinterpsnapshotrzpotential.html"
                         title="next chapter">Interpolated SnapshotRZ potential</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/reference/potentialinterprz.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/potentialinterprz.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -82,47 +84,47 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="interpolated-axisymmetric-potential">
 <span id="interprz"></span><h1>Interpolated axisymmetric potential<a class="headerlink" href="#interpolated-axisymmetric-potential" title="Permalink to this headline">¶</a></h1>
-<p>The <tt class="docutils literal"><span class="pre">interpRZPotential</span></tt> class provides a general interface to
+<p>The <code class="docutils literal"><span class="pre">interpRZPotential</span></code> class provides a general interface to
 generate interpolated instances of general three-dimensional,
 axisymmetric potentials or lists of such potentials. This interpolated
 potential can be used in any function where other three-dimensional
-galpy potentials can be used. This includes functions that use <tt class="docutils literal"><span class="pre">C</span></tt>
-to speed up calculations, if the <tt class="docutils literal"><span class="pre">interpRZPotential</span></tt> instance was
-set up with <tt class="docutils literal"><span class="pre">enable_c=True</span></tt>. Initialize as</p>
+galpy potentials can be used. This includes functions that use <code class="docutils literal"><span class="pre">C</span></code>
+to speed up calculations, if the <code class="docutils literal"><span class="pre">interpRZPotential</span></code> instance was
+set up with <code class="docutils literal"><span class="pre">enable_c=True</span></code>. Initialize as</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">galpy</span> <span class="kn">import</span> <span class="n">potential</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ip</span><span class="o">=</span> <span class="n">potential</span><span class="o">.</span><span class="n">interpRZPotential</span><span class="p">(</span><span class="n">potential</span><span class="o">.</span><span class="n">MWPotential</span><span class="p">,</span><span class="n">interpPot</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>which sets up an interpolation of the potential itself only. The
-potential and all different forces and functions (<tt class="docutils literal"><span class="pre">dens</span></tt>,``vcirc``,
-<tt class="docutils literal"><span class="pre">epifreq</span></tt>, <tt class="docutils literal"><span class="pre">verticalfreq</span></tt>, <tt class="docutils literal"><span class="pre">dvcircdR</span></tt>) are interpolated
+potential and all different forces and functions (<code class="docutils literal"><span class="pre">dens</span></code>,``vcirc``,
+<code class="docutils literal"><span class="pre">epifreq</span></code>, <code class="docutils literal"><span class="pre">verticalfreq</span></code>, <code class="docutils literal"><span class="pre">dvcircdR</span></code>) are interpolated
 separately and one needs to specify that these need to be interpolated
-separately (so, for example, one needs to set <tt class="docutils literal"><span class="pre">interpRforce=True</span></tt> to
-interpolate the radial force, or <tt class="docutils literal"><span class="pre">interpvcirc=True</span></tt> to interpolate
+separately (so, for example, one needs to set <code class="docutils literal"><span class="pre">interpRforce=True</span></code> to
+interpolate the radial force, or <code class="docutils literal"><span class="pre">interpvcirc=True</span></code> to interpolate
 the circular velocity).</p>
 <p>When points outside the grid are requested within the python code, the
 instance will fall back on the original (non-interpolated)
-potential. However, when the potential is used purely in <tt class="docutils literal"><span class="pre">C</span></tt>, like
-during orbit integration in <tt class="docutils literal"><span class="pre">C</span></tt> or during action&#8211;angle evaluations
-in <tt class="docutils literal"><span class="pre">C</span></tt>, there is no way for the potential to fall back onto the
+potential. However, when the potential is used purely in <code class="docutils literal"><span class="pre">C</span></code>, like
+during orbit integration in <code class="docutils literal"><span class="pre">C</span></code> or during action&#8211;angle evaluations
+in <code class="docutils literal"><span class="pre">C</span></code>, there is no way for the potential to fall back onto the
 original potential and nonsense or NaNs will be returned. Therefore,
-when using <tt class="docutils literal"><span class="pre">interpRZPotential</span></tt> in <tt class="docutils literal"><span class="pre">C</span></tt>, one must make sure that the
-whole relevant part of the <tt class="docutils literal"><span class="pre">(R,z)</span></tt> plane is covered. One more time:</p>
+when using <code class="docutils literal"><span class="pre">interpRZPotential</span></code> in <code class="docutils literal"><span class="pre">C</span></code>, one must make sure that the
+whole relevant part of the <code class="docutils literal"><span class="pre">(R,z)</span></code> plane is covered. One more time:</p>
 <div class="admonition warning">
 <p class="first admonition-title">Warning</p>
-<p class="last">When an interpolated potential is used purely in <tt class="docutils literal"><span class="pre">C</span></tt>, like during orbit integration in <tt class="docutils literal"><span class="pre">C</span></tt> or during action&#8211;angle evaluations in <tt class="docutils literal"><span class="pre">C</span></tt>, there is no way for the potential to fall back onto the original potential and nonsense or NaNs will be returned. Therefore, when using <tt class="docutils literal"><span class="pre">interpRZPotential</span></tt> in <tt class="docutils literal"><span class="pre">C</span></tt>, one must make sure that the whole relevant part of the <tt class="docutils literal"><span class="pre">(R,z)</span></tt> plane is covered.</p>
+<p class="last">When an interpolated potential is used purely in <code class="docutils literal"><span class="pre">C</span></code>, like during orbit integration in <code class="docutils literal"><span class="pre">C</span></code> or during action&#8211;angle evaluations in <code class="docutils literal"><span class="pre">C</span></code>, there is no way for the potential to fall back onto the original potential and nonsense or NaNs will be returned. Therefore, when using <code class="docutils literal"><span class="pre">interpRZPotential</span></code> in <code class="docutils literal"><span class="pre">C</span></code>, one must make sure that the whole relevant part of the <code class="docutils literal"><span class="pre">(R,z)</span></code> plane is covered.</p>
 </div>
 <dl class="class">
 <dt id="galpy.potential.interpRZPotential">
-<em class="property">class </em><tt class="descclassname">galpy.potential.</tt><tt class="descname">interpRZPotential</tt><big>(</big><em>RZPot=None</em>, <em>rgrid=(-4.6051701859880909</em>, <em>2.9957322735539909</em>, <em>101)</em>, <em>zgrid=(0.0</em>, <em>1.0</em>, <em>101)</em>, <em>logR=True</em>, <em>interpPot=False</em>, <em>interpRforce=False</em>, <em>interpzforce=False</em>, <em>interpDens=False</em>, <em>interpvcirc=False</em>, <em>interpdvcircdr=False</em>, <em>interpepifreq=False</em>, <em>interpverticalfreq=False</em>, <em>use_c=False</em>, <em>enable_c=False</em>, <em>zsym=True</em>, <em>numcores=None</em><big>)</big><a class="headerlink" href="#galpy.potential.interpRZPotential" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="descclassname">galpy.potential.</code><code class="descname">interpRZPotential</code><span class="sig-paren">(</span><em>RZPot=None</em>, <em>rgrid=(-4.6051701859880909</em>, <em>2.9957322735539909</em>, <em>101)</em>, <em>zgrid=(0.0</em>, <em>1.0</em>, <em>101)</em>, <em>logR=True</em>, <em>interpPot=False</em>, <em>interpRforce=False</em>, <em>interpzforce=False</em>, <em>interpDens=False</em>, <em>interpvcirc=False</em>, <em>interpdvcircdr=False</em>, <em>interpepifreq=False</em>, <em>interpverticalfreq=False</em>, <em>ro=None</em>, <em>vo=None</em>, <em>use_c=False</em>, <em>enable_c=False</em>, <em>zsym=True</em>, <em>numcores=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.potential.interpRZPotential" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class that interpolates a given potential on a grid for fast orbit integration</p>
 <dl class="method">
 <dt id="galpy.potential.interpRZPotential.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>RZPot=None</em>, <em>rgrid=(-4.6051701859880909</em>, <em>2.9957322735539909</em>, <em>101)</em>, <em>zgrid=(0.0</em>, <em>1.0</em>, <em>101)</em>, <em>logR=True</em>, <em>interpPot=False</em>, <em>interpRforce=False</em>, <em>interpzforce=False</em>, <em>interpDens=False</em>, <em>interpvcirc=False</em>, <em>interpdvcircdr=False</em>, <em>interpepifreq=False</em>, <em>interpverticalfreq=False</em>, <em>use_c=False</em>, <em>enable_c=False</em>, <em>zsym=True</em>, <em>numcores=None</em><big>)</big><a class="headerlink" href="#galpy.potential.interpRZPotential.__init__" title="Permalink to this definition">¶</a></dt>
+<code class="descname">__init__</code><span class="sig-paren">(</span><em>RZPot=None</em>, <em>rgrid=(-4.6051701859880909</em>, <em>2.9957322735539909</em>, <em>101)</em>, <em>zgrid=(0.0</em>, <em>1.0</em>, <em>101)</em>, <em>logR=True</em>, <em>interpPot=False</em>, <em>interpRforce=False</em>, <em>interpzforce=False</em>, <em>interpDens=False</em>, <em>interpvcirc=False</em>, <em>interpdvcircdr=False</em>, <em>interpepifreq=False</em>, <em>interpverticalfreq=False</em>, <em>ro=None</em>, <em>vo=None</em>, <em>use_c=False</em>, <em>enable_c=False</em>, <em>zsym=True</em>, <em>numcores=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.potential.interpRZPotential.__init__" title="Permalink to this definition">¶</a></dt>
 <dd><p>NAME:</p>
 <blockquote>
 <div>__init__</div></blockquote>
@@ -140,6 +142,7 @@ whole relevant part of the <tt class="docutils literal"><span class="pre">(R,z)<
 <p>enable_c= enable use of C for interpolations</p>
 <p>zsym= if True (default), the potential is assumed to be symmetric around z=0 (so you can use, e.g.,  zgrid=(0.,1.,101)).</p>
 <p>numcores= if set to an integer, use this many cores (only used for vcirc, dvcircdR, epifreq, and verticalfreq; NOT NECESSARILY FASTER, TIME TO MAKE SURE)</p>
+<p>ro=, vo= distance and velocity scales for translation into internal units (default from configuration file)</p>
 </div></blockquote>
 <p>OUTPUT:</p>
 <blockquote>
@@ -161,7 +164,7 @@ whole relevant part of the <tt class="docutils literal"><span class="pre">(R,z)<
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -171,16 +174,16 @@ whole relevant part of the <tt class="docutils literal"><span class="pre">(R,z)<
           <a href="potentialinterpsnapshotrzpotential.html" title="Interpolated SnapshotRZ potential"
              >next</a> |</li>
         <li class="right" >
-          <a href="potentialhernquist.html" title="Hernquist potential"
+          <a href="potentialflattenedpower.html" title="Flattened Power-law potential"
              >previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="potential.html" >Potential</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="potential.html" >Potential (<code class="docutils literal"><span class="pre">galpy.potential</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2010 - 2015, Jo Bovy.
-      Last updated on Jul 07, 2015.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

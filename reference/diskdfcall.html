@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>galpy.df.diskdf.__call__ &mdash; galpy 1.1 documentation</title>
+    <title>galpy.df.diskdf.__call__ &mdash; galpy 1.2 documentation</title>
     
     <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '1.1',
+        VERSION:     '1.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -23,15 +23,15 @@
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="shortcut icon" href="../_static/logo-small.ico"/>
-    <link rel="top" title="galpy 1.1 documentation" href="../index.html" />
-    <link rel="up" title="DF" href="df.html" />
+    <link rel="top" title="galpy 1.2 documentation" href="../index.html" />
+    <link rel="up" title="DF (galpy.df)" href="df.html" />
     <link rel="next" title="galpy.df.diskdf.asymmetricdrift" href="diskdfasymmetricdrift.html" />
-    <link rel="prev" title="DF" href="df.html" /> 
+    <link rel="prev" title="DF (galpy.df)" href="df.html" /> 
   </head>
-  <body>
-    <div class="related">
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -41,29 +41,31 @@
           <a href="diskdfasymmetricdrift.html" title="galpy.df.diskdf.asymmetricdrift"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="df.html" title="DF"
+          <a href="df.html" title="DF (galpy.df)"
              accesskey="P">previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="df.html" accesskey="U">DF</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="df.html" accesskey="U">DF (<code class="docutils literal"><span class="pre">galpy.df</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-      <div class="sphinxsidebar">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
             </a></p>
   <h4>Previous topic</h4>
   <p class="topless"><a href="df.html"
-                        title="previous chapter">DF</a></p>
+                        title="previous chapter">DF (<code class="docutils literal"><span class="pre">galpy.df</span></code>)</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="diskdfasymmetricdrift.html"
                         title="next chapter">galpy.df.diskdf.asymmetricdrift</a></p>
-  <h3>This Page</h3>
-  <ul class="this-page-menu">
-    <li><a href="../_sources/reference/diskdfcall.txt"
-           rel="nofollow">Show Source</a></li>
-  </ul>
-<div id="searchbox" style="display: none">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/diskdfcall.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
   <h3>Quick search</h3>
     <form class="search" action="../search.html" method="get">
       <input type="text" name="q" />
@@ -82,13 +84,13 @@
     <div class="document">
       <div class="documentwrapper">
         <div class="bodywrapper">
-          <div class="body">
+          <div class="body" role="main">
             
   <div class="section" id="galpy-df-diskdf-call">
 <h1>galpy.df.diskdf.__call__<a class="headerlink" href="#galpy-df-diskdf-call" title="Permalink to this headline">¶</a></h1>
 <dl class="method">
 <dt id="galpy.df.diskdf.__call__">
-<tt class="descclassname">diskdf.</tt><tt class="descname">__call__</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#galpy.df.diskdf.__call__" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">diskdf.</code><code class="descname">__call__</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.df.diskdf.__call__" title="Permalink to this definition">¶</a></dt>
 <dd><p>NAME:</p>
 <blockquote>
 <div>__call__</div></blockquote>
@@ -102,9 +104,9 @@
 <li>Orbit instance or list:
 a) Orbit instance alone: use vxvv member
 b) Orbit instance + t: call the Orbit instance (for list, each instance is called at t)</li>
-<li>E - energy (/vo^2)
-L - angular momentun (/ro/vo)</li>
-<li>array vxvv [3/4,nt]</li>
+<li>E - energy (/vo^2; or can be Quantity)
+L - angular momentun (/ro/vo; or can be Quantity)</li>
+<li>array vxvv [3/4,nt] [must be in natural units /vo,/ro; use Orbit interface for physical-unit input)</li>
 </ol>
 </div></blockquote>
 <p>KWARGS:</p>
@@ -130,7 +132,7 @@ L - angular momentun (/ro/vo)</li>
       </div>
       <div class="clearer"></div>
     </div>
-    <div class="related">
+    <div class="related" role="navigation" aria-label="related navigation">
       <h3>Navigation</h3>
       <ul>
         <li class="right" style="margin-right: 10px">
@@ -140,16 +142,16 @@ L - angular momentun (/ro/vo)</li>
           <a href="diskdfasymmetricdrift.html" title="galpy.df.diskdf.asymmetricdrift"
              >next</a> |</li>
         <li class="right" >
-          <a href="df.html" title="DF"
+          <a href="df.html" title="DF (galpy.df)"
              >previous</a> |</li>
-        <li><a href="../index.html">galpy 1.1 documentation</a> &raquo;</li>
-          <li><a href="df.html" >DF</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="df.html" >DF (<code class="docutils literal"><span class="pre">galpy.df</span></code>)</a> &raquo;</li> 
       </ul>
     </div>
-    <div class="footer">
-        &copy; Copyright 2010 - 2015, Jo Bovy.
-      Last updated on Jul 07, 2015.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
     </div>
   </body>
 </html>

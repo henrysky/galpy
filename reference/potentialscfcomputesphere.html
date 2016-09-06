@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>galpy.potential.scf_compute_coeffs_spherical &mdash; galpy 1.2 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/sphinxdoc.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/logo-small.ico"/>
+    <link rel="top" title="galpy 1.2 documentation" href="../index.html" />
+    <link rel="up" title="Potential (galpy.potential)" href="potential.html" />
+    <link rel="next" title="Burkert potential" href="potentialburkert.html" />
+    <link rel="prev" title="galpy.potential.scf_compute_coeffs_axi" href="potentialscfcomputeaxi.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="potentialburkert.html" title="Burkert potential"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="potentialscfcomputeaxi.html" title="galpy.potential.scf_compute_coeffs_axi"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="potential.html" accesskey="U">Potential (<code class="docutils literal"><span class="pre">galpy.potential</span></code>)</a> &raquo;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo-small.png" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="potentialscfcomputeaxi.html"
+                        title="previous chapter">galpy.potential.scf_compute_coeffs_axi</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="potentialburkert.html"
+                        title="next chapter">Burkert potential</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/reference/potentialscfcomputesphere.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="galpy-potential-scf-compute-coeffs-spherical">
+<span id="scf-compute-coeffs-sphere"></span><h1>galpy.potential.scf_compute_coeffs_spherical<a class="headerlink" href="#galpy-potential-scf-compute-coeffs-spherical" title="Permalink to this headline">¶</a></h1>
+<p>Note: This function computes Acos and Asin as defined in <a class="reference external" href="http://adsabs.harvard.edu/abs/1992ApJ...386..375H">Hernquist &amp; Ostriker (1992)</a>, except that we multiply Acos by 2 such that the density from <a class="reference internal" href="potentialhernquist.html#hernquist-potential"><span>Galpy&#8217;s Hernquist Potential</span></a> corresponds to <span class="math">\(Acos = \delta_{0n}\delta_{0l}\delta_{0m}\)</span>.</p>
+<p>Futher note that this function is a specification of <a class="reference internal" href="potentialscfcomputeaxi.html#scf-compute-coeffs-axi"><span>scf_compute_coeffs_axi</span></a> where <span class="math">\(Acos_{nlm} = 0\)</span> at <span class="math">\(l\neq0\)</span></p>
+<p>For a given <span class="math">\(\rho(r)\)</span> we can compute <span class="math">\(Acos\)</span> and <span class="math">\(Asin\)</span> through the following equation</p>
+<div class="math">
+\[Acos_{nlm}=  \frac{16 \pi a^3}{I_{nl}} \int_{\xi=0}^{\infty}  (1 + \xi)^{2} (1 - \xi)^{-4}  \rho(r) \Phi_{nlm}(\xi) d\xi \qquad Asin_{nlm}=None\]</div>
+<p>Where</p>
+<div class="math">
+\[\Phi_{nlm}(\xi, \cos(\theta)) = -\frac{1}{2 a} (1 - \xi) C_{n}^{3/2}(\xi) \delta_{l0} \delta_{m0}\]</div>
+<div class="math">
+\[I_{n0} = - K_{n0} \frac{1}{4 a} \frac{(n + 2) (n + 1)}{(n + 3/2)} \qquad K_{nl} = \frac{1}{2}n(n + 3) + 1\]</div>
+<p><span class="math">\(C_{n}^{\alpha}\)</span> is the Gegenbauer polynomial.</p>
+<p>Also note <span class="math">\(\xi = \frac{r - a}{r + a}\)</span>, and  <span class="math">\(n\)</span>, <span class="math">\(l\)</span> and <span class="math">\(m\)</span> are integers bounded by <span class="math">\(0 &lt;= n &lt; N\)</span> , <span class="math">\(l = m = 0\)</span></p>
+<dl class="function">
+<dt id="galpy.potential.scf_compute_coeffs_spherical">
+<code class="descclassname">galpy.potential.</code><code class="descname">scf_compute_coeffs_spherical</code><span class="sig-paren">(</span><em>dens</em>, <em>N</em>, <em>a=1.0</em>, <em>radial_order=None</em><span class="sig-paren">)</span><a class="headerlink" href="#galpy.potential.scf_compute_coeffs_spherical" title="Permalink to this definition">¶</a></dt>
+<dd><p>NAME:</p>
+<blockquote>
+<div>scf_compute_coeffs_spherical</div></blockquote>
+<p>PURPOSE:</p>
+<blockquote>
+<div>Numerically compute the expansion coefficients for a given spherical density</div></blockquote>
+<p>INPUT:</p>
+<blockquote>
+<div><p>dens - A density function that takes a parameter R</p>
+<p>N - size of expansion coefficients</p>
+<p>a - parameter used to shift the basis functions</p>
+<p>radial_order - Number of sample points of the radial integral. If None, radial_order=max(20, N + 1)</p>
+</div></blockquote>
+<p>OUTPUT:</p>
+<blockquote>
+<div>(Acos,Asin) - Expansion coefficients for density dens that can be given to SCFPotential.__init__</div></blockquote>
+<p>HISTORY:</p>
+<blockquote>
+<div>2016-05-18 - Written - Aladdin</div></blockquote>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="potentialburkert.html" title="Burkert potential"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="potentialscfcomputeaxi.html" title="galpy.potential.scf_compute_coeffs_axi"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">galpy 1.2 documentation</a> &raquo;</li>
+          <li class="nav-item nav-item-1"><a href="potential.html" >Potential (<code class="docutils literal"><span class="pre">galpy.potential</span></code>)</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2010 - 2016, Jo Bovy.
+      Last updated on Sep 06, 2016.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>
